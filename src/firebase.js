@@ -1,6 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import firebase from 'firebase/app';
+import 'firebase/dynamic-links'; 
+import { initializeApp } from 'firebase/app';
+import firebaseConfig from './firebaseConfig'; // Import your Firebase configuration
 import { getAnalytics } from "firebase/analytics";
+
 
 
 const firebaseConfig = {
@@ -14,7 +18,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const getAnalytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
+
+// Initialize Analytics and get a reference to the service
+const analytics = getAnalytics(app);
+logEvent(analytics, 'notification_received');
 
 export default firebase;

@@ -1,13 +1,7 @@
-import React from "react";
-
-
-const ReferralComponent = () => {
-  return (
+export default function ReferralComponent() {
+  return(
     <>
-      <h1>Get referral link</h1>
       
     </>
-  );
-};
-
-export default ReferralComponent;
+  )
+}

@@ -1,11 +1,12 @@
 import './App.css';
 import ReferralComponent from './Components/ReferralComponent';
+import Points from './Components/Points';
 
 
 function App() {
     return (
         <>
-            <p className='text-4xl font-bold underline'>Hello world!</p>
+            <Points />
             <ReferralComponent />
         </>
     );
