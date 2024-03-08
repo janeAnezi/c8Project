@@ -1,3 +1,9 @@
+import React, { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/dynamic-links';
+import firebaseConfig from './firebaseConfig';
+
 
 export default function ReferralComponent() {
 

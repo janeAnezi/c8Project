@@ -9,7 +9,8 @@ import './index.css'
 const app = initializeApp(firebaseConfig);
 
 import 'firebase/auth'; // For Firebase Authentication
-import 'firebase/firestore';
+import 'firebase/firestore';  // For Cloud Firestore
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
