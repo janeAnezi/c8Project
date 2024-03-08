@@ -3,7 +3,19 @@ import React, { useState, useEffect } from 'react';
 
 export default function Referral() {
     const [referralLink, setReferralLink] = useState('');
-    
+
+    const generateRandomReferralCode = () => {
+        // Implement your logic to generate a random referral code
+        // This can be a combination of letters, numbers, or any format you prefer
+        // For simplicity, let's generate a random string of 6 characters
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let referralCode = '';
+        for (let i = 0; i < 6; i++) {
+          referralCode += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return referralCode;
+    };
+
     return (
         <>
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
