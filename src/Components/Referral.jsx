@@ -1,4 +1,9 @@
+import React, { useState, useEffect } from 'react';
+
+
 export default function Referral() {
+    const [referralLink, setReferralLink] = useState('');
+    
     return (
         <>
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
