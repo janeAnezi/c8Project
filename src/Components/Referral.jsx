@@ -7,7 +7,7 @@ export default function Referral() {
 
     // set loggedin state to true to automatically generate referral link
     useEffect(() => {
-        setIsLoggedIn(true);
+        setIsLoggedIn(false);
         generateReferralLink();
       }, []);
 
@@ -74,7 +74,17 @@ export default function Referral() {
                     </button>
                 </div>
                 )}
-                {!isLoggedIn && <p>Please log in to see your referral link.</p>}
+                {!isLoggedIn && <div className="bg-white border rounded-lg inline-block w-[270px] relative px-2 py-2">
+                    <input
+                    className="placeholder:text-blue-700 text-sm inline-block w-[200px] text-blue-700"
+                    type="text"
+                    placeholder="https://example.com/blessing"
+                    readOnly
+                    />
+                    <button className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
+                        Copy
+                    </button>
+                </div>}
                 
             </div>
         </>
