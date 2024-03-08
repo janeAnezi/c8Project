@@ -28,6 +28,20 @@ export default function Referral() {
         return referralCode;
     };
 
+    // to copy the referral link to clipboard
+    const copyReferralLink = () => {
+        const referralLinkInput = document.getElementById('referralLink');
+        referralLinkInput.select();
+        
+        try {
+          navigator.clipboard.writeText(referralLinkInput.value);
+          alert('Referral link copied to clipboard');
+          setCopiedCount(copiedCount + 1); // Update copied count on successful copy
+        } catch (error) {
+          console.error('Failed to copy referral link: ', error);
+        }
+      };
+
     return (
         <>
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
