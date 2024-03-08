@@ -58,6 +58,7 @@ export default function Referral() {
                         className="placeholder:text-blue-700 text-sm inline-block w-[200px] text-blue-700"
                         type="text"
                         placeholder="https://example.com/blessing"
+                        value={referralLink}
                         readOnly
                     />
                     <button className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
