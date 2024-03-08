@@ -4,6 +4,20 @@ import React, { useState, useEffect } from 'react';
 export default function Referral() {
     const [referralLink, setReferralLink] = useState('');
 
+    // to generate the referral link
+    const generateReferralLink = async () => {
+        try {
+          const referralCode = generateRandomReferralCode(); 
+          const referralLink = `https://mealmapa.com/signup?referral=${referralCode}`;
+          // to Save referral code to local storage
+          localStorage.setItem('referralCode', referralCode);
+    
+          setReferralLink(referralLink);
+        } catch (error) {
+          console.error('Error generating referral link:', error);
+        }
+    };
+
     // to generate random characters  for referral link 
     const generateRandomReferralCode = () => {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
