@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 export default function Referral() {
     const [referralLink, setReferralLink] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [copiedCount, setCopiedCount] = useState(0);
 
     // set loggedin state to true to automatically generate referral link
     useEffect(() => {
-        setIsLoggedIn(false);
+        setIsLoggedIn(true);
         generateReferralLink();
       }, []);
 
