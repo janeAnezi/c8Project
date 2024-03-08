@@ -1,14 +1,12 @@
 import './App.css';
-import ReferralComponent from './Components/ReferralComponent';
-import Points from './Components/points';
+import Referral from './Components/Referral';
 
 
 
 function App() {
     return (
         <>
-            <Points />
-            <ReferralComponent />
+            <Referral />
         </>
     );
 }
