@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Referral() {
     const [referralLink, setReferralLink] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // to generate the referral link
     const generateReferralLink = async () => {
@@ -61,8 +62,8 @@ export default function Referral() {
                         value={referralLink}
                         readOnly
                     />
-                    <button className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
-                    Copy
+                    <button onClick={copyReferralLink} className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
+                        Copy
                     </button>
                 </div>
             </div>
