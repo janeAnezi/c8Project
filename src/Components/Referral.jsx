@@ -36,11 +36,10 @@ export default function Referral() {
         try {
           navigator.clipboard.writeText(referralLinkInput.value);
           alert('Referral link copied to clipboard');
-          setCopiedCount(copiedCount + 1); // Update copied count on successful copy
         } catch (error) {
           console.error('Failed to copy referral link: ', error);
         }
-      };
+    };
 
     return (
         <>
