@@ -74,6 +74,8 @@ export default function Referral() {
                     <button onClick={copyReferralLink} className="bg-black hover:bg-slate-700 text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
                     Copy
                     </button>
+                    {/* pop up notification */}
+                    <div id="copyNotification" class="copy-notification">Copied!</div>
                 </div>
                 )}
                 {!isLoggedIn && <div className="bg-white border rounded-lg inline-block w-[270px] relative px-2 py-2">
