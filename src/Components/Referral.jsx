@@ -12,6 +12,14 @@ export default function Referral() {
         generateReferralLink();
       }, []);
 
+    // to retrieve the points from localStorage and display the latest points for each user
+    useEffect(() => {
+      const points = localStorage.getItem('Points');
+      if (points) {
+          setCopiedCount(parseInt(points));
+      }
+    }, []);
+    
     // to generate the referral link
     const generateReferralLink = async () => {
         try {
@@ -43,11 +51,11 @@ export default function Referral() {
         
         try {
           navigator.clipboard.writeText(referralLinkInput.value);
+          // Save the points to localStorage
           let points = copiedCount + 10;
           setCopiedCount(points);
-
-          localStorage.setItem('Points', points); // Save the count to localStorage
-    
+          localStorage.setItem('Points', points); 
+          
           // Show the notification
           var notification = document.getElementById("copyNotification");
           notification.style.opacity = "1";
