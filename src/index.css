@@ -5,12 +5,11 @@
 
 .copy-notification {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 38%;
+    left: 57%;
     transform: translate(-50%, -50%);
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 25px;
+    font-size: smaller;
+    color: rgb(10, 107, 50);
     border-radius: 8px;
     opacity: 0;
     transition: opacity 0.5s;
