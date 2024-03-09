@@ -55,7 +55,7 @@ export default function Referral() {
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
                 <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount * 10}</span> Pts</h1>
                 <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>
-                <button className="bg-black text-white rounded-md px-2 pb-1">Redeem Points</button>
+                <button className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
             </div><br></br>
     
             <div className="text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl mt-4">
@@ -71,7 +71,7 @@ export default function Referral() {
                     value={referralLink}
                     readOnly
                     />
-                    <button onClick={copyReferralLink} className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
+                    <button onClick={copyReferralLink} className="bg-black hover:bg-slate-700 text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
                     Copy
                     </button>
                 </div>
@@ -83,8 +83,8 @@ export default function Referral() {
                     placeholder="https://example.com/blessing"
                     readOnly
                     />
-                    <button className="bg-black text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
-                        Copy
+                    <button className="bg-black  text-white rounded-lg text-sm pb-1 px-1 absolute right-2">
+                      Copy
                     </button>
                 </div>}
                 
