@@ -43,16 +43,20 @@ export default function Referral() {
         
         try {
           navigator.clipboard.writeText(referralLinkInput.value);
-          setCopiedCount(copiedCount + 1);
-          
-            // Show the notification
-            var notification = document.getElementById("copyNotification");
-            notification.style.opacity = "1";
+          let points = copiedCount + 10;
+          setCopiedCount(points);
 
-            // Hide the notification after 2 seconds
-            setTimeout(function() {
-                notification.style.opacity = "0";
-            }, 2000);
+          localStorage.setItem('Points', points); // Save the count to localStorage
+    
+          // Show the notification
+          var notification = document.getElementById("copyNotification");
+          notification.style.opacity = "1";
+
+          // Hide the notification after 2 seconds
+          setTimeout(function() {
+            notification.style.oacity = "0";
+          }, 2000);
+          
 
         } catch (error) {
           console.error('Failed to copy referral link: ', error);
@@ -62,7 +66,7 @@ export default function Referral() {
     return (
         <>
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
-              <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount * 10}</span> Pts</h1>
+              <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount}</span> Pts</h1>
               <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>
               <button className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
             </div><br></br>
