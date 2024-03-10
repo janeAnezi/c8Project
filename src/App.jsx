@@ -3,10 +3,13 @@ import Referral from './Components/Referral';
 
 
 
+
+
+
 function App() {
     return (
         <>
-            <Referral />
+           <Referral />
         </>
     );
 }
