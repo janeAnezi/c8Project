@@ -2,6 +2,21 @@
 
 *** Cohort 8 Pro Capstone Project
 
+Table of contents
+    * Overview
+    The challenge
+    Screenshot
+    Links
+    My process
+    Built with
+    What I learned
+    Continued development
+    Useful resources
+    Author
+    Acknowledgments
+    
+*** Overview
+
     * This project implements a referral program feature where users can generate referral links, earn points for referrals, and redeem those points for rewards.
 
 *** Features
@@ -27,6 +42,10 @@
     * Run the project using npm start.
     * Access the application in your browser at http://localhost:3000.
 
+*** Links
+Solution URL: https://github.com/janeAnezi/Age-Calculator
+Live Site URL: https://janeanezi.github.io/Age-Calculator/
+
 *** How It Works
 
     * Upon logging in, users are automatically provided with a referral link.
@@ -35,5 +54,6 @@
     * Points are displayed in the UI and stored in local storage.
     * Users can redeem their points for rewards by clicking the "Redeem Points" button.
 
-Contributors
-Ugwuomarima Anezi Jane
+
+*** Author
+    * Anezi Jane
