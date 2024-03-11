@@ -17,7 +17,8 @@ function MealPlanPoints() {
     
     function mealHistory() {
         alert('This button will redirect you to meal history page')
-        // write your code here
+        // to navigate to the meal history page
+        navigate('/history');
     }
 
     return(
