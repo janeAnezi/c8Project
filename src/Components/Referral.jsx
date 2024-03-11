@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router DOM
 
 
 export default function Referral() {
@@ -86,6 +87,7 @@ export default function Referral() {
 
     return (
         <>
+           <Link to="/">referral</Link>
             <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
               <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount}</span> Pts</h1>
               <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>

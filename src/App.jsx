@@ -1,14 +1,16 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Referral from './Components/Referral';
+import ReferralPage from './pages/ReferralPage';
 
 
 
 function App() {
     return (
-        <Switch>
-            <Route path="/referral" component={Referral} />
-        </Switch>
+        <Router>
+            <Switch>
+                <Route path="/referral" component={ReferralPage} />
+            </Switch>
+        </Router>
     );
 }
 
