@@ -7,9 +7,9 @@ import ReferralPage from './pages/ReferralPage';
 function App() {
     return (
         <Router>
-                <Routes>
-                    <Route path="/referral" Component={ReferralPage} />
-                </Routes>
+            <Routes>
+                <Route path="/referral" Component={ReferralPage} />
+            </Routes>
         </Router>
     );
 }
