@@ -1,5 +1,6 @@
 import './App.css';
 import Referral from './Components/Referral';
+import MealPlanPoints from './Components/MealPlanPoints';
 
 
 
@@ -9,7 +10,8 @@ import Referral from './Components/Referral';
 function App() {
     return (
         <>
-           <Referral />
+           {/* <Referral /> */}
+           <MealPlanPoints/>
         </>
     );
 }
