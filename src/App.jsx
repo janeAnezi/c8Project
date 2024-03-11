@@ -1,8 +1,6 @@
+
 import './App.css';
 import Referral from './Components/Referral';
-
-
-
 
 
 
