@@ -1,4 +1,4 @@
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Referral from './Components/Referral';
 
@@ -6,9 +6,9 @@ import Referral from './Components/Referral';
 
 function App() {
     return (
-        <>
-           <Referral />
-        </>
+        <Switch>
+            <Route path="/referral" component={Referral} />
+        </Switch>
     );
 }
 
