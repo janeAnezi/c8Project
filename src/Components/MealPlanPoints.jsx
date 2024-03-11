@@ -1,16 +1,16 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function MealPlanPoints() {
 
     // Get the history object from React Router
-    const history = useHistory();
+    const navigate = useNavigate();
 
     function createMealPlan() {
-         alert('This button will direct you to  create meal on meal plan page')
+        alert('This button will direct you to  create meal on meal plan page')
 
-     // to navigate to the meal plan page
-     history.push('/meal-plan');
+        // to navigate to the meal plan page
+        navigate('/mealplan');
 
     }
 
