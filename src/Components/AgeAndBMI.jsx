@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import image from "../assets/foodplan.jpg";
 
 const AgeAndBMI = () => {
   const [ageRange, setAgeRange] = useState("");
@@ -17,16 +18,16 @@ const AgeAndBMI = () => {
   };
 
   return (
-    <div className="flex flex-col lg:items-center justify-center mx-2 my-4 p-4">
+    <div className="flex flex-col min-h-screen lg:items-center justify-center px-5">
       <h2 className="text-2xl font-extrabold mb-4">What's your age range?</h2>
       <p className="mb-6">Age helps us understand your nutritional needs.</p>
-      <div className="flex mb-8">
+      <div className="flex mb-8 max-w-screen-md">
         {ageRanges.map((range) => (
           <button
             key={range}
             onClick={() => setAgeRange(range)}
-            className={`px-4 py-2 mr-2 rounded-md border hover:bg-blue-300 ${
-              ageRange === range ? "bg-blue-300" : ""
+            className={`px-5 py-3 mr-4 text-[18px] w-1/3 lg:w-80 rounded-md border hover:bg-blue-200 ${
+              ageRange === range ? "bg-blue-200" : ""
             }`}
           >
             {range}
@@ -45,7 +46,7 @@ const AgeAndBMI = () => {
             placeholder="Height in cm"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
-            className="border rounded p-2 mb-4 w-40"
+            className="border rounded p-3 mb-4 w-40 lg:w-80"
           />
         </label>
 
@@ -57,18 +58,18 @@ const AgeAndBMI = () => {
             placeholder="Weight in kg"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            className="border rounded p-2 mb-4 w-40"
+            className="border rounded p-3 mb-4 w-40 lg:w-80"
           />
         </label>
       </div>
 
       <button
         onClick={calculateBMI}
-        className="px-4 py-2 w-80 bg-blue-500 hover:bg-blue-600 text-white rounded-md font-semibold"
+        className="px-4 py-2 w-1/2 md:w-80 mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md font-semibold"
       >
         Calculate BMI
       </button>
-      <p className="mt-4 text-lg font-medium">
+      <p className="mt-4 text-xl font-medium">
         BMI: {bmi && <strong>{bmi}</strong>}
       </p>
     </div>
