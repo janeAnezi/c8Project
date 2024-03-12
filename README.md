@@ -1,4 +1,4 @@
-# React + Vite
+
 
  Cohort 8 Pro Capstone Project
 
@@ -65,3 +65,56 @@
     Special thanks to the HerTechTrail Academy for providing valuable resources and inspiration,my coaches who have been so good at equiping me with the basic knowledge while building this part of the project.My team mates who never gave up on this project .A special thank to you all.
 
           Feel free to reach out if you have any questions or feedback. Happy meal planning! 🍽️🌟
+=======
+*** Cohort 8 Pro Capstone Project
+
+Table of contents
+    * Overview
+    The challenge
+    Screenshot
+    Links
+    My process
+    Built with
+    What I learned
+    Continued development
+    Useful resources
+    Author
+    Acknowledgments
+    
+*** Overview
+
+    * This project implements a referral program feature where users can generate referral links, earn points for referrals, and redeem those points for rewards.
+
+*** Features
+
+    * Automatically generates a referral link for logged-in users.
+    * Users earn points for every successful referral.
+    * Points can be redeemed for rewards.
+    * Users can copy their referral link to the clipboard.
+    * Points are stored in local storage to persist across sessions.
+
+*** Technologies Used
+
+    * React: Frontend framework for building user interfaces.
+    * JavaScript: Programming language used for frontend logic.
+    * HTML/CSS: Markup and styling languages for structuring and styling the UI.
+    * Local Storage: Used to store and retrieve points for each user.
+
+*** Usage
+
+    * Clone the repository to your local machine.
+    * Navigate to the project directory.
+    * Install dependencies using npm install.
+    * Run the project using npm start.
+    * Access the application in your browser at http://localhost:3000.
+
+
+*** How It Works
+
+    * Upon logging in, users are automatically provided with a referral link.
+    * Users can copy their referral link to the clipboard by clicking the "Copy" button.
+    * When a referral signs up using the referral link, the referring user earns points.
+    * Points are displayed in the UI and stored in local storage.
+    * Users can redeem their points for rewards by clicking the "Redeem Points" button.
+
+
