@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import GetStarted from "../Components/GetStarted.jsx";
-// import AgeAndBMI from "../Components/AgeAndBMI.jsx";
+import AgeAndBMI from "../Components/AgeAndBMI.jsx";
 // import DietSelection from "../components/DietSelection";
 
 const Onboarding = () => {
   //   const [selectedScreen, setSelectedScreen] = useState("welcome");
-
   // const handleGetStartedClick = () => {
   //   setSelectedScreen("ageAndBmi");
   // };
@@ -28,7 +27,7 @@ const Onboarding = () => {
   return (
     <div className="]">
       {currentPage === "getStarted" && <GetStarted onClick={changeScreen} />}
-      {/* {currentPage === "ageAndBmi" && <AgeAndBMI />} */}
+      {currentPage === "ageAndBmi" && <AgeAndBMI />}
     </div>
   );
 };
