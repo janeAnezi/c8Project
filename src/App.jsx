@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+// import './App.css';
 
 import MealPlanPage from './pages/MealPlanPage';
 import MealPointsPage from './pages/MealPointsPage';
 import MealHistoryPage from './pages/MealHistoryPage';
 
-import ReferralPage from './pages/ReferralPage';
+// import ReferralPage from './pages/ReferralPage';
+import MealPlanPoints from './Components/MealPlanPoints';
 
 
 
@@ -15,10 +16,10 @@ function App() {
 
         <Router>
             <Routes>
-                <Route path="/referral" element={<MealPointsPage />} />
+                <Route path="/MealPoint" element={<MealPointsPage />} />
                 <Route path="/mealplan" element={<MealPlanPage />} />
                 <Route path="/history" element={<MealHistoryPage />} />
-                                  <Route path="/referral" Component={ReferralPage} />
+                                  <Route path="/MealPoint" Component={MealPlanPoints} />
 
             </Routes> 
         </Router> 
