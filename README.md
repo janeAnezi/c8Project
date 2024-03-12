@@ -42,9 +42,6 @@ Table of contents
     * Run the project using npm start.
     * Access the application in your browser at http://localhost:3000.
 
-*** Links
-Solution URL: https://github.com/janeAnezi/c8Project
-Live Site URL: https://janeanezi.github.io/c8Project/
 
 *** How It Works
 
