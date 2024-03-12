@@ -44,7 +44,7 @@ const Onboarding = () => {
         {currentPage === 2 && <AgeAndBMI />}
         {currentPage === 3 && <Dislikes />}
       </div>
-
+      {/* TEMPORARY BUTTON FOR SWITCHING ONBOARDING SCREENS. */}
       {currentPage > 1 && (
         <button
           onClick={changeScreen}

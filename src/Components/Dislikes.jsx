@@ -33,7 +33,7 @@ const Dislikes = () => {
   return (
     <div className="flex flex-col justify-center lg:items-center min-h-screen px-4">
       <h2 className="text-2xl font-extrabold mb-4">How about dislikes?</h2>
-      <div className="lg:text-center">
+      <div className="lg:text-center lg:max-w-lg">
         {dislikeOptions.map((item) => (
           <button
             key={item}

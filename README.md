@@ -1,8 +1,7 @@
-
 # MealPal
 
 Welcome to MealPal, an innovative online platform that aims to provide users with personalized meal plans tailored to their individual needs or health challenges.
- Cohort 8 Pro Capstone Project
+Cohort 8 Pro Capstone Project
 
 ## Table of contents
 
@@ -42,8 +41,7 @@ Welcome to MealPal, an innovative online platform that aims to provide users wit
 
 ### Team Beta
 
-- Frieda Idagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
-
+- Frieda Odagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
 
 ### Team Gamma
 
@@ -69,6 +67,5 @@ Welcome to MealPal, an innovative online platform that aims to provide users wit
 
 ## Hosted Project
 
-Explore the live version of the MealPal Web App here [MealPal](https://c8project.vercel.app/).
+Explore the live version of the MealPal Web App here [MealPal](https://c8-project.vercel.app/).
 Thank you for choosing MealPal
-
