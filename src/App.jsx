@@ -10,7 +10,7 @@ function App() {
         
         <Router>
             <Routes>
-                <Route path="/referral" element={<MealPointsPage />} />
+                <Route path="/MealPoint" element={<MealPointsPage />} />
                 <Route path="/mealplan" element={<MealPlanPage />} />
                 <Route path="/history" element={<MealHistoryPage />} />
             </Routes> 
