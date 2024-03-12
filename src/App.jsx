@@ -18,7 +18,7 @@ function App() {
                 <Route path="/MealPoint" element={<MealPointsPage />} />
                 <Route path="/mealplan" element={<MealPlanPage />} />
                 <Route path="/history" element={<MealHistoryPage />} />
-                                  <Route path="/referral" Component={ReferralPage} />
+                                  {/* <Route path="/referral" Component={ReferralPage} /> */}
 
             </Routes> 
         </Router> 
