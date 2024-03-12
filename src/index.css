@@ -5,8 +5,8 @@
 
 .copy-notification {
     position: fixed;
-    top: 38%;
-    left: 57%;
+    top: 27%;
+    left: 72%;
     transform: translate(-50%, -50%);
     font-size: smaller;
     color: rgb(10, 107, 50);

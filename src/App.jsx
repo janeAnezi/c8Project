@@ -1,16 +1,16 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Referral from './Components/Referral';
-
-
-
+import ReferralPage from './pages/ReferralPage';
 
 
 
 function App() {
     return (
-        <>
-           <Referral />
-        </>
+        <Router>
+            <Routes>
+                <Route path="/referral" Component={ReferralPage} />
+            </Routes>
+        </Router>
     );
 }
 
