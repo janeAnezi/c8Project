@@ -45,14 +45,28 @@ Cohort 8 Pro Capstone Project
 
 ### Team Gamma
 
+- Divine Dibobie []()
+- Elizabeth Godfrey []()
+
 ### Team Delta
+
+- Florence Ajayi []()
+
+### Team ETA
+
+- Anezi Ugwuomarima [janeAnezi](https://www.github.com/janeAnezi)
+- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
+- Favour Joseph []()
+
+### Team Zeta
+
+- Ola Esther Pelumi []()
+- Joy Wilson []()
+- Moromoke Bello []()
 
 ### Team Epsilon
 
-### Team Eta
-
-- Jane Anezi [janeAnezi](https://www.github.com/janeAnezi)
-- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
+- Chioma Marycynthia []()
 
 ## Tools
 
