@@ -3,6 +3,8 @@ import { useState } from "react";
 import GetStarted from "../Components/GetStarted.jsx";
 import AgeAndBMI from "../Components/AgeAndBMI.jsx";
 import Dislikes from "../Components/Dislikes.jsx";
+import Budget from "../Components/Budget.jsx";
+import PlanMeal from "../Components/PlanMeal.jsx";
 // import DietSelection from "../components/DietSelection";
 
 const Onboarding = () => {
@@ -43,6 +45,9 @@ const Onboarding = () => {
         {currentPage === 1 && <GetStarted onNext={changeScreen} />}
         {currentPage === 2 && <AgeAndBMI />}
         {currentPage === 3 && <Dislikes />}
+        {currentPage === 7 && <Budget />}
+        {currentPage === 8 && <PlanMeal />}
+
       </div>
       {/* TEMPORARY BUTTON FOR SWITCHING ONBOARDING SCREENS. */}
       {currentPage > 1 && (
