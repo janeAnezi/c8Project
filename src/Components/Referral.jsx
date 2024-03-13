@@ -66,7 +66,7 @@ export default function Referral() {
               if (points) {
                 setCopiedCount(parseInt(points));
               }
-            }, 4000);
+            }, 50000);
           }, 1000);
           
           // Update points in localStorage
@@ -77,19 +77,19 @@ export default function Referral() {
           console.error('Failed to copy referral link: ', error);
         }
     };
-    
     const redeemPoints = () => {   
-      // to Reset points in local storage and UI display
       localStorage.setItem('Points', '0');
       setCopiedCount(0);
     };
+
+  
 
     return (
         <>
             <div className=" text-left inline-block w-80 bg-slate-100 border p-2 rounded-xl">
               <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount}</span> Pts</h1>
               <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>
-              <button onClick={redeemPoints} className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
+              <button id='redeem' onClick={redeemPoints} disabled={copiedCount < 400} className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
             </div><br></br>
     
             <div className="text-left inline-block w-80 bg-slate-100 border p-2 rounded-xl mt-4">
