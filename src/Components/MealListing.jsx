@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function MealListing() {
   /* 
@@ -22,6 +23,12 @@ function MealListing() {
 
   */
   const [meal, setMeals] = useState([]);
+  const navigate = useNavigate();
+
+  function getMealDetails() {
+    // to navigate to the meal details page
+    navigate("/MealFullDetails");
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -57,7 +64,10 @@ function MealListing() {
             <p className="text-base"> {singleMeal?.title}</p>
           </div>
 
-          <button className="flex align-center justify-center gap-2">
+          <button
+            onClick={getMealDetails}
+            className="flex align-center justify-center gap-2 "
+          >
             <span>View</span>
             <MdOutlineKeyboardArrowRight className="text-xxl" />
           </button>
