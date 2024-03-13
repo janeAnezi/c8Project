@@ -17,15 +17,15 @@ function App() {
           <Route path="/MealPoint" element={<MealPointsPage />} />
           <Route path="/mealplan" element={<MealPlanPage />} />
           <Route path="/history" element={<MealHistoryPage />} />
-          <Route path="/preview" element={<PreviewPage />} />
-          <Route path="/MealDetails" element={<MealDetailsPage />} />
+          {/* <Route path="/signin" element={<SignIn />} /> */}
+          {/* <Route path="/preview" element={<PreviewPage />} />
+          <Route path="/MealDetails" element={<MealDetailsPage />} /> */}
           {/* <Route path="/referral" element={ReferralPage} /> */}
           <Route path="/MealPoint" Component={MealPlanPoints} />
         </Routes>
       </Router>
     </div>
   );
-
 }
 
 export default App;

@@ -5,7 +5,9 @@ import AgeAndBMI from "../Components/AgeAndBMI.jsx";
 import Dislikes from "../Components/Dislikes.jsx";
 import Budget from "../Components/Budget.jsx";
 import PlanMeal from "../Components/PlanMeal.jsx";
-// import DietSelection from "../components/DietSelection";
+import DietSelection from "../Components/DietSelection";
+import AllergySelection from "../Components/AllergySelection";
+import MealServings from "../Components/MealServings";
 
 const Onboarding = () => {
   //   const [selectedScreen, setSelectedScreen] = useState("welcome");
@@ -45,9 +47,11 @@ const Onboarding = () => {
         {currentPage === 1 && <GetStarted onNext={changeScreen} />}
         {currentPage === 2 && <AgeAndBMI />}
         {currentPage === 3 && <Dislikes />}
+        {currentPage === 4 && <DietSelection />}
+        {currentPage === 5 && <AllergySelection />}
+        {currentPage === 6 && <MealServings />}
         {currentPage === 7 && <Budget />}
         {currentPage === 8 && <PlanMeal />}
-
       </div>
       {/* TEMPORARY BUTTON FOR SWITCHING ONBOARDING SCREENS. */}
       {currentPage > 1 && (

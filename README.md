@@ -37,7 +37,7 @@ Cohort 8 Pro Capstone Project
 
 - Ayomikun Adeosun [ayomikun-ade](https://www.github.com/ayomikun-ade)
 - Ireoluwa Adegoke [Adereb-web](https://www.github.com/Adereb-web)
-- Fracesca Ezih [](https://www.github.com/)
+- Fracesca Ezih [Cesca04](https://www.github.com/Cesca04)
 
 ### Team Beta
 
