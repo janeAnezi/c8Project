@@ -1,7 +1,7 @@
 import React from "react";
 import image from "../assets/foodplan.jpg";
 
-const GetStarted = ({ onClick }) => {
+const GetStarted = ({ onNext }) => {
   return (
     <div
       className="min-h-screen flex flex-col justify-center items-center"
@@ -12,11 +12,11 @@ const GetStarted = ({ onClick }) => {
       }}
     >
       <h1 className="text-3xl font-bold mb-4 text-white">MealPal</h1>
-      <p className="text-gray-300 mb-6 text-center">
+      <p className="text-gray-300 mb-6 text-center px-2">
         Discover Amazing Meal Plans to put you in the pink of health
       </p>
       <button
-        onClick={onClick}
+        onClick={onNext}
         className="w-80 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-4 rounded-md"
       >
         Get Started
