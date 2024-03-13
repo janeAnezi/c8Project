@@ -1,33 +1,27 @@
-import './App.css';
-import Referral from './Components/Referral';
-import Button from './Components/button';
-import Navbar from './Components/Header'
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MealPlanPage from "./pages/MealPlanPage";
+import MealPointsPage from "./pages/MealPointsPage";
+import MealHistoryPage from "./pages/MealHistoryPage";
+//import ReferralPage from "./pages/ReferralPage";
+import Onboarding from "./pages/Onboarding";
+import MealPlanPoints from "./Components/MealPlanPoints";
 
 function App() {
-    const skip_function=()=>{
-        console.log("you skipped");
-    }
+  return (
+    <div className="font-[Manrope]">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/MealPoint" element={<MealPointsPage />} />
+          <Route path="/mealplan" element={<MealPlanPage />} />
+          <Route path="/history" element={<MealHistoryPage />} />
+          {/* <Route path="/referral" element={ReferralPage} /> */}
+          <Route path="/MealPoint" Component={MealPlanPoints} />
+        </Routes>
+      </Router>
+    </div>
+  );
 
-    const next_function=()=>{
-        console.log("you clicked next");
-    }
-
-
-    return (
-        <>
-           {/* <Referral /> */}
-           
-           <div>
-             <Navbar num_of_page={7} current_page={4}/>
-           </div>
-           
-           <div style={{display:'flex', justifyContent:'center'}}>
-                <Button btnClicked={skip_function}>Skip</Button>
-                <Button color={"blue"} btnClicked={next_function}>Next</Button>
-           </div>
-        </>
-    );
 }
 
 export default App;
