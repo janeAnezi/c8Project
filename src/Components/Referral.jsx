@@ -66,7 +66,7 @@ export default function Referral() {
               if (points) {
                 setCopiedCount(parseInt(points));
               }
-            }, 60000);
+            }, 50000);
           }, 1000);
           
           // Update points in localStorage
@@ -81,6 +81,10 @@ export default function Referral() {
       localStorage.setItem('Points', '0');
       setCopiedCount(0);
     };
+
+    if (copiedCount >= 400) {
+      document.getElementById('redeem').style.background = 'green'
+    }
 
   
 
