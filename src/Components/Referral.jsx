@@ -86,13 +86,13 @@ export default function Referral() {
 
     return (
         <>
-            <div className=" text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl">
+            <div className=" text-left inline-block w-80 bg-slate-100 border p-2 rounded-xl">
               <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount}</span> Pts</h1>
               <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>
               <button onClick={redeemPoints} className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
             </div><br></br>
     
-            <div className="text-left inline-block w-80 bg-slate-100 border pl-4 py-2 rounded-xl mt-4">
+            <div className="text-left inline-block w-80 bg-slate-100 border p-2 rounded-xl mt-4">
                 <p className="font-semibold mb-2">Invite a friend</p>
                 <p className="text-sm mb-3 ">Earn 10 points for every friend that signs up.</p>
                 {isLoggedIn && (
@@ -109,7 +109,7 @@ export default function Referral() {
                     Copy
                     </button>
                     {/* pop up notification */}
-                    <div id="copyNotification" class="copy-notification">Copied!</div>
+                    <div id="copyNotification" class="fixed top-[236px] right-[138px] text-xs text-green-700 opacity-0	transition-opacity duration-700">Copied!</div>
                 </div>
                 )}
                 {!isLoggedIn && <div className="bg-white border rounded-lg inline-block w-[270px] relative px-2 py-2">
