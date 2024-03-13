@@ -1,30 +1,26 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MealPlanPage from "./pages/MealPlanPage";
+import MealPointsPage from "./pages/MealPointsPage";
+import MealHistoryPage from "./pages/MealHistoryPage";
+//import ReferralPage from "./pages/ReferralPage";
+import Onboarding from "./pages/Onboarding";
+import MealPlanPoints from "./Components/MealPlanPoints";
 
-import MealPlanPage from './pages/MealPlanPage';
-import MealPointsPage from './pages/MealPointsPage';
-import MealHistoryPage from './pages/MealHistoryPage';
-import Homepage from './pages/Homepage' ;
-import ReferralPage from './pages/ReferralPage';
 function App() {
-    return (
-
-        <Router>
-            <Routes>
-                <Route path="/referral" element={<MealPointsPage />} />
-                <Route path="/home" element={<Homepage />} />
-                <Route path="/mealplan" element={<MealPlanPage />} />
-                <Route path="/history" element={<MealHistoryPage />} />
-                <Route path="/referral" Component={ReferralPage} />
-
-            </Routes> 
-        </Router> 
-        
-
-      
-    );
+  return (
+    <div className="font-[Manrope]">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/MealPoint" element={<MealPointsPage />} />
+          <Route path="/mealplan" element={<MealPlanPage />} />
+          <Route path="/history" element={<MealHistoryPage />} />
+          {/* <Route path="/referral" element={ReferralPage} /> */}
+          <Route path="/MealPoint" Component={MealPlanPoints} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
-
-
