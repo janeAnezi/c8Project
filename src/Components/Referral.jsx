@@ -66,7 +66,7 @@ export default function Referral() {
               if (points) {
                 setCopiedCount(parseInt(points));
               }
-            }, 50000);
+            }, 60000);
           }, 1000);
           
           // Update points in localStorage
