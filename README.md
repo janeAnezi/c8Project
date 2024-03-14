@@ -1,59 +1,85 @@
-# React + Vite
+# MealPal
 
-*** Cohort 8 Pro Capstone Project
+Welcome to MealPal, an innovative online platform that aims to provide users with personalized meal plans tailored to their individual needs or health challenges.
+Cohort 8 Pro Capstone Project
 
-Table of contents
-    * Overview
-    The challenge
-    Screenshot
-    Links
-    My process
-    Built with
-    What I learned
-    Continued development
-    Useful resources
-    Author
-    Acknowledgments
-    
-*** Overview
+## Table of contents
 
-    * This project implements a referral program feature where users can generate referral links, earn points for referrals, and redeem those points for rewards.
+- [Features]()
+- [Team Members](#team-members)
+  - [Team Alpha](#team-alpha)
+  - [Team Beta](#team-beta)
+- [Tools](#tools)
+- [Resources](#resources)
+- [Hosted Project](#hosted-project)
 
-*** Features
+## Features
 
-    * Automatically generates a referral link for logged-in users.
-    * Users earn points for every successful referral.
-    * Points can be redeemed for rewards.
-    * Users can copy their referral link to the clipboard.
-    * Points are stored in local storage to persist across sessions.
+### Referral Feature
 
-*** Technologies Used
+- Automatically generates a referral link for logged-in users.
+- Users earn points for every successful referral.
+- Points can be redeemed for rewards.
+- Users can copy their referral link to the clipboard.
+- Points are stored in local storage to persist across sessions.
 
-    * React: Frontend framework for building user interfaces.
-    * JavaScript: Programming language used for frontend logic.
-    * HTML/CSS: Markup and styling languages for structuring and styling the UI.
-    * Local Storage: Used to store and retrieve points for each user.
+#### How It Works
 
-*** Usage
+- Upon logging in, users are automatically provided with a referral link.
+- Users can copy their referral link to the clipboard by clicking the "Copy" button.
+- When a referral signs up using the referral link, the referring user earns points.
+- Points are displayed in the UI and stored in local storage.
+- Users can redeem their points for rewards by clicking the "Redeem Points" button.
 
-    * Clone the repository to your local machine.
-    * Navigate to the project directory.
-    * Install dependencies using npm install.
-    * Run the project using npm start.
-    * Access the application in your browser at http://localhost:3000.
+## Team Members
 
-*** Links
-Solution URL: https://github.com/janeAnezi/c8Project
-Live Site URL: https://janeanezi.github.io/c8Project/
+### Team Alpha
 
-*** How It Works
+- Ayomikun Adeosun [ayomikun-ade](https://www.github.com/ayomikun-ade)
+- Ireoluwa Adegoke [Adereb-web](https://www.github.com/Adereb-web)
+- Fracesca Ezih [Cesca04](https://www.github.com/Cesca04)
 
-    * Upon logging in, users are automatically provided with a referral link.
-    * Users can copy their referral link to the clipboard by clicking the "Copy" button.
-    * When a referral signs up using the referral link, the referring user earns points.
-    * Points are displayed in the UI and stored in local storage.
-    * Users can redeem their points for rewards by clicking the "Redeem Points" button.
+### Team Beta
 
+- Frieda Odagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
 
-*** Author
-    * Anezi Jane
+### Team Gamma
+
+- Divine Dibobie []()
+- Elizabeth Godfrey []()
+
+### Team Delta
+
+- Florence Ajayi []()
+
+### Team ETA
+
+- Anezi Ugwuomarima [janeAnezi](https://www.github.com/janeAnezi)
+- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
+- Favour Joseph []()
+
+### Team Zeta
+
+- Ola Esther Pelumi []()
+- Joy Wilson []()
+- Moromoke Bello []()
+
+### Team Epsilon
+
+- Chioma Marycynthia []()
+
+## Tools
+
+- React: Frontend framework for building user interfaces.
+- JavaScript: Programming language used for frontend logic.
+- HTML/CSS: Markup and styling languages for structuring and styling the UI.
+- Local Storage: Used to store and retrieve points for each user.
+
+## Resources
+
+- Firebase
+
+## Hosted Project
+
+Explore the live version of the MealPal Web App here [MealPal](https://c8-project.vercel.app/).
+Thank you for choosing MealPal
