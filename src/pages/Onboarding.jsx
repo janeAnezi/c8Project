@@ -10,21 +10,9 @@ import AllergySelection from "../Components/AllergySelection";
 import MealServings from "../Components/MealServings";
 import Navbar from "../Components/Header.jsx";
 import Button from "../Components/button.jsx";
+import { Link } from "react-router-dom";
 
 const Onboarding = () => {
-  //   const [selectedScreen, setSelectedScreen] = useState("welcome");
-  // const handleGetStartedClick = () => {
-  //   setSelectedScreen("ageAndBmi");
-  // };
-  //   return (
-  //     <>
-  //       {selectedScreen === "welcome" && (
-  //         <GetStarted onClick={handleGetStartedClick} />
-  //       )}
-  //       {selectedScreen === "dietSelection" && <DietSelection />}
-  //     </>
-  //   );
-
   const [currentPage, setCurrentPage] = useState(1);
   const [showPage, setShowPage] = useState(false);
 
@@ -52,8 +40,11 @@ const Onboarding = () => {
   return (
     <>
       <div className="flex flex-col lg:items-center justify-around">
-        {currentPage > 1 && (
+        {currentPage > 1 && currentPage <= 8 && (
           <Navbar
+            className={`transition-opacity duration-700 ${
+              showPage ? "opacity-100" : "opacity-0"
+            }`}
             num_of_page={7}
             current_page={pageNum}
             previous={backButton}
@@ -75,13 +66,35 @@ const Onboarding = () => {
         </div>
 
         {currentPage > 1 && (
-          <div className="flex lg:justify-center absolute bottom-4 mx-auto w-full">
-            {currentPage === 5 && (
-              <Button btnClicked={changeScreen}>Skip</Button>
+          <div
+            className={`flex lg:justify-center absolute bottom-4 mx-auto w-full transition-opacity duration-700`}
+          >
+            {currentPage >= 5 && currentPage <= 8 && (
+              <Button
+                btnClicked={changeScreen}
+                className={`transition-opacity duration-700 ${
+                  showPage ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Skip
+              </Button>
             )}
-            <Button color={"blue"} btnClicked={changeScreen}>
-              Next
-            </Button>
+            {currentPage < 8 && (
+              <Button
+                color={"blue"}
+                btnClicked={changeScreen}
+                className={`transition-opacity duration-700 ${
+                  showPage ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Next
+              </Button>
+            )}
+            {currentPage === 8 && (
+              <Link to="/signup">
+                <Button color={"blue"}>Next</Button>
+              </Link>
+            )}
           </div>
         )}
       </div>
