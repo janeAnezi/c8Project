@@ -20,23 +20,25 @@ const HealthIssuesForm = () => {
   };
 
   return (
-    <div className="min-h-screen mx-[10%] flex flex-col justify-center items-center">
-        <h1 className="font-bold text-black mb-2">Any health issues?</h1>
-        <div className="grid grid-cols-2 gap-2">
-          {healthIssues.map((issue) => (
-            <button
-              key={issue}
-              onClick={() => handleIssueClick(issue)}
-              className={`bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded-lg`}
-              style={{
-                backgroundColor: selectedIssues.includes(issue) ? "#4299e1" : "",
-              }}
-            >
-              {issue}
-            </button>
-          ))}
-        </div>
+    <div className="mt-10 flex flex-col justify-center lg:items-center">
+      <h2 className="font-bold text-2xl text-black mb-5">Any health issues?</h2>
+      <div className="flex flex-wrap gap-2">
+        {healthIssues.map((issue) => (
+          <button
+            key={issue}
+            onClick={() => handleIssueClick(issue)}
+            className={`border border-gray-300 hover:bg-blue-200 py-3 px-4 rounded-md`}
+            style={{
+              backgroundColor: selectedIssues.includes(issue)
+                ? "rgb(191 219 254)"
+                : "",
+            }}
+          >
+            {issue}
+          </button>
+        ))}
       </div>
+    </div>
   );
 };
 

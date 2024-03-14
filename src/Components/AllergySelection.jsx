@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Healthissues from "../Components/Healthissues";
 
 const AllergySelection = () => {
   const allergyOptions = [
@@ -47,9 +48,9 @@ const AllergySelection = () => {
           </button>
         ))}
       </div>
+      <Healthissues />
     </div>
   );
 };
 
 export default AllergySelection;
-
