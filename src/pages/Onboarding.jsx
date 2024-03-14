@@ -8,6 +8,8 @@ import PlanMeal from "../Components/PlanMeal.jsx";
 import DietSelection from "../Components/DietSelection";
 import AllergySelection from "../Components/AllergySelection";
 import MealServings from "../Components/MealServings";
+import Navbar from "../Components/Header.jsx";
+import Button from "../Components/button.jsx";
 
 const Onboarding = () => {
   //   const [selectedScreen, setSelectedScreen] = useState("welcome");
@@ -37,32 +39,53 @@ const Onboarding = () => {
     }, 700);
   };
 
+  const pageNum = currentPage - 1;
+
+  const backButton = () => {
+    console.log("you skipped");
+    setShowPage(false);
+    setTimeout(() => {
+      setCurrentPage(currentPage - 1);
+    }, 600);
+  };
+
   return (
-    <div className="flex- flex-col items-center justify-center">
-      <div
-        className={`transition-opacity duration-700 ${
-          showPage ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {currentPage === 1 && <GetStarted onNext={changeScreen} />}
-        {currentPage === 2 && <AgeAndBMI />}
-        {currentPage === 3 && <Dislikes />}
-        {currentPage === 4 && <DietSelection />}
-        {currentPage === 5 && <AllergySelection />}
-        {currentPage === 6 && <MealServings />}
-        {currentPage === 7 && <Budget />}
-        {currentPage === 8 && <PlanMeal />}
-      </div>
-      {/* TEMPORARY BUTTON FOR SWITCHING ONBOARDING SCREENS. */}
-      {currentPage > 1 && (
-        <button
-          onClick={changeScreen}
-          className="mt-4 px-8 py-2 bg-blue-500 text-white rounded fixed bottom-0 right-0 m-4"
+    <>
+      <div className="flex flex-col lg:items-center justify-around">
+        {currentPage > 1 && (
+          <Navbar
+            num_of_page={7}
+            current_page={pageNum}
+            previous={backButton}
+          />
+        )}
+        <div
+          className={`transition-opacity duration-700 ${
+            showPage ? "opacity-100" : "opacity-0"
+          }`}
         >
-          Next
-        </button>
-      )}
-    </div>
+          {currentPage === 1 && <GetStarted onNext={changeScreen} />}
+          {currentPage === 2 && <AgeAndBMI />}
+          {currentPage === 3 && <Dislikes />}
+          {currentPage === 4 && <DietSelection />}
+          {currentPage === 5 && <AllergySelection />}
+          {currentPage === 6 && <MealServings />}
+          {currentPage === 7 && <Budget />}
+          {currentPage === 8 && <PlanMeal />}
+        </div>
+
+        {currentPage > 1 && (
+          <div className="flex lg:justify-center absolute bottom-4 mx-auto w-full">
+            {currentPage === 5 && (
+              <Button btnClicked={changeScreen}>Skip</Button>
+            )}
+            <Button color={"blue"} btnClicked={changeScreen}>
+              Next
+            </Button>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
