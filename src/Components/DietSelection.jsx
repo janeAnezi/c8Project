@@ -42,16 +42,16 @@ const DietSelection = () => {
   ];
 
   return (
-    <div className="min-h-screen mx-[10%] flex flex-col justify-center items-center">
-      <h2 className="mb-8 w-full text-3xl font-bold text-left">
+    <div className="min-h-screen w-screen px-4 flex flex-col justify-center lg:items-center">
+      <h2 className="mb-8 w-full text-3xl font-bold text-left lg:text-center">
         Pick your Diet
       </h2>
-      <div className="space-y-2 flex flex-col w-full">
+      <div className="flex flex-col gap-2">
         {dietOptions.map((option) => (
           <button
             key={option}
             onClick={() => setSelectedOptions(option)}
-            className={` text-left py-4 px-4 lg:w-2/4 rounded-md border border-gray-300 hover:bg-blue-100 ${
+            className={`text-left py-4 px-4 w-80 rounded-md border border-gray-300 hover:bg-blue-100 ${
               selectedOptions === option ? "bg-blue-200" : ""
             }`}
           >
