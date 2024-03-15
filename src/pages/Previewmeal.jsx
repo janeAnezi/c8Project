@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import MealListing from "./../Components/MealListing";
 
 function PreviewPage() {
@@ -42,9 +42,10 @@ function PreviewPage() {
               <span className="bg-[#FFF0F0]">2 weeks plan</span>
             </div>
 
-            <p className="line-clamp-3">
-              {singleMeal?.summary}
-            </p>
+            <div
+              dangerouslySetInnerHTML={{ __html: singleMeal?.summary }}
+            ></div>
+            <p className="line-clamp-1">{singleMeal?.summary}</p>
           </div>
 
           <div>{/**calories */}</div>
