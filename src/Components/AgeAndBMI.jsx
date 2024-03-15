@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import image from "../assets/foodplan.jpg";
 
 const AgeAndBMI = () => {
   const [ageRange, setAgeRange] = useState("");
@@ -69,9 +68,11 @@ const AgeAndBMI = () => {
       >
         Calculate BMI
       </button>
-      <p className="mt-4 text-xl font-medium">
-        BMI: {bmi && <strong>{bmi}</strong>}
-      </p>
+      {bmi && (
+        <p className="mt-4 text-xl font-medium">
+          BMI: <strong>{bmi}</strong>
+        </p>
+      )}
     </div>
   );
 };

@@ -1,8 +1,7 @@
-
 # MealPal
 
 Welcome to MealPal, an innovative online platform that aims to provide users with personalized meal plans tailored to their individual needs or health challenges.
- Cohort 8 Pro Capstone Project
+Cohort 8 Pro Capstone Project
 
 ## Table of contents
 
@@ -38,23 +37,36 @@ Welcome to MealPal, an innovative online platform that aims to provide users wit
 
 - Ayomikun Adeosun [ayomikun-ade](https://www.github.com/ayomikun-ade)
 - Ireoluwa Adegoke [Adereb-web](https://www.github.com/Adereb-web)
-- Fracesca Ezih [](https://www.github.com/)
+- Fracesca Ezih [Cesca04](https://www.github.com/Cesca04)
 
 ### Team Beta
 
-- Frieda Idagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
-
+- Frieda Odagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
 
 ### Team Gamma
 
+- Divine Dibobie []()
+- Elizabeth Godfrey []()
+
 ### Team Delta
+
+- Florence Ajayi []()
+
+### Team ETA
+
+- Anezi Ugwuomarima [janeAnezi](https://www.github.com/janeAnezi)
+- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
+- Favour Joseph []()
+
+### Team Zeta
+
+- Ola Esther Pelumi []()
+- Joy Wilson []()
+- Moromoke Bello []()
 
 ### Team Epsilon
 
-### Team Eta
-
-- Jane Anezi [janeAnezi](https://www.github.com/janeAnezi)
-- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
+- Chioma Marycynthia []()
 
 ## Tools
 
@@ -69,6 +81,5 @@ Welcome to MealPal, an innovative online platform that aims to provide users wit
 
 ## Hosted Project
 
-Explore the live version of the MealPal Web App here [MealPal](https://c8project.vercel.app/).
+Explore the live version of the MealPal Web App here [MealPal](https://c8-project.vercel.app/).
 Thank you for choosing MealPal
-
