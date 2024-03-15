@@ -27,14 +27,14 @@ function MealListing() {
 
   function getMealDetails() {
     // to navigate to the meal details page
-    navigate("/MealFullDetails");
+    navigate("/MealDetails");
   }
 
   useEffect(() => {
     const getData = async () => {
       try {
         const request = await fetch(
-          "https://api.spoonacular.com/recipes/random?apiKey=66bd861568c44b67b8175cac51037e76&number=20&include-tags=vegetarian#"
+          "https://api.spoonacular.com/recipes/random?apiKey=66bd861568c44b67b8175cac51037e76&number=3&include-tags=vegetarian#"
         );
 
         const data = await request.json();
@@ -50,10 +50,13 @@ function MealListing() {
   }, []);
 
   return (
-    <div className="">
+    <div className="overflow-scroll h-56">
       <h2 className="text-[#101010] text-base font-semibold">Meal Listing</h2>
       {meal?.recipes?.map((singleMeal) => (
-        <div className="flex align-center justify-between" key={singleMeal?.id}>
+        <div
+          className="flex align-center justify-between "
+          key={singleMeal?.id}
+        >
           <div className="flex justify-between">
             <img
               src={singleMeal.image}
