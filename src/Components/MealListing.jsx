@@ -27,7 +27,7 @@ function MealListing() {
 
   function getMealDetails() {
     // to navigate to the meal details page
-    navigate("/MealFullDetails");
+    navigate("/MealDetails");
   }
 
   useEffect(() => {
@@ -50,10 +50,13 @@ function MealListing() {
   }, []);
 
   return (
-    <div className="">
+    <div className="overflow-scroll h-56">
       <h2 className="text-[#101010] text-base font-semibold">Meal Listing</h2>
       {meal?.recipes?.map((singleMeal) => (
-        <div className="flex align-center justify-between" key={singleMeal?.id}>
+        <div
+          className="flex align-center justify-between "
+          key={singleMeal?.id}
+        >
           <div className="flex justify-between">
             <img
               src={singleMeal.image}

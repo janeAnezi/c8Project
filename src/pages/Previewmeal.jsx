@@ -42,7 +42,9 @@ function PreviewPage() {
               <span className="bg-[#FFF0F0]">2 weeks plan</span>
             </div>
 
-            <p>{singleMeal?.summary}</p>
+            <p className="line-clamp-3">
+              {singleMeal?.summary}
+            </p>
           </div>
 
           <div>{/**calories */}</div>
