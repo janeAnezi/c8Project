@@ -43,9 +43,9 @@ function PreviewPage() {
             </div>
 
             <div
+              className="line-clamp-2 hover:line-clamp-none"
               dangerouslySetInnerHTML={{ __html: singleMeal?.summary }}
             ></div>
-            <p className="line-clamp-1">{singleMeal?.summary}</p>
           </div>
 
           <div>{/**calories */}</div>

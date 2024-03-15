@@ -34,7 +34,7 @@ function MealListing() {
     const getData = async () => {
       try {
         const request = await fetch(
-          "https://api.spoonacular.com/recipes/random?apiKey=66bd861568c44b67b8175cac51037e76&number=20&include-tags=vegetarian#"
+          "https://api.spoonacular.com/recipes/random?apiKey=66bd861568c44b67b8175cac51037e76&number=3&include-tags=vegetarian#"
         );
 
         const data = await request.json();
