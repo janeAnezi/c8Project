@@ -5,7 +5,7 @@ import MealHistoryPage from "./pages/MealHistoryPage";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import MealPlanPoints from "./Components/MealPlanPoints";
-import "./App.css"
+// import "./App.css"
 // import PreviewPage from "./pages/Previewmeal";
 // import MealDetailsPage from "./pages/MealFullDetails";
 
@@ -21,7 +21,7 @@ function App() {
           {/* <Route path="/signin" element={<SignIn />} /> */}
           {/* <Route path="/preview" element={<PreviewPage />} />
           {/* <Route path="/MealDetails" element={<MealDetailsPage />} /> */}
-          <Route path="/referral" Component={ReferralPage} /> 
+          <Route path="/referral" Component={ReferralPage} />
           <Route path="/MealPoint" element={MealPlanPoints} />
         </Routes>
       </Router>
