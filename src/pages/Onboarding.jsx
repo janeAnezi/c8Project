@@ -8,6 +8,8 @@ import PlanMeal from "../Components/PlanMeal.jsx";
 import DietSelection from "../Components/DietSelection";
 import AllergySelection from "../Components/AllergySelection";
 import MealServings from "../Components/MealServings";
+import SignUp from "../Components/SignUp.jsx";
+
 
 const Onboarding = () => {
   //   const [selectedScreen, setSelectedScreen] = useState("welcome");
@@ -52,6 +54,8 @@ const Onboarding = () => {
         {currentPage === 6 && <MealServings />}
         {currentPage === 7 && <Budget />}
         {currentPage === 8 && <PlanMeal />}
+        {currentPage === 9 && <SignUp />}
+      
       </div>
       {/* TEMPORARY BUTTON FOR SWITCHING ONBOARDING SCREENS. */}
       {currentPage > 1 && (
