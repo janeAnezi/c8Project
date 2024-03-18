@@ -8,6 +8,8 @@ import PlanMeal from "../Components/PlanMeal.jsx";
 import DietSelection from "../Components/DietSelection";
 import AllergySelection from "../Components/AllergySelection";
 import MealServings from "../Components/MealServings";
+import SignUp from "../Components/SignUp.jsx";
+
 import Navbar from "../Components/Header.jsx";
 import Button from "../Components/button.jsx";
 import { Link } from "react-router-dom";
