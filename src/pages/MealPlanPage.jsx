@@ -1,10 +1,10 @@
 import React from "react";
-import PlanMeal from "../Components/PlanMeal";
+import MealPlan from "../Components/MealPlan";
 
 export default function MealPlanPage() {
-    return(
-        <>
-            <PlanMeal />
-        </>
-    )
+  return (
+    <>
+      <MealPlan />
+    </>
+  );
 }

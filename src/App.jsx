@@ -7,6 +7,7 @@ import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import PreviewPage from "./pages/Previewmeal";
 import MealDetailsPage from "./pages/MealFullDetails";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/MealPoint" element={<MealPointsPage />} />
           <Route path="/mealplan" element={<MealPlanPage />} />
           <Route path="/history" element={<MealHistoryPage />} />
-          {/* <Route path="/signin" element={<SignIn />} /> */}
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/MealDetails" element={<MealDetailsPage />} />
           <Route path="/referral" Component={ReferralPage} />
