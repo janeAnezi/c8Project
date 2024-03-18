@@ -3,6 +3,11 @@ import { useState } from "react";
 import GetStarted from "../Components/GetStarted.jsx";
 import AgeAndBMI from "../Components/AgeAndBMI.jsx";
 import Dislikes from "../Components/Dislikes.jsx";
+
+
+
+
+
 // import DietSelection from "../components/DietSelection";
 
 const Onboarding = () => {

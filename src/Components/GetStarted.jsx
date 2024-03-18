@@ -24,7 +24,7 @@ const GetStarted = ({ onNext }) => {
       <p className="text-gray-400 mt-4">
         Already have an account?{" "}
         <span>
-          <a href="" className="text-blue-500 hover:text-blue-600">
+          <a href=" " className="text-blue-500 hover:text-blue-600">
             Sign in
           </a>
         </span>

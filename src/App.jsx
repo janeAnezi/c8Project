@@ -6,6 +6,8 @@ import MealHistoryPage from "./pages/MealHistoryPage";
 import Onboarding from "./pages/Onboarding";
 import MealPlanPoints from "./Components/MealPlanPoints";
 
+
+
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -20,6 +22,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+
   );
 
 }
