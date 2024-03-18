@@ -29,34 +29,28 @@ const SignUp = () => {
     setShowPassword(!showPassword);
   };
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-
-  //     try {
-  //       const userCredential = await createUserWithEmailAndPassword(
-  //         auth,
-  //         email,
-  //         password
-  //       );
-  //       console.log(userCredential);
-  //       const user = userCredential.user;
-  //       localStorage.setItem("token", user.accessToken);
-  //       localStorage.setItem("user", JSON.stringify(user));
-  //       navigate("/mealplan");
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  const handleSignUp = (email, password) => {
+  const handleSignUp = ({ fullname, email, password }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        const user = userCredential.user;
+        const userData = {
+          fullname: fullname,
+          email: email,
+        };
+        localStorage.setItem("userData", JSON.stringify(userData));
         navigate("/mealplan");
       })
       .catch((err) => {
         console.log(err, "err");
-        toast.error(err.message);
-        setErrorMessage(err.message);
+        console.log(err.code);
+        let customErrorMessage = "An error occurred";
+        if (err.code === "auth/email-already-in-use") {
+          customErrorMessage =
+            "Existing user. Please login with your email address.";
+        }
+        setErrorMessage(customErrorMessage);
+        toast.error(errorMessage);
       });
   };
 
@@ -69,6 +63,7 @@ const SignUp = () => {
       })
       .catch((err) => {
         const error = err.code;
+        toast.error(error.message);
         const errorMessage = err.message;
       });
   };
@@ -78,32 +73,6 @@ const SignUp = () => {
   const facebookSignIn = () => {
     providerSignIn(facebookProvider);
   };
-
-  function onSubmit(data) {
-    const { email, password } = data;
-    // setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        navigate("/mealplan");
-      })
-      .catch((err) => {
-        console.log(err, "err");
-        console.log(err.code);
-        let customErrorMessage = "An error occurred";
-        if (err.code === "auth/email-already-in-use") {
-          customErrorMessage =
-            "Existing user. Please login with your email address.";
-        }
-        setErrorMessage(customErrorMessage);
-        // toast(errorMessage);
-      });
-    //   .finally(() => mounted.current && setIsLoading(false));
-    reset();
-  }
-  function onError(errors) {
-    console.log(errors);
-  }
 
   function handleClick(e) {
     e.preventDefault();
@@ -115,7 +84,7 @@ const SignUp = () => {
     <div className="flex flex-col gap-y-5 justify-center min-h-screen mx-lg-20 mx-6">
       <ToastContainer />
       <h2 className="font-extrabold text-3xl mb-3">Create your account</h2>
-      <form action="" onSubmit={handleSubmit(onSubmit, onError)}>
+      <form action="" onSubmit={handleSubmit(handleSignUp)}>
         <div className="flex flex-col mb-4">
           <label htmlFor="fullname" className="text-neutral-500">
             Full Name
@@ -125,10 +94,11 @@ const SignUp = () => {
             name="fullname"
             placeholder="Enter full name"
             id="fullname"
-            value={fullName}
+            // value={fullName}
             className="placeholder:text-black outline-none border-solid border-2 p-4 focus:border-blue-500 rounded-lg lg:w-3/6 md:w-3/6 mt-2"
-            required
-            onChange={(e) => setFullName(e.target.value)}
+            // required
+            // onChange={(e) => setFullName(e.target.value)}
+            {...register("fullname", { required: "required Field" })}
           />
         </div>
         <div className="flex flex-col mb-4">
@@ -189,7 +159,8 @@ const SignUp = () => {
         <div className="  text-center">
           <button
             className="text-center bg-[rgb(66,104,251)] text-white text-lg font-semibold py-4 px-4 rounded-lg w-full my-3 lg:w-3/6"
-            onClick={handleSignUp}
+            // onClick={handleSignUp}
+            type="submit"
           >
             Sign In
           </button>
