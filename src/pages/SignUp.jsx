@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Google from "../assets/google.svg";
 import Facebook from "../assets/facebook.svg";
 import Apple from "../assets/apple.svg";
@@ -23,6 +23,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -59,8 +60,8 @@ const SignUp = () => {
       });
   };
 
-  const googleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
+  const providerSignIn = (provider) => {
+    signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user.email);
@@ -70,6 +71,12 @@ const SignUp = () => {
         const error = err.code;
         const errorMessage = err.message;
       });
+  };
+  const googleSignIn = () => {
+    providerSignIn(googleProvider);
+  };
+  const facebookSignIn = () => {
+    providerSignIn(facebookProvider);
   };
 
   function onSubmit(data) {
@@ -206,7 +213,10 @@ const SignUp = () => {
           </div>
         </button>
         <button className="rounded-lg border-solid border-2 mb-1 py-3 px-4 w-full lg:w-3/6 md:w-3/6 mt-2">
-          <div className="flex justify-center items-center gap-3 ">
+          <div
+            className="flex justify-center items-center gap-3 "
+            onClick={facebookSignIn}
+          >
             <img src={Facebook} alt="facebook" className="w-6" />
             <p>Sign up with Facebook</p>
           </div>
