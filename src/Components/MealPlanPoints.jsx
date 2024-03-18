@@ -23,7 +23,7 @@ function MealPlanPoints() {
 
     return(
         <>
-           <div className="bg-slate-100 rounded-lg inline-block w-100  border pb-4 text-left px-2 pt-2">
+           <div className="bg-slate-100 rounded-lg  inline-block  w-100  border pb-4 text-left px-2 pt-2">
                 <h1 className="font-semibold text-2xl  pt-4">0 Meal Plan</h1>
                 <p className="  py-2 text-gray-600 text-semibold ">Ready for a delicious meal? Earn 20 points per meal.</p>
                 <button onClick={createMealPlan} className="  bg-blue-700 p-1 text-white  hover:bg-blue-400 px-4 inline-block mr-5  rounded-xl  font-normal ">Create Meal Plan</button>
