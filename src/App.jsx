@@ -9,6 +9,8 @@ import PreviewPage from "./pages/Previewmeal";
 import MealDetailsPage from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 
+
+
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -25,6 +27,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+
   );
 }
 

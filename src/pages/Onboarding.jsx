@@ -3,16 +3,12 @@ import { useState } from "react";
 import GetStarted from "../Components/GetStarted.jsx";
 import AgeAndBMI from "../Components/AgeAndBMI.jsx";
 import Dislikes from "../Components/Dislikes.jsx";
-import Budget from "../Components/Budget.jsx";
-import PlanMeal from "../Components/PlanMeal.jsx";
-import DietSelection from "../Components/DietSelection";
-import AllergySelection from "../Components/AllergySelection";
-import MealServings from "../Components/MealServings";
-// import SignUp from "./SignUp.jsx";
 
-import Navbar from "../Components/Header.jsx";
-import Button from "../Components/button.jsx";
-import { Link } from "react-router-dom";
+
+
+
+
+// import DietSelection from "../components/DietSelection";
 
 const Onboarding = () => {
   const [currentPage, setCurrentPage] = useState(1);
