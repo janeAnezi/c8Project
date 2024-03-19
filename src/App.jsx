@@ -10,6 +10,7 @@ import Onboarding from "./pages/Onboarding";
 import PreviewPage from "./pages/Previewmeal";
 import MealDetailsPage from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
+import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="/Recommended" element={<RecommendedMeal />} />
           </Routes>
         </AuthProvider>
       </Router>
