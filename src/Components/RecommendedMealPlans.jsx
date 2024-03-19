@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RecommendedMreturnealPlans() {
+
   return (
     <>
     <h1 className="text-3xl text-black font-Manrope font-bold"> Recommended Meal Plans </h1>
@@ -19,4 +19,6 @@ export default function RecommendedMreturnealPlans() {
           </div>
     </div>
     </>
-  
+  }
+
+export default ReconmendedMeallisting;
