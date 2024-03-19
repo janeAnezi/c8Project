@@ -2,16 +2,20 @@ import Apple from "../assets/apple.png";
 import Google from "../assets/google.png";
 import Facebook from "../assets/facebook.png";
 import Loader from "../Components/OnboardingLoader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
-import { signInWithEmailAndPassword, signInWithRedirect } from "@firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+  getRedirectResult,
+} from "@firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Hide from "../assets/hide.png";
 import View from "../assets/view.png";
 import Back from "../assets/back.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const SignIn = () => {
@@ -53,10 +57,12 @@ const SignIn = () => {
   };
 
   const providerSignIn = (provider) => {
+    // const navigate = useNavigate();
     signInWithRedirect(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user.email);
+      .then(() => {
+        // const user = result.user;
+        // console.log(user.email);
+        console.log("Successful sign in");
         navigate("/mealplan");
       })
       .catch((err) => {
@@ -65,6 +71,22 @@ const SignIn = () => {
         const errorMessage = err.message;
       });
   };
+
+  useEffect(() => {
+    const getRedirectResultAsync = async () => {
+      try {
+        const response = await getRedirectResult(auth);
+        if (response) {
+          navigate("/mealplan");
+        }
+      } catch (error) {
+        console.error("Error getting redirect result:", error);
+      }
+    };
+
+    getRedirectResultAsync();
+  }, []);
+
   const googleSignIn = () => {
     providerSignIn(googleProvider);
   };

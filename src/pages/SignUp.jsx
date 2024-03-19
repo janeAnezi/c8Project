@@ -75,6 +75,22 @@ const SignUp = () => {
         const errorMessage = err.message;
       });
   };
+
+  useEffect(() => {
+    const getRedirectResultAsync = async () => {
+      try {
+        const response = await getRedirectResult(auth);
+        if (response) {
+          navigate("/mealplan");
+        }
+      } catch (error) {
+        console.error("Error getting redirect result:", error);
+      }
+    };
+
+    getRedirectResultAsync();
+  }, []);
+
   const googleSignIn = () => {
     providerSignIn(googleProvider);
   };
