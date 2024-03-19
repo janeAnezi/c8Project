@@ -4,10 +4,9 @@ function RecommendedMeal() {
  
 
   return (
-   
-   <RecommendedMealPlans />
-
-      
+  <>
+  <RecommendedMealPlans />
+  </>   
     
   );
 }
