@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,8 +14,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import Back from "../assets/back.png";
 import Loader from "../Components/OnboardingLoader";
-import Hide from "../assets/hide.png";
-import View from "../assets/view.png";
+// import Hide from "../assets/hide.png";
+// import View from "../assets/view.png";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
