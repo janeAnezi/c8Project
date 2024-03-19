@@ -23,6 +23,7 @@ function RecommendedMealPlans() {
             
           </div>
          </li>
+         
          <hr/>
          <li className="flex flex-row items-center justify-between">
           <div className="flex gap-2">
@@ -32,10 +33,46 @@ function RecommendedMealPlans() {
               alt=""
               loading="lazy"
             />
-            <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Grilled Salmon with Lemon-Dill Sauce </p>
+            <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Lentil and Vegetable Curry</p>
              <div className="flex gap-6 text-[10px] font-semibold">
             <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
             <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan Only</span>
+            </div>
+            
+          </div>
+         </li>
+         
+         <hr/>
+         <li className="flex flex-row items-center justify-between">
+          <div className="flex gap-2">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg"
+              className="w-[80px] h-[80px] object-contain"
+              alt=""
+              loading="lazy"
+            />
+            <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Mushroom Risotto </p>
+             <div className="flex gap-6 text-[10px] font-semibold">
+            <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
+            <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan and Non-Vegan</span>
+            </div>
+            
+          </div>
+         </li>
+         
+          <hr/>
+         <li className="flex flex-row items-center justify-between">
+          <div className="flex gap-2">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg"
+              className="w-[80px] h-[80px] object-contain"
+              alt=""
+              loading="lazy"
+            />
+            <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Grilled Lemon Herb Chicken Bowl </p>
+             <div className="flex gap-6 text-[10px] font-semibold">
+            <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
+            <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan and Non-Vegan</span>
             </div>
             
           </div>
