@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const GetStarted = ({ onNext }) => {
   return (
     <div
-      className="min-h-screen flex flex-col justify-center items-center"
+      className="min-h-screen w-screen flex flex-col justify-center items-center"
       style={{
         background: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 60%), url(${image})`,
         backgroundSize: "cover",
