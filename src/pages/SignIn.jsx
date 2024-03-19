@@ -4,7 +4,8 @@ import Facebook from "../assets/facebook.png";
 import Loader from "../Components/OnboardingLoader";
 import { useState } from "react";
 import { auth } from "../firebase/firebase";
-import { signInWithEmailAndPassword } from "@firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "@firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Hide from "../assets/hide.png";
 import View from "../assets/view.png";
 import Back from "../assets/back.png";
@@ -20,6 +21,9 @@ const SignIn = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
+
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -46,6 +50,26 @@ const SignIn = () => {
         toast.error(errorMessage);
       })
       .finally(() => setIsLoading(false));
+  };
+
+  const providerSignIn = (provider) => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user.email);
+        navigate("/mealplan");
+      })
+      .catch((err) => {
+        const error = err.code;
+        toast.error(error.message);
+        const errorMessage = err.message;
+      });
+  };
+  const googleSignIn = () => {
+    providerSignIn(googleProvider);
+  };
+  const facebookSignIn = () => {
+    providerSignIn(facebookProvider);
   };
 
   function handleClick(e) {
@@ -144,11 +168,17 @@ const SignIn = () => {
         </form>
 
         <div className="mt-2 flex-flex-col lg:items-center">
-          <button className="flex items-center justify-center lg:w-80 py-2 mb-1 w-full mt-2 text-gray-800 bg-transparent border border-solid rounded-lg cursor-pointer outline-none">
+          <button
+            className="flex items-center justify-center lg:w-80 py-2 mb-1 w-full mt-2 text-gray-800 bg-transparent border border-solid rounded-lg cursor-pointer outline-none"
+            onClick={googleSignIn}
+          >
             <img src={Google} alt="Icon" className="w-5 mr-2" />
             Sign in with Google
           </button>
-          <button className="flex items-center justify-center lg:w-80 py-2 mb-1 w-full mt-2 text-gray-800 bg-transparent border border-solid rounded-lg cursor-pointer outline-none">
+          <button
+            className="flex items-center justify-center lg:w-80 py-2 mb-1 w-full mt-2 text-gray-800 bg-transparent border border-solid rounded-lg cursor-pointer outline-none"
+            onClick={facebookSignIn}
+          >
             <img src={Facebook} alt="Icon" className="w-5 mr-2" />
             Sign in with Facebook
           </button>
