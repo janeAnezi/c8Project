@@ -4,6 +4,7 @@ function RecommendedMealPlans() {
   return (
     <>
     <h1 className="text-3xl text-black font-Manrope font-bold"> Recommended Meal Plans </h1>
+      //recomended meal plan 1
     <div>
        <ul className="flex flex-col gap-2 font-semibold">
         <li className="flex flex-row items-center justify-between">
@@ -21,6 +22,7 @@ function RecommendedMealPlans() {
             </div>
             
           </div>
+          
     </>
       );
   }
