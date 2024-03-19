@@ -11,6 +11,7 @@ import MealServings from "../Components/MealServings";
 import Navbar from "../Components/Header.jsx";
 import Button from "../Components/button.jsx";
 import { Link } from "react-router-dom";
+// import SignUp from "./SignUp.jsx";
 
 const Onboarding = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,6 +64,7 @@ const Onboarding = () => {
           {currentPage === 6 && <MealServings />}
           {currentPage === 7 && <Budget />}
           {currentPage === 8 && <PlanMeal />}
+          {/* {currentPage === 9 && <SignUp />} */}
         </div>
 
         {currentPage > 1 && (
