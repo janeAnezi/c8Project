@@ -22,7 +22,8 @@ function RecommendedMealPlans() {
             </div>
             
           </div>
-          
+         </li>
+         </ul>
     </>
       );
   }
