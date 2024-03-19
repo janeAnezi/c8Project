@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Healthissues from "../Components/Healthissues";
 
 const AllergySelection = () => {
@@ -22,7 +22,6 @@ const AllergySelection = () => {
 
   const handleAllergyClick = (allergy) => {
     // Handle click event for each allergy button
-    // console.log(`Selected allergy: ${allergy}`);
     if (selectedAllergies.includes(allergy)) {
       setSelectedAllergies(
         selectedAllergies.filter((item) => item !== allergy)
@@ -31,6 +30,14 @@ const AllergySelection = () => {
       setSelectedAllergies([...selectedAllergies, allergy]);
     }
   };
+
+  useEffect(() => {
+    // Update local storage when selected allergies change
+    localStorage.setItem(
+      "selectedAllergies",
+      JSON.stringify(selectedAllergies)
+    );
+  }, [selectedAllergies]);
 
   return (
     <div className="flex flex-col justify-center lg:items-center min-h-screen px-4">
