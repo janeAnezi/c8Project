@@ -8,7 +8,7 @@ import Onboarding from "./pages/Onboarding";
 import PreviewPage from "./pages/Previewmeal";
 import MealDetailsPage from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
-import RecommendedMeal from "./pages/Previewmeal";
+import RecommendedMeal from "./pages/RecommendedMeal";
 
 
 
@@ -25,6 +25,7 @@ function App() {
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/MealDetails" element={<MealDetailsPage />} />
           <Route path="/referral" Component={ReferralPage} />
+          <Route path="/Recommend" element={<RecommendedMeal />} />
         </Routes>
       </Router>
     </div>
