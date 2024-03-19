@@ -25,7 +25,7 @@ function App() {
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/MealDetails" element={<MealDetailsPage />} />
           <Route path="/referral" Component={ReferralPage} />
-          <Route path="/Recommend" element={<RecommendedMeal />} />
+          <Route path="/Recommended" element={<RecommendedMeal />} />
         </Routes>
       </Router>
     </div>
