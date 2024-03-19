@@ -15,10 +15,15 @@ function MealListing() {
               loading="lazy"
             />
             <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Grilled Salmon with Lemon-Dill Sauce </p>
+             <div className="flex gap-6 text-[10px] font-semibold">
+            <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
+            <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan Only</span>
+            </div>
             
           </div>
     </div>
     </>
+      );
   }
 
 export default ReconmendedMeallisting;
