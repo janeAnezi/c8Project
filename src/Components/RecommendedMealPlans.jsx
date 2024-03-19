@@ -15,7 +15,7 @@ function MealListing() {
               loading="lazy"
             />
             <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">Grilled Salmon with Lemon-Dill Sauce </p>
-             <p className="text-sm flex items-start text-black font-Manrope ">Popular </p>
+            
           </div>
     </div>
     </>
