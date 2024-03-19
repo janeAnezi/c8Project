@@ -4,7 +4,7 @@ import Facebook from "../assets/facebook.png";
 import Loader from "../Components/OnboardingLoader";
 import { useState } from "react";
 import { auth } from "../firebase/firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "@firebase/auth";
+import { signInWithEmailAndPassword, signInWithRedirect } from "@firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Hide from "../assets/hide.png";
 import View from "../assets/view.png";
@@ -53,7 +53,7 @@ const SignIn = () => {
   };
 
   const providerSignIn = (provider) => {
-    signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user.email);

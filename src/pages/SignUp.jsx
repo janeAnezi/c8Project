@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithRedirect,
+} from "firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Google from "../assets/google.svg";
 import Facebook from "../assets/facebook.svg";
@@ -60,7 +63,7 @@ const SignUp = () => {
   };
 
   const providerSignIn = (provider) => {
-    signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user.email);
