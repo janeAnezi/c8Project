@@ -85,7 +85,7 @@ const SignUp = () => {
   function handleClick(e) {
     e.preventDefault();
     reset(); //this resets the form fields on toggle between the current page and login page
-    navigate("/login");
+    navigate("/signin");
   }
 
   return (
@@ -106,9 +106,9 @@ const SignUp = () => {
         <form
           action=""
           onSubmit={handleSubmit(handleSignUp)}
-          className="lg:flex flex-col justify-center items-center w-full"
+          className="lg:flex flex-col justify-center lg:items-center w-full"
         >
-          <div className="flex flex-col items-center mb-4 w-full">
+          <div className="flex flex-col lg:items-center mb-4 w-full">
             <label htmlFor="fullname" className="text-neutral-500">
               Full Name
             </label>
@@ -124,7 +124,7 @@ const SignUp = () => {
               {...register("fullname", { required: "required Field" })}
             />
           </div>
-          <div className="flex flex-col items-center mb-4 w-full">
+          <div className="flex flex-col lg:items-center mb-4 w-full">
             <label htmlFor="email-address" className="text-neutral-500">
               Email Address
             </label>
@@ -147,7 +147,7 @@ const SignUp = () => {
             </span>
           </div>
 
-          <div className="flex flex-col items-center mb-4 w-full">
+          <div className="flex flex-col lg:items-center mb-4 w-full">
             <label htmlFor="password" className="text-neutral-500">
               Input Password
             </label>
