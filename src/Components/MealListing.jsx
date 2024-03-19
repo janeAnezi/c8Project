@@ -53,7 +53,7 @@ https://spoonacular.com/food-api/docs/show-images
 
 
 Recipes
-Recipe endpoints will almost always give you a recipe id. With that and the imageType you can build the complete image paths depending on your needs.
+Recipe endpoints will almost always give you a recipe id. With that and the imageType you can build the complete image paths depending on needs.
 
 The base path for image URLs is https://spoonacular.com/recipeImages/. Once you know the recipe id {ID} and image type {TYPE}, you can complete that path to show an image.
  The complete path follows this pattern https://spoonacular.com/recipeImages/{ID}-{SIZE}.{TYPE}, where {SIZE} is one of the following:
