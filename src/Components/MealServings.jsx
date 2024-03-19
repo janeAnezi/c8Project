@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 
 const MealServings = () => {
-  const [selectedTimes, setSelectedTimes] = useState([]);
+  const [selectedTimes, setSelectedTimes] = useState("");
   const [selectedServing, setSelectedServing] = useState("");
 
   const handleServingClick = (serving) => {
     setSelectedServing(serving);
+    localStorage.setItem("selectedServing", serving);
   };
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    if (selectedTimes.includes(value)) {
-      setSelectedTimes(selectedTimes.filter((time) => time !== value));
-    } else {
-      setSelectedTimes([...selectedTimes, value]);
-    }
+    // if (selectedTimes.includes(value)) {
+    //   setSelectedTimes(selectedTimes.filter((time) => time !== value));
+    // } else {
+    //   setSelectedTimes([...selectedTimes, value]);
+    // }
+    setSelectedTimes(value);
+    localStorage.setItem("selectedTimes", value);
   };
 
   return (
@@ -60,14 +63,14 @@ const MealServings = () => {
       <h1 className="text-2xl font-bold mb-4 mt-8">
         How many times do you eat in a day?
       </h1>
-      <div className="mb-4 flex flex-col text-[1.05rem] gap-[0.2rem]">
+      <div className="mb-10 flex flex-col text-[1.05rem] gap-[0.2rem]">
         <div className="flex gap-4 items-center">
           <input
             id="once"
             type="checkbox"
             value="Once"
             onChange={handleCheckboxChange}
-            checked={selectedTimes.includes("Once")}
+            checked={selectedTimes === "Once"}
             className="checked:bg-blue-500"
           />
           <label className="block font-medium cursor-pointer" htmlFor="once">
@@ -80,7 +83,7 @@ const MealServings = () => {
             type="checkbox"
             value="Twice"
             onChange={handleCheckboxChange}
-            checked={selectedTimes.includes("Twice")}
+            checked={selectedTimes === "Twice"}
           />
           <label className="block font-medium cursor-pointer" htmlFor="twice">
             Twice
@@ -92,7 +95,7 @@ const MealServings = () => {
             type="checkbox"
             value="Thrice"
             onChange={handleCheckboxChange}
-            checked={selectedTimes.includes("Thrice")}
+            checked={selectedTimes === "Thrice"}
           />
           <label className="block font-medium cursor-pointer" htmlFor="thrice">
             Thrice
@@ -104,7 +107,7 @@ const MealServings = () => {
             type="checkbox"
             value="Others"
             onChange={handleCheckboxChange}
-            checked={selectedTimes.includes("Others")}
+            checked={selectedTimes === "Others"}
           />
           <label className="block font-medium cursor-pointer" htmlFor="others">
             Others
