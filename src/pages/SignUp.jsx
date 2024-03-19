@@ -103,8 +103,12 @@ const SignUp = () => {
           />
         </div>
         <h2 className="font-extrabold text-3xl mb-2">Create your account</h2>
-        <form action="" onSubmit={handleSubmit(handleSignUp)}>
-          <div className="flex flex-col mb-4">
+        <form
+          action=""
+          onSubmit={handleSubmit(handleSignUp)}
+          className="lg:flex flex-col justify-center items-center w-full"
+        >
+          <div className="flex flex-col items-center mb-4 w-full">
             <label htmlFor="fullname" className="text-neutral-500">
               Full Name
             </label>
@@ -120,7 +124,7 @@ const SignUp = () => {
               {...register("fullname", { required: "required Field" })}
             />
           </div>
-          <div className="flex flex-col mb-4">
+          <div className="flex flex-col items-center mb-4 w-full">
             <label htmlFor="email-address" className="text-neutral-500">
               Email Address
             </label>
@@ -143,7 +147,7 @@ const SignUp = () => {
             </span>
           </div>
 
-          <div className="flex flex-col mb-4">
+          <div className="flex flex-col items-center mb-4 w-full">
             <label htmlFor="password" className="text-neutral-500">
               Input Password
             </label>
@@ -187,7 +191,7 @@ const SignUp = () => {
           </div>
         </form>
 
-        <div className="mt-5 flex flex-col lg:items-center">
+        <div className="mt-5 flex flex-col lg:items-center w-full">
           <button className="rounded-lg border-solid border-2 mb-1 py-3 px-4 w-full lg:w-3/6 md:w-3/6 mt-2">
             <div
               className="flex justify-center items-center gap-3 "
