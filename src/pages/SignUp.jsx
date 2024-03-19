@@ -9,8 +9,7 @@ import Apple from "../assets/apple.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
-// import showPass from "../assets/Icon.png";
-// import hidePass from "../assets/eye-slash.png";
+import Back from "../assets/back.png";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
@@ -83,7 +82,17 @@ const SignUp = () => {
   return (
     <div className="flex flex-col gap-y-5 justify-center min-h-screen mx-lg-20 mx-6">
       <ToastContainer />
-      <h2 className="font-extrabold text-3xl mb-3">Create your account</h2>
+      <div
+        className="w-full flex my-3 justify-between top-4"
+        onClick={() => navigate("/")}
+      >
+        <img
+          src={Back}
+          alt="back"
+          className="h-[1.5rem] w-[1.5rem] cursor-pointer"
+        />
+      </div>
+      <h2 className="font-extrabold text-3xl mb-2">Create your account</h2>
       <form action="" onSubmit={handleSubmit(handleSignUp)}>
         <div className="flex flex-col mb-4">
           <label htmlFor="fullname" className="text-neutral-500">

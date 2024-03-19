@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Dislikes = () => {
   const dislikeOptions = [
@@ -20,7 +20,12 @@ const Dislikes = () => {
     "mushrooms",
   ];
 
-  const [dislikes, setDislikes] = useState([]);
+  const initialDislikes = JSON.parse(localStorage.getItem("dislikes")) || [];
+  const [dislikes, setDislikes] = useState(initialDislikes);
+
+  useEffect(() => {
+    localStorage.setItem("dislikes", JSON.stringify(dislikes));
+  }, [dislikes]);
 
   const toggleDislike = (item) => {
     setDislikes(

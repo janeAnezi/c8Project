@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const HealthIssuesForm = () => {
   const healthIssues = [
@@ -19,10 +19,18 @@ const HealthIssuesForm = () => {
     }
   };
 
+  useEffect(() => {
+    // Update local storage when selected health issues change
+    localStorage.setItem(
+      "selectedHealthIssues",
+      JSON.stringify(selectedIssues)
+    );
+  }, [selectedIssues]);
+
   return (
     <div className="mt-10 flex flex-col justify-center lg:items-center">
       <h2 className="font-bold text-2xl text-black mb-5">Any health issues?</h2>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mb-12">
         {healthIssues.map((issue) => (
           <button
             key={issue}
