@@ -10,4 +10,4 @@ function RecommendedMeal() {
     
   );
 }
-export default PreviewPage;
+export default RecommendedMeal;

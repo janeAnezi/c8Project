@@ -42,44 +42,41 @@ function Preview() {
   }
 
   return (
-    <div>
-      <h2 className="text-[#101010] text-base font-semibold">
-        {recipeDetail.title}
-      </h2>
-
-      <div className="w-full flex flex-col items-center gap-2">
+    <div className="px-4 py-6">
+      <div className="w-full flex flex-col items-center gap-2 ">
         <img
           src={recipeDetail.image}
           alt={recipeDetail.title}
-          className="w-72 h-72 object-cover rounded-lg"
+          className="w-full h-52 object-cover rounded-lg"
         />
 
+        <h2 className="text-[#101010] text-base font-semibold">
+          {recipeDetail.title}
+        </h2>
+
+        <div>
+          <span>Popular</span>
+          <span>2 weeks plan</span>
+        </div>
+
         <p
-          className="text-base"
+          className="text-base line-clamp-3"
           dangerouslySetInnerHTML={{ __html: recipeDetail?.summary }}
         ></p>
 
-        <div className="flex flex-wrap gap-4">
-          <h3 className="text-lg font-semibold">Ingredients:</h3>
+        <div className="flex flex-wrap gap-4 text-sm font-semibold">
           {recipeDetail?.extendedIngredients.map((ingredient, index) => (
             <div key={`${ingredient?.id}-${index}`}>
-              <p>{ingredient.name}</p>
+              <p >{ingredient.name}</p>
               <p>
                 {ingredient.amount} {ingredient.unit}
               </p>
             </div>
           ))}
         </div>
-
-        <div>
-          <h3 className="text-lg font-semibold">Instructions:</h3>
-          <p
-            dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}
-          ></p>
-        </div>
-
-        {/* For rendering other details if needed */}
       </div>
+
+      <hr/>
 
       <div>
         <MealListing meals={similarRecipes} />

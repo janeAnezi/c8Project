@@ -7,23 +7,25 @@ function MealListing({ meals }) {
     <div className="">
       <h2 className="text-[#101010] text-base font-semibold">Meal Listing</h2>
       {meals.map((singleMeal) => (
-        <div className="flex align-center justify-between" key={singleMeal?.id}>
-          <div className="flex justify-between">
+        <div className="flex align-center justify-between divide-x-2" key={singleMeal?.id}>
+          <div className="flex items-center justify-between gap-4">
             <img
               src={`https://spoonacular.com/recipeImages/${singleMeal.id}-556x370.${singleMeal?.imageType}`}
-              className="w-[60px] h-[60px] object-contain"
+              className="w-[60px] h-[60px] object-contain rounded-md"
               alt={singleMeal?.title}
               loading="lazy"
             />
             <p className="text-base"> {singleMeal?.title}</p>
           </div>
-          <Link to={`/details/${singleMeal?.id}`}>
-            <p className="flex align-center justify-center gap-2">
+          <Link
+            to={`/details/${singleMeal?.id}`}
+            className="flex items-center justify-center gap-2 font-semibold hover:translate-x-1"
+          >
               <span>View</span>
               <MdOutlineKeyboardArrowRight className="text-xxl" />
-            </p>
           </Link>
         </div>
+
       ))}
     </div>
   );

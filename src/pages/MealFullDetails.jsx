@@ -8,7 +8,6 @@ import { useEffect } from "react";
 
 function Mealdetails() {
   const [recipeDetail, setRecipeDetail] = useState(null);
-  //const [recipeInstruction, setRecipeInstruction] = useState(null);
   let { id } = useParams();
   const apiKey = "7fffe677eb714b4c848b64963a57193a";
   console.log(id);
@@ -39,12 +38,12 @@ function Mealdetails() {
   }
 
   return (
-    <div>
+    <div className="px-4 py-6">
       <div className="w-full flex items-center">
         <img
           src={recipeDetail.image}
           alt={recipeDetail.title}
-          className="w-72 h-72 object-cover rounded-lg"
+          className="w-[80%] h-72 object-cover rounded-lg"
         />
       </div>
 
@@ -67,6 +66,13 @@ function Mealdetails() {
           </div>
         ))}
       </div>
+
+      <div>
+        <h3 className="text-lg font-semibold">Instructions:</h3>
+        <p dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}></p>
+      </div>
+
+      {/* For rendering other details if needed */}
 
       <div>
         <h3>VIDEO TUTORIAL</h3>
