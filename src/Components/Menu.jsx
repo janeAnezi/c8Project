@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import menu from "../assets/menubutton.jpg";
 import close from "../assets/closebutton.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,15 +15,31 @@ const Menu = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Sign out Successful!");
-        console.log("sign out successful");
-        navigate("/");
+        toast.success("Sign out Successful! You will be redirected", {
+          autoClose: 2000,
+          onClose: () => {
+            console.log("sign out successful");
+            navigate("/");
+          },
+        });
+        // console.log("sign out successful");
+        // navigate("/");
+        // toast.success("Sign-out successful", { autoClose: 3000 });
+        // navigate("/");
       })
       .catch((error) => {
         toast.error("Error Signing out");
         console.log("Error Signing out");
       });
   };
+
+  // useEffect(() => {
+  //   const unsubscribe = navigate("/", () => {
+  //     toast.success("Sign Out Successful");
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
 
   return (
     <>
