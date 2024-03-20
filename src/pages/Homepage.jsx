@@ -53,7 +53,7 @@ function HomePage() {
 
   return (
     <>
-      <h2 className="text-[#101010] text-base font-semibold">
+      <h2 className="text-[#101010] text-base font-bold">
         Recommended Meal Plans
       </h2>
 
