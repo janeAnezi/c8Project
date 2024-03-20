@@ -12,9 +12,11 @@ import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 
+
 function App() {
   return (
     <div className="font-[Manrope]">
+      
       <Router>
         <AuthProvider>
           <Routes>

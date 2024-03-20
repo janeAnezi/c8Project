@@ -7,16 +7,16 @@ function MealPlanPoints() {
     const navigate = useNavigate();
 
     function createMealPlan() {
-        alert('This button will direct you to  create meal on meal plan page')
+        // alert('This button will direct you to  create meal on meal plan page')
 
         // to navigate to the meal plan page
-        navigate('/mealplan');
+        navigate('/MealPlan');
 
     }
 
     
     function mealHistory() {
-        alert('This button will redirect you to meal history page')
+        // alert('This button will redirect you to meal history page')
         // to navigate to the meal history page
         navigate('/history');
     }
@@ -25,7 +25,7 @@ function MealPlanPoints() {
         <>
            <div className="bg-slate-100 rounded-xl  inline-block  w-80  border pb-4 text-left px-2 pt-2">
                 <h1 className="font-semibold text-2xl  pt-2">0 Meal Plan</h1>
-                <p className="py-1 text-semibold text-sm">Ready for a delicious meal?Earn 20points per meal.</p>
+                <p className="  py-1 text-semibold text-sm overflow-wrap ">Ready for a delicious meal?Earn 20 points per meal.</p>
                 <button onClick={createMealPlan} className="  bg-blue-700 p-1 text-white  hover:bg-blue-400 px-2 inline-block mr-5  rounded-xl  font-normal ">Create Meal Plan</button>
                <button onClick={mealHistory} className="bg-neutral-400 p-1 text-white px-4 hover:bg-slate-500  rounded-xl  font-normal">Meal History</button>
                
