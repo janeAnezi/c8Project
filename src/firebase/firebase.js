@@ -21,6 +21,7 @@
 // export const auth = getAuth(app);
 
 // export default app;
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 

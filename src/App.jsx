@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./Contexts/AuthContext";
 import PrivateRoute from "./Contexts/PrivateRoute";
@@ -50,18 +48,18 @@ function App() {
               }
             />
             <Route
-              path="/preview"
+              path="/preview/:id"
               element={
                 <PrivateRoute>
-                  <PreviewPage />
+                  <Preview />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/MealDetails"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
-                  <MealDetailsPage />
+                  <Mealdetails />
                 </PrivateRoute>
               }
             />

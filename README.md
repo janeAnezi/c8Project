@@ -45,8 +45,8 @@ Cohort 8 Pro Capstone Project
 
 ### Team Gamma
 
-- Divine Dibobie []()
-- Elizabeth Godfrey []()
+- Divine Dibobie [divinedibobie](https://github.com/divinedibobie)
+- Elizabeth Godfrey [miyemicodes](https://github.com/miyemicodes)
 
 ### Team Delta
 
