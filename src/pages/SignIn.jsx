@@ -40,7 +40,14 @@ const SignIn = () => {
         console.log(userCredential);
         const user = userCredential.user;
         console.log(user.email);
-        navigate("/home");
+        // navigate("/home");
+        toast.success("Sign In Successful. You will be redirected", {
+          autoClose: 2000,
+          onClose: () => {
+            console.log("sign in successful");
+            navigate("/home");
+          },
+        });
       })
       .catch((err) => {
         console.log(err, "err");
@@ -62,8 +69,15 @@ const SignIn = () => {
       .then(() => {
         // const user = result.user;
         // console.log(user.email);
-        console.log("Successful sign in");
-        navigate("/home");
+        // console.log("Successful sign in");
+        // navigate("/home");
+        toast.success("Sign In Successful. You will be redirected", {
+          autoClose: 2000,
+          onClose: () => {
+            console.log("sign in successful");
+            navigate("/home");
+          },
+        });
       })
       .catch((err) => {
         const error = err.code;
@@ -78,6 +92,7 @@ const SignIn = () => {
         const response = await getRedirectResult(auth);
         if (response) {
           navigate("/home");
+          toast.success("Sign In Successful");
         }
       } catch (error) {
         console.error("Error getting redirect result:", error);
