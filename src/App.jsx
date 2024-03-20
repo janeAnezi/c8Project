@@ -7,8 +7,8 @@ import MealHistoryPage from "./pages/MealHistoryPage";
 import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
-import PreviewPage from "./pages/Previewmeal";
-import MealDetailsPage from "./pages/MealFullDetails";
+import Preview from "./pages/Previewmeal";
+import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
@@ -17,6 +17,17 @@ function App() {
   return (
     <div className="font-[Manrope]">
       <Router>
+        <Routes>
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/MealPoint" element={<MealPointsPage />} />
+          <Route path="/mealplan" element={<MealPlanPage />} />
+          <Route path="/history" element={<MealHistoryPage />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/preview/:id" element={<Preview />} />
+          <Route path="/details/:id" element={<Mealdetails />} />
+          <Route path="/referral" Component={ReferralPage} />
+          <Route path="/Recommended" element={<RecommendedMeal />} />
+        </Routes>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Onboarding />} />
@@ -48,18 +59,18 @@ function App() {
               }
             />
             <Route
-              path="/preview"
+              path="/preview/:id"
               element={
                 <PrivateRoute>
-                  <PreviewPage />
+                  <Preview />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/MealDetails"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
-                  <MealDetailsPage />
+                  <Mealdetails />
                 </PrivateRoute>
               }
             />
