@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 
-const apiKey = "216354ab050b4d29b1712c3e701c7543";
+const apiKey = "38ff337b4439431586d2141d7072a80e";
 
 function Savedmeals() {
   const [meals, setMeals] = useState([]);
+  
 
   useEffect(() => {
     const getData = async () => {
@@ -16,7 +17,7 @@ function Savedmeals() {
 
         const data = await request.json();
 
-        setMeals((prevMeals) => [...prevMeals, ...data.results]);
+        setMeals(data);
       } catch (error) {
         console.log(error);
       }
