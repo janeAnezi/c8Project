@@ -26,8 +26,8 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/MealPoint" element={<MealPointsPage />}/>
-            
+            <Route path="/MealPoint" element={<MealPointsPage />} />
+
             <Route
               path="/mealplan"
               element={
@@ -53,14 +53,13 @@ function App() {
               }
             />
             <Route
-              path="/MealDetails/:id"
+              path="/mealDetails/:id"
               element={
                 <PrivateRoute>
                   <Mealdetails />
                 </PrivateRoute>
               }
             />
-        
 
             <Route
               path="/referral"
