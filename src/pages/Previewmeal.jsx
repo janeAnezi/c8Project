@@ -1,100 +1,96 @@
-import React from "react";
-import image from "../assets/foodplan.jpg";
-import MealListing from "./../Components/MealListing";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import MealListing from "../Components/MealListing";
 
-function PreviewPage() {
-  //const [meal, setMeals] = useState([]);
+function Preview() {
+  const [recipeDetail, setRecipeDetail] = useState(null);
+  const [similarRecipes, setSimilarRecipes] = useState(null);
+  let { id } = useParams();
+  const apiKey = "7fffe677eb714b4c848b64963a57193a";
 
-  /*
+  console.log(id);
+
   useEffect(() => {
-    const getData = async () => {
+    const fetchRecipe = async () => {
       try {
-        const request = await fetch(
-          "https://api.spoonacular.com/recipes/random?apiKey=66bd861568c44b67b8175cac51037e76&number=1&include-tags=vegetarian#"
+        const getReceipeDetail = fetch(
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
         );
+        const getSimilarReceipes = fetch(
+          `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}&number=3`
+        );
+        const [recipeDetailsResponse, similarRecipesResponse] =
+          await Promise.all([getReceipeDetail, getSimilarReceipes]);
 
-        const data = await request.json();
+        const recipeDetailData = await recipeDetailsResponse.json();
+        const similarRecipesData = await similarRecipesResponse.json();
 
-        console.log(data);
-        setMeals(data);
+        setRecipeDetail(recipeDetailData);
+        setSimilarRecipes(similarRecipesData);
+
+        console.log(recipeDetailData, similarRecipesData);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching recipe:", error);
       }
     };
 
-    getData();
-  }, []);
-*/
+    fetchRecipe();
+  }, [id]);
+
+  if (!recipeDetail) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="flex flex-col gap-3 bg-white w-full">
-      <div className="w-[100%] ">
-        <div className="w-full flex flex-col gap-2">
-          <img
-            src={image}
-            className=" h-[100px] w-full rounded-lg object-cover"
-            alt="A Grilled Salmon with Lemon-Dill Sauce"
-          />
+    <div>
+      <h2 className="text-[#101010] text-base font-semibold">
+        {recipeDetail.title}
+      </h2>
 
-          <h3 className="flex align-left text-[12px] font-semibold">
-            Grilled Salmon with Lemon-Dill Sauce
-          </h3>
+      <div className="w-full flex flex-col items-center gap-2">
+        <img
+          src={recipeDetail.image}
+          alt={recipeDetail.title}
+          className="w-72 h-72 object-cover rounded-lg"
+        />
 
-          <div className="flex gap-6 text-[10px] font-semibold">
-            <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
-            <span className="bg-[#FFF0F0] p-1 rounded-md">2 weeks plan</span>
-          </div>
+        <p
+          className="text-base"
+          dangerouslySetInnerHTML={{ __html: recipeDetail?.summary }}
+        ></p>
 
-          <div
-          //dangerouslySetInnerHTML={{ __html: singleMeal?.summary }} for text if generated text is too lenghty "line-clamp-2 hover:line-clamp-none"
-          >
-            <p className="text-[12px] text-[#282828] text-justify">
-              Succulent grilled salmon fillets, perfectly seasoned and
-              accompanied by a zesty lemon-dill sauce.
-            </p>
-          </div>
-
-          <ul className="flex flex-row flex-wrap gap-3 text-[12px]">
-            <li>
+        <div className="flex flex-wrap gap-4">
+          <h3 className="text-lg font-semibold">Ingredients:</h3>
+          {recipeDetail?.extendedIngredients.map((ingredient, index) => (
+            <div key={`${ingredient?.id}-${index}`}>
+              <p>{ingredient.name}</p>
               <p>
-                Calories:
-                <span className="font-semibold"> 250g</span>
+                {ingredient.amount} {ingredient.unit}
               </p>
-            </li>
-            <li>
-              <p>
-                Fat :<span className="font-semibold">10g</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Sugars: <span className="font-semibold">11g </span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Carb: <span className="font-semibold">12g </span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Sugars: <span className="font-semibold">11g</span>
-              </p>
-            </li>
-          </ul>
+            </div>
+          ))}
         </div>
+
+        <div>
+          <h3 className="text-lg font-semibold">Instructions:</h3>
+          <p
+            dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}
+          ></p>
+        </div>
+
+        {/* For rendering other details if needed */}
       </div>
 
-      <hr />
-
-      <MealListing />
+      <div>
+        <MealListing meals={similarRecipes} />
+      </div>
 
       <div className="flex align-center justify-center gap-2 ">
         <button
           type="btn"
-          className="px-4 py-1 bg-[#4268FB] text-white rounded-md text-sm"
+          className="px-2 py-1 bg-[#4268FB] text-white rounded-md text-sm"
         >
-          Track progress
+          Add to bookmark
         </button>
         <button
           type="btn"
@@ -106,4 +102,122 @@ function PreviewPage() {
     </div>
   );
 }
-export default PreviewPage;
+export default Preview;
+
+/* 
+
+https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}&number=3
+
+interface Recipe {
+    id: number;
+    imageType: string;
+    readyInMinutes: number;
+    servings: number;
+    sourceUrl: string;
+    title: string;
+}
+
+
+*/
+
+/* 
+
+https://api.spoonacular.com/recipes/{id}/information?apiKey=f29fa4d13d854421a167ec7b23670eaf
+
+
+
+    interface RecipeResponse {
+    vegetarian: boolean;
+    vegan: boolean;
+    glutenFree: boolean;
+    dairyFree: boolean;
+    veryHealthy: boolean;
+    cheap: boolean;
+    veryPopular: boolean;
+    sustainable: boolean;
+    lowFodmap: boolean;
+    weightWatcherSmartPoints: number;
+    gaps: string;
+    preparationMinutes: number;
+    cookingMinutes: number;
+    aggregateLikes: number;
+    healthScore: number;
+    creditsText: string;
+    sourceName: string;
+    pricePerServing: number;
+    extendedIngredients: {
+        id: number;
+        aisle: string;
+        image: string;
+        consistency: string;
+        name: string;
+        nameClean: string;
+        original: string;
+        originalName: string;
+        amount: number;
+        unit: string;
+        meta: string[];
+        measures: {
+            us: {
+                amount: number;
+                unitShort: string;
+                unitLong: string;
+            };
+            metric: {
+                amount: number;
+                unitShort: string;
+                unitLong: string;
+            };
+        };
+    }[];
+    id: number;
+    title: string;
+    readyInMinutes: number;
+    servings: number;
+    sourceUrl: string;
+    image: string;
+    imageType: string;
+    taste: {
+        sweetness: number;
+        saltiness: number;
+        sourness: number;
+        bitterness: number;
+        savoriness: number;
+        fattiness: number;
+        spiciness: number;
+    };
+    summary: string;
+    cuisines: string[];
+    dishTypes: string[];
+    diets: string[];
+    occasions: string[];
+    winePairing: {
+        pairedWines: string[];
+        pairingText: string;
+        productMatches: any[];
+    };
+    instructions: string;
+    analyzedInstructions: {
+        name: string;
+        steps: {
+            number: number;
+            step: string;
+            ingredients: {
+                id: number;
+                name: string;
+                localizedName: string;
+                image: string;
+            }[];
+            equipment: {
+                id: number;
+                name: string;
+                localizedName: string;
+                image: string;
+            }[];
+        }[];
+    }[];
+    originalId: number | null;
+    spoonacularScore: number;
+    spoonacularSourceUrl: string;
+}
+*/
