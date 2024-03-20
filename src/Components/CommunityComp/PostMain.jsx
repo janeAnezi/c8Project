@@ -6,7 +6,7 @@ import React, {
   useReducer,
   useEffect,
 } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+// import avatar from "../../assets/images/avatar.jpg";
 import addImage from "../../assets/images/addImage.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
@@ -18,7 +18,7 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
-// import { db } from "../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import {
   PostsReducer,
   postActions,
@@ -34,14 +34,12 @@ import PostCard from "./PostCard";
 
 const PostMain = () => {
   // Define and populate filteredMealNames
-  const { user, userData } = useContext(AuthContext);
+  const { currentUser, userData } = useContext(AuthContext);
   const text = useRef("");
   const scrollRef = useRef("");
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
   const collectionRef = collection(db, "posts");
-  const postRef = doc(collection(db, "posts"));
-  const document = postRef.id;
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const { SUBMIT_POST, HANDLE_ERROR } = postActions;
   const [progressBar, setProgressBar] = useState(0);
@@ -54,13 +52,23 @@ const PostMain = () => {
     e.preventDefault();
     if (text.current.value !== "") {
       try {
-        const name = user?.displayName || userData?.name || "Unknown User";
-        const email = user?.email || userData?.email || "unknown@example.com";
+        const name =
+          currentUser?.displayName || userData?.name || "Unknown User";
+        const email =
+          currentUser?.email || userData?.email || "unknown@example.com";
+        const userId = currentUser?.uid || userData?.uid;
 
-        await setDoc(postRef, {
-          documentId: document,
-          uid: user?.uid || userData?.uid,
-          logo: user?.photoURL,
+        if (!userId) {
+          throw new Error("User ID is undefined");
+        }
+
+        const postDocRef = doc(collection(db, "posts"));
+        const documentId = postDocRef.id;
+
+        await setDoc(postDocRef, {
+          documentId: documentId,
+          uid: userId,
+          logo: currentUser?.photoURL,
           name: name,
           email: email,
           text: text.current.value,
@@ -150,24 +158,20 @@ const PostMain = () => {
     <div className="flex flex-col items-center">
       <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
         <div className="flex items-center pb-4 pl-4 w-full">
-          <div className="flex -space-x-1 overflow-hidden">
+          {/* <div className="flex -space-x-1 overflow-hidden">
             <img
               className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
               src={avatar || user?.photoURL}
               alt="image"
             />
-          </div>
+          </div> */}
           <form className="w-full">
             <div className="flex justify-between items-center">
               <div className="w-full ml-4">
                 <input
                   type="text"
                   name="text"
-                  placeholder={`Whats on your mind ${
-                    user?.displayName?.split(" ")[0] ||
-                    userData?.name?.charAt(0).toUpperCase() +
-                      userData?.name?.slice(1)
-                  }`}
+                  placeholder="Write something"
                   className="outline-none w-full bg-[#f4f4f4] rounded-md"
                   ref={text}
                 ></input>
@@ -191,8 +195,7 @@ const PostMain = () => {
         <div className="flex justify-between pt-10 bottom-0">
           <div className="pl-5">
             <button
-              className="bg-[#4248fb]"
-              type="submit"
+              className="py-2 px-5 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
               onClick={handleSubmitPost}
             >
               Post

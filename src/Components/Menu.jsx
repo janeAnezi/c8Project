@@ -90,6 +90,12 @@ const Menu = () => {
             >
               Referrals
             </Link>
+            <Link
+              to="/communitypage"
+              className="py-1 cursor-pointer hover:text-neutral-900"
+            >
+              Community
+            </Link>
             <div className="flex gap-4 mt-4">
               <button className="bg-blue-500 hover:bg-blue-600 rounded-md text-white py-2 px-4">
                 Create a meal plan

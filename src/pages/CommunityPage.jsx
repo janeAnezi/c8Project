@@ -8,6 +8,7 @@ const CommunityPage = () => {
       <div className="flex bg-white-100">
         <div className="flex-auto w-full absolute top-14 mt-20 bg-white rounded-xl">
           <div className="w-[80%] mx-auto mb-10">
+            <h1 className="font-bold text-3xl mb-5">Community</h1>
             <PostMain></PostMain>
           </div>
         </div>

@@ -20,12 +20,12 @@ import {
   getDocs,
   deleteDoc,
 } from "firebase/firestore";
-// import { db } from "../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
 
 // eslint-disable-next-line react/prop-types
 const PostCard = ({ id, logo, email, text, image, timestamp }) => {
-  const { user } = useContext(AuthContext);
+  const { currentUser, userData } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
   const likesCollection = collection(db, "posts", id, "likes");
@@ -41,7 +41,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
 
   const handleLike = async (e) => {
     e.preventDefault();
-    const q = query(likesCollection, where("id", "==", user?.uid));
+    const q = query(likesCollection, where("id", "==", currentUser?.uid));
     const querySnapshot = await getDocs(q);
     const likesDocId = await querySnapshot?.docs[0]?.id;
     try {
@@ -50,7 +50,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
         await deleteDoc(deleteId);
       } else {
         await setDoc(likesRef, {
-          id: user?.uid,
+          id: currentUser?.uid,
         });
       }
     } catch (err) {
