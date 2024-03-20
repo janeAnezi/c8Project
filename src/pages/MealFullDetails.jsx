@@ -9,7 +9,7 @@ import { useEffect } from "react";
 function Mealdetails() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   let { id } = useParams();
-  const apiKey = "38ff337b4439431586d2141d7072a80e";
+  const apiKey = "216354ab050b4d29b1712c3e701c7543";
   console.log(id);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React from "react";
 
 //const apiKey = "38ff337b4439431586d2141d7072a80e";
 
-function Savedmeals() {
+function Saved() {
   return (
     <>
       <div className="flex flex-col gap-3 px-4 py-6">
@@ -35,4 +35,4 @@ function Savedmeals() {
   );
 }
 
-export default Savedmeals;
+export default Saved;

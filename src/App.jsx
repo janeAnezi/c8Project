@@ -12,7 +12,7 @@ import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
-import Savedmeals from "./pages/savedmeal";
+//import Saved from "./pages/savedmeal";
 import HomePage from "./pages/HomePage";
 
 function App() {
@@ -65,15 +65,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
-
-              path="/Savedmeals"
-              element={
-                <PrivateRoute>
-                  <Savedmeals />
-                </PrivateRoute>
-              }
-            />
+        
 
             <Route
               path="/referral"
@@ -84,6 +76,8 @@ function App() {
               }
             />
             <Route path="/Recommended" element={<RecommendedMeal />} />
+
+            <Route
               path="/referral"
               element={
                 <PrivateRoute>
