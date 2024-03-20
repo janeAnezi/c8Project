@@ -14,6 +14,7 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 
+
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -88,6 +89,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+
           </Routes>
         </AuthProvider>
       </Router>
