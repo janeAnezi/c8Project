@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
+import CommunityPage from "./pages/CommunityPage";
 
 
 function App() {
@@ -63,6 +64,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <ReferralPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/communitypage"
+              element={
+                <PrivateRoute>
+                  <CommunityPage />
                 </PrivateRoute>
               }
             />
