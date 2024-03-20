@@ -5,6 +5,7 @@ import MealHistoryPage from "./pages/MealHistoryPage";
 //import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import MealPlanPoints from "./Components/MealPlanPoints";
+import HomePage from "./pages/Homepage";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/history" element={<MealHistoryPage />} />
           {/* <Route path="/referral" element={ReferralPage} /> */}
           <Route path="/MealPoint" Component={MealPlanPoints} />
+          <Route path="/Home" element={ <HomePage />} />
+
         </Routes>
       </Router>
     </div>
