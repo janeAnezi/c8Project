@@ -14,6 +14,8 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
+import Navbar from "./Components/Navbar";
+
 
 
 
@@ -21,8 +23,10 @@ function App() {
   return (
     <div className="font-[Manrope]">
       <Router>
+        <Navbar />
         <AuthProvider>
-          <Routes>
+           <Routes>
+             
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
@@ -73,6 +77,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <CommunityPage />
+                </PrivateRoute>
+              }
+            />
+             <Route
+              path="/Navbar"
+              element={
+                <PrivateRoute>
+                  <Navbar />
                 </PrivateRoute>
               }
             />
