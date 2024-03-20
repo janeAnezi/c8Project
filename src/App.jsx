@@ -14,6 +14,7 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 
+
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -23,15 +24,8 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-
-            <Route
-              path="/MealPoint"
-              element={
-                <PrivateRoute>
-                  <MealPointsPage />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/MealPoint" element={<MealPointsPage />}/>
+            
             <Route
               path="/mealplan"
               element={
