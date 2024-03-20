@@ -47,7 +47,14 @@ const SignUp = () => {
           email: email,
         };
         localStorage.setItem("userData", JSON.stringify(userData));
-        navigate("/home");
+        // navigate("/home");
+        toast.success("Sign In Successful. You will be redirected", {
+          autoClose: 2000,
+          onClose: () => {
+            console.log("sign in successful");
+            navigate("/home");
+          },
+        });
       })
       .catch((err) => {
         console.log(err, "err");
@@ -68,7 +75,14 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        navigate("/home");
+        // navigate("/home");
+        toast.success("Sign In Successful. You will be redirected", {
+          autoClose: 2000,
+          onClose: () => {
+            console.log("sign in successful");
+            navigate("/home");
+          },
+        });
       })
       .catch((err) => {
         const error = err.code;
