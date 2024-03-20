@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithRedirect,
+  getRedirectResult,
 } from "firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Google from "../assets/google.svg";
@@ -14,8 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import Back from "../assets/back.png";
 import Loader from "../Components/OnboardingLoader";
-import Hide from "../assets/hide.png";
-import View from "../assets/view.png";
+// import Hide from "../assets/hide.png";
+// import View from "../assets/view.png";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
@@ -46,7 +47,7 @@ const SignUp = () => {
           email: email,
         };
         localStorage.setItem("userData", JSON.stringify(userData));
-        navigate("/mealplan");
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err, "err");
@@ -67,7 +68,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        navigate("/mealplan");
+        navigate("/home");
       })
       .catch((err) => {
         const error = err.code;
@@ -81,7 +82,7 @@ const SignUp = () => {
       try {
         const response = await getRedirectResult(auth);
         if (response) {
-          navigate("/mealplan");
+          navigate("/home");
         }
       } catch (error) {
         console.error("Error getting redirect result:", error);
