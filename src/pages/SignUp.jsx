@@ -47,7 +47,7 @@ const SignUp = () => {
           email: email,
         };
         localStorage.setItem("userData", JSON.stringify(userData));
-        navigate("/mealplan");
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err, "err");
@@ -68,7 +68,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        navigate("/mealplan");
+        navigate("/home");
       })
       .catch((err) => {
         const error = err.code;
@@ -82,7 +82,7 @@ const SignUp = () => {
       try {
         const response = await getRedirectResult(auth);
         if (response) {
-          navigate("/mealplan");
+          navigate("/home");
         }
       } catch (error) {
         console.error("Error getting redirect result:", error);
