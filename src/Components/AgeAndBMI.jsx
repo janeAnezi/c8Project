@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const AgeAndBMI = () => {
   const [ageRange, setAgeRange] = useState("");
@@ -13,7 +13,13 @@ const AgeAndBMI = () => {
       const heightInMeters = height / 100;
       const bmiValue = (weight / heightInMeters ** 2).toFixed(2);
       setBMI(bmiValue);
+      localStorage.setItem("bmi", bmiValue);
     }
+  };
+
+  const handleAgeRange = (range) => {
+    setAgeRange(range);
+    localStorage.setItem("ageRange", range);
   };
 
   return (
@@ -24,8 +30,8 @@ const AgeAndBMI = () => {
         {ageRanges.map((range) => (
           <button
             key={range}
-            onClick={() => setAgeRange(range)}
-            className={`px-5 py-3 mr-4 text-[18px] w-1/3 lg:w-80 rounded-md border hover:bg-blue-200 ${
+            onClick={() => handleAgeRange(range)}
+            className={`px-5 py-3 mr-4 text-[18px] w-1/3 lg:w-80 rounded-md border lg:hover:bg-blue-200 ${
               ageRange === range ? "bg-blue-200" : ""
             }`}
           >
