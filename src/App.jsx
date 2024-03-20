@@ -7,11 +7,12 @@ import MealHistoryPage from "./pages/MealHistoryPage";
 import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
-import PreviewPage from "./pages/Previewmeal";
-import MealDetailsPage from "./pages/MealFullDetails";
+import Preview from "./pages/Previewmeal";
+import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
+import HomePage from "./pages/HomePage";
 
 
 function App() {
@@ -42,18 +43,18 @@ function App() {
               }
             />
             <Route
-              path="/preview"
+              path="/preview/:id"
               element={
                 <PrivateRoute>
-                  <PreviewPage />
+                  <Preview />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/MealDetails"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
-                  <MealDetailsPage />
+                  <Mealdetails />
                 </PrivateRoute>
               }
             />
@@ -65,7 +66,22 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/Recommended" element={<RecommendedMeal />} />
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/Recommended"
+              element={
+                <PrivateRoute>
+                  <RecommendedMeal />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </AuthProvider>
       </Router>
