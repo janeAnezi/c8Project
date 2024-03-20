@@ -8,7 +8,7 @@ function MealListing({ meals }) {
       <h2 className="text-[#101010] text-base font-semibold">Meal Listing</h2>
       {meals.map((singleMeal) => (
         <div
-          className="flex align-center justify-between divide-x-2"
+          className="flex align-center justify-between"
           key={singleMeal?.id}
         >
           <div className="flex items-center justify-between gap-4">

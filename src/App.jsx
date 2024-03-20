@@ -59,7 +59,7 @@ function App() {
               }
             />
             <Route
-              path="/preview"
+              path="/preview/:id"
               element={
                 <PrivateRoute>
                   <Preview />

@@ -6,7 +6,7 @@ function Preview() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [similarRecipes, setSimilarRecipes] = useState(null);
   let { id } = useParams();
-  const apiKey = "7fffe677eb714b4c848b64963a57193a";
+  const apiKey = "38ff337b4439431586d2141d7072a80e";
 
   console.log(id);
 
@@ -52,10 +52,10 @@ function Preview() {
 
         <h2 className="flex items-center justify-start text-[#101010] text-base font-semibold">
           {recipeDetail.title}
-          
+
         </h2>
 
-        <div className=" flex justify-start gap-2 font-semibold text-sm ">
+        <div className=" flex items-center justify-start gap-2 font-semibold text-sm ">
           <span className="bg-[#F0F6FF] rounded-md px-2 py-1">Popular</span>
           <span className="bg-[#FFF0F0] rounded-md px-2 py-1">
             2 weeks plan
