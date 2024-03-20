@@ -47,18 +47,19 @@ function Mealdetails() {
         />
       </div>
 
-      <div className="flex items-center justify-start gap-3">
-        <div className="text-base">
+      <div className="flex items-center justify-start gap-3 font-semibold text-sm text-left">
+        <div className="border-[#c9c9cc] bg-slate-200 px-3 py-2">
           <FaClockRotateLeft />
           <p>{recipeDetail.readyInMinutes}</p>
         </div>
-        <div>
+
+        <div className="border-[#c9c9cc] bg-slate-200 px-3 py-2">
           <GiNoodles />
           <p>{recipeDetail.servings} </p>
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 bg-slate-400 rounded-md">
+      <div className="flex flex-col gap-1 bg-slate-200 rounded-md text-left">
         <h3>INGREDIENTS</h3>
         {recipeDetail?.extendedIngredients.map((ingredient, index) => (
           <div key={`${ingredient?.id}-${index}`}>
@@ -69,7 +70,10 @@ function Mealdetails() {
 
       <div>
         <h3 className="text-lg font-semibold">Instructions:</h3>
-        <p dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}></p>
+        <p
+          className=" text-justify text-base"
+          dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}
+        ></p>
       </div>
 
       {/* For rendering other details if needed */}

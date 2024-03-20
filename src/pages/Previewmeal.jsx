@@ -50,24 +50,24 @@ function Preview() {
           className="w-full h-52 object-cover rounded-lg"
         />
 
-        <h2 className="text-[#101010] text-base font-semibold">
+        <h2 className="text-[#101010] text-base text-left font-semibold">
           {recipeDetail.title}
         </h2>
 
-        <div>
+        <div className="text-left">
           <span>Popular</span>
           <span>2 weeks plan</span>
         </div>
 
         <p
-          className="text-base line-clamp-3"
+          className="text-base line-clamp-4 text-justify"
           dangerouslySetInnerHTML={{ __html: recipeDetail?.summary }}
         ></p>
 
         <div className="flex flex-wrap gap-4 text-sm font-semibold">
           {recipeDetail?.extendedIngredients.map((ingredient, index) => (
             <div key={`${ingredient?.id}-${index}`}>
-              <p >{ingredient.name}</p>
+              <p>{ingredient.name}</p>
               <p>
                 {ingredient.amount} {ingredient.unit}
               </p>
@@ -76,7 +76,7 @@ function Preview() {
         </div>
       </div>
 
-      <hr/>
+      <hr />
 
       <div>
         <MealListing meals={similarRecipes} />
