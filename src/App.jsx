@@ -10,8 +10,6 @@ import MealDetailsPage from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 
-
-
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -22,14 +20,13 @@ function App() {
           <Route path="/mealplan" element={<MealPlanPage />} />
           <Route path="/history" element={<MealHistoryPage />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/preview" element={<PreviewPage />} />
-          <Route path="/MealDetails" element={<MealDetailsPage />} />
+          <Route path="/preview/:id" element={<Preview />} />
+          <Route path="/details/:id" element={<Mealdetails />} />
           <Route path="/referral" Component={ReferralPage} />
           <Route path="/Recommended" element={<RecommendedMeal />} />
         </Routes>
       </Router>
     </div>
-
   );
 }
 

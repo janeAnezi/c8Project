@@ -48,7 +48,7 @@ function PreviewPage() {
           <div
           //dangerouslySetInnerHTML={{ __html: singleMeal?.summary }} for text if generated text is too lenghty "line-clamp-2 hover:line-clamp-none"
           >
-            <p className="text-[12px] text-[#282828] indent-0">
+            <p className="text-[12px] text-[#282828] text-justify">
               Succulent grilled salmon fillets, perfectly seasoned and
               accompanied by a zesty lemon-dill sauce.
             </p>
@@ -85,7 +85,7 @@ function PreviewPage() {
         </div>
       </div>
 
-      <hr/>
+      <hr />
 
       <MealListing />
 
