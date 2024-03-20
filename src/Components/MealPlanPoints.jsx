@@ -9,7 +9,7 @@ function MealPlanPoints() {
     function createMealPlan() {
 
         // to navigate to the meal plan page
-        navigate('/MealPlan');
+        navigate('/home');
 
     }
 
@@ -17,7 +17,7 @@ function MealPlanPoints() {
     function mealHistory() {
 
         // to navigate to the meal history page
-        navigate('/history');
+        navigate('/saved');
     }
 
     return(

@@ -59,7 +59,7 @@ const Menu = () => {
         >
           <img
             src={isMenuOpen ? close : menu}
-            alt="menu button"
+            alt="venu button"
             className="w-7"
           />
         </button>
