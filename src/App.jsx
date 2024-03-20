@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./Contexts/AuthContext";
 import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
-import MealPointAndReferralPage from "./pages/MealPointAndReferralPage";
+// import MealPointAndReferralPage from "./pages/MealPointAndReferralPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
 import "./App.css";
 import Onboarding from "./pages/Onboarding";
