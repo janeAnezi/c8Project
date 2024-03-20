@@ -52,6 +52,7 @@ function Preview() {
 
         <h2 className="flex items-center justify-start text-[#101010] text-base font-semibold">
           {recipeDetail.title}
+          
         </h2>
 
         <div className=" flex justify-start gap-2 font-semibold text-sm ">
