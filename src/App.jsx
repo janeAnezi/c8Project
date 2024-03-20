@@ -8,13 +8,10 @@ import Onboarding from "./pages/Onboarding";
 import PreviewPage from "./pages/Previewmeal";
 import MealDetailsPage from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
-<<<<<<< HEAD
 import HomePage from "./pages/Homepage";
-=======
 import RecommendedMeal from "./pages/RecommendedMeal";
 
 
->>>>>>> 093ce3ecdde35541dfd6c3102488a1766a5d7dd6
 
 function App() {
   return (
@@ -29,12 +26,9 @@ function App() {
           <Route path="/preview" element={<PreviewPage />} />
           <Route path="/MealDetails" element={<MealDetailsPage />} />
           <Route path="/referral" Component={ReferralPage} />
-<<<<<<< HEAD
-          <Route path="/Home" element={ <HomePage />} />
+          <Route path="/home" element={ <HomePage />} />
 
-=======
           <Route path="/Recommended" element={<RecommendedMeal />} />
->>>>>>> 093ce3ecdde35541dfd6c3102488a1766a5d7dd6
         </Routes>
       </Router>
     </div>
