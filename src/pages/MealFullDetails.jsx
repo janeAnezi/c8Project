@@ -9,7 +9,7 @@ import { useEffect } from "react";
 function Mealdetails() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   let { id } = useParams();
-  const apiKey = "216354ab050b4d29b1712c3e701c7543";
+  const apiKey = "38ff337b4439431586d2141d7072a80e";
   console.log(id);
 
   useEffect(() => {
@@ -80,13 +80,13 @@ function Mealdetails() {
 
       <div className="">
         <h3 className="font-semibold text-[14px]">VIDEO TUTORIAL</h3>
-        <a
-          href="www.youtube.com"
-          className="flex items-center gap-2 bg-[#ebe9e9] border-slate-400 px-2 py-3 rounded-md text-[12px] font-semibold"
-        >
-          <IoLogoYoutube />
-          www.youtube.com/username/videotitle
-        </a>
+          <a
+            href="www.youtube.com"
+            className="flex items-center gap-2 bg-[#ebe9e9] border-slate-400 px-2 py-3 rounded-md text-[12px] font-semibold"
+          >
+            <IoLogoYoutube />
+            www.youtube.com/username/videotitle
+          </a>
       </div>
     </div>
   );
