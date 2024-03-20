@@ -38,28 +38,28 @@ function Mealdetails() {
   }
 
   return (
-    <div className="px-4 py-6">
+    <div className=" flex flex-col gap-4 px-8 py-6">
       <div className="w-full flex items-center">
         <img
           src={recipeDetail.image}
           alt={recipeDetail.title}
-          className="w-[80%] h-72 object-cover rounded-lg"
+          className="w-[100%] h-52 object-cover rounded-lg"
         />
       </div>
 
       <div className="flex items-center justify-start gap-3 font-semibold text-sm text-left">
-        <div className="border-[#c9c9cc] bg-slate-200 px-3 py-2">
+        <div className="flex gap-2 border-[#c9c9cc] bg-slate-200 px-3 py-2">
           <FaClockRotateLeft />
-          <p>{recipeDetail.readyInMinutes}</p>
+          <p>Ready In {recipeDetail.readyInMinutes} Minutes</p>
         </div>
 
-        <div className="border-[#c9c9cc] bg-slate-200 px-3 py-2">
+        <div className="flex gap-2 border-[#c9c9cc] bg-slate-200 px-3 py-2">
           <GiNoodles />
-          <p>{recipeDetail.servings} </p>
+          <p>{recipeDetail.servings} SERVING </p>
         </div>
       </div>
 
-      <div className="flex flex-col gap-1 bg-slate-200 rounded-md text-left">
+      <div className="flex flex-col gap-1 bg-slate-200 rounded-md text-left px-2 py-4">
         <h3>INGREDIENTS</h3>
         {recipeDetail?.extendedIngredients.map((ingredient, index) => (
           <div key={`${ingredient?.id}-${index}`}>
@@ -70,10 +70,7 @@ function Mealdetails() {
 
       <div>
         <h3 className="text-lg font-semibold">Instructions:</h3>
-        <p
-          className=" text-justify text-base"
-          dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}
-        ></p>
+        <p dangerouslySetInnerHTML={{ __html: recipeDetail?.instructions }}></p>
       </div>
 
       {/* For rendering other details if needed */}

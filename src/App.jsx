@@ -62,15 +62,15 @@ function App() {
               path="/preview"
               element={
                 <PrivateRoute>
-                  <PreviewPage />
+                  <Preview />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/MealDetails"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
-                  <MealDetailsPage />
+                  <Mealdetails />
                 </PrivateRoute>
               }
             />

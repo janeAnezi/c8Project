@@ -42,31 +42,36 @@ function Preview() {
   }
 
   return (
-    <div className="px-4 py-6">
+    <div className="flex flex-col gap-3 px-4 py-6">
       <div className="w-full flex flex-col items-center gap-2 ">
         <img
           src={recipeDetail.image}
           alt={recipeDetail.title}
-          className="w-full h-52 object-cover rounded-lg"
+          className="w-[100%] h-32 object-cover rounded-lg"
         />
 
-        <h2 className="text-[#101010] text-base text-left font-semibold">
+        <h2 className="flex items-center justify-start text-[#101010] text-base font-semibold">
           {recipeDetail.title}
         </h2>
 
-        <div className="text-left">
-          <span>Popular</span>
-          <span>2 weeks plan</span>
+        <div className=" flex justify-start gap-2 font-semibold text-sm ">
+          <span className="bg-[#F0F6FF] rounded-md px-2 py-1">Popular</span>
+          <span className="bg-[#FFF0F0] rounded-md px-2 py-1">
+            2 weeks plan
+          </span>
         </div>
 
         <p
-          className="text-base line-clamp-4 text-justify"
+          className="text-sm line-clamp-4 text-justify md:text-base"
           dangerouslySetInnerHTML={{ __html: recipeDetail?.summary }}
         ></p>
 
-        <div className="flex flex-wrap gap-4 text-sm font-semibold">
+        <div className="flex flex-wrap gap-2 text-sm font-semibold">
           {recipeDetail?.extendedIngredients.map((ingredient, index) => (
-            <div key={`${ingredient?.id}-${index}`}>
+            <div
+              key={`${ingredient?.id}-${index}`}
+              className="flex flex-wrap gap-1 bg-[#dde0e7] border-[#d1dae7] rounded-md px-2 py-1"
+            >
               <p>{ingredient.name}</p>
               <p>
                 {ingredient.amount} {ingredient.unit}
