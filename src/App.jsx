@@ -14,6 +14,8 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 //import Saved from "./pages/savedmeal";
 import HomePage from "./pages/HomePage";
+import CommunityPage from "./pages/CommunityPage";
+
 
 function App() {
   return (
@@ -24,15 +26,8 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-
-            <Route
-              path="/MealPoint"
-              element={
-                <PrivateRoute>
-                  <MealPointsPage />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/MealPoint" element={<MealPointsPage />}/>
+            
             <Route
               path="/mealplan"
               element={
@@ -82,6 +77,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <ReferralPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/communitypage"
+              element={
+                <PrivateRoute>
+                  <CommunityPage />
                 </PrivateRoute>
               }
             />

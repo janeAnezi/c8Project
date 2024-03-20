@@ -86,17 +86,18 @@ export default function Referral() {
       document.getElementById('redeem').style.background = 'green'
     }
 
-  
+    
 
     return (
-        <>
-            <div className=" text-left inline-block w-80 bg-slate-100 border mt-3 p-2 rounded-xl">
+        <><div className='flex justify-center items-center mb-6'>
+            <div className=" text-left inline-block w-[340px] bg-slate-100 border mt-3 pb-6 px-3 pt-4 rounded-xl">
               <h1 className="text-3xl mb-2"><span id="count" className="font-semibold">{copiedCount}</span> Pts</h1>
               <p className="text-sm mb-3 ">Reach 400 points and get a meal on us!</p>
               <button id='redeem' onClick={redeemPoints} disabled={copiedCount < 400} className="bg-black hover:bg-slate-700 text-white rounded-md px-2 pb-1">Redeem Points</button>
-            </div><br></br>
-    
-            <div className="text-left inline-block w-80 bg-slate-100 border  p-2 rounded-xl mt-4">
+            </div>
+          </div>
+          <div className='flex justify-center items-center mb-6'>
+            <div className="text-left inline-block w-[340px]  bg-slate-100 border pb-6 px-3 pt-4 rounded-xl mt-4">
                 <p className="font-semibold mb-2">Invite a friend</p>
                 <p className="text-sm mb-3 ">Earn 10 points for every friend that signs up.</p>
                 {isLoggedIn && (
@@ -129,6 +130,8 @@ export default function Referral() {
                 </div>}
                 
             </div>
+          </div>
+          <div className='flex justify-center items-center mt-14'><img src="./src/assets/suffix.png" alt="a suffix-image"/></div>
         </>
     );
 }
