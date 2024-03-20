@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithRedirect,
+  getRedirectResult,
 } from "firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import Google from "../assets/google.svg";
