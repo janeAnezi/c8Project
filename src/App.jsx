@@ -14,7 +14,7 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
-import SavedPage from "./pages/savedmeal";
+import Savedmeal from "./pages/Savedmeal";
 
 function App() {
   return (
@@ -63,7 +63,7 @@ function App() {
               path="/saved"
               element={
                 <PrivateRoute>
-                  <SavedPage />
+                  <Savedmeal />
                 </PrivateRoute>
               }
             />

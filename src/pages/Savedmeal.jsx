@@ -4,7 +4,7 @@ import { GoDotFill } from "react-icons/go";
 
 const apiKey = "3fe49c1121264389ae06b158e350b213";
 
-function SavedPage() {
+function Savedmeal() {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
@@ -64,4 +64,4 @@ function SavedPage() {
   );
 }
 
-export default SavedPage;
+export default Savedmeal;
