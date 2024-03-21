@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import menu from "../assets/menubutton.jpg";
 import close from "../assets/closebutton.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ const Menu = () => {
         // toast.success("Sign-out successful", { autoClose: 3000 });
         // navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Error Signing out");
         console.log("Error Signing out");
       });

@@ -26,7 +26,7 @@ const HomePage = () => {
           </div>
           <button className="inline-block w-80 border border-purple-500 py-2 mt-8 rounded-md hover:border-purple-800">View more</button>
         </div>
-      </div>
+      </div> 
     </>
   );
 };
