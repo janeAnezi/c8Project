@@ -11,7 +11,7 @@ function Savedmeal() {
     const getData = async () => {
       try {
         const request = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&offset=0`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=4&offset=0`
         );
 
         const data = await request.json();
@@ -31,34 +31,41 @@ function Savedmeal() {
 
   return (
     <>
-      <h2 className="text-[#101010] text-base font-semibold">
-        Saved Meal Plans
-      </h2>
+      <div className="p-6 ">
+        <h2 className="text-[#101010] text-base font-bold p-4">
+          Saved Meal Plans
+        </h2>
 
-      <div className="w-full flex flex-col items-center gap-2">
-        {meals?.map((singleMeal, index) => (
-          <div
-            className="flex items-center gap-2 overflow-hidden w-full"
-            key={`${singleMeal?.id}-${index}`}
-          >
-            <div className="w-[100px] h-[100px] overflow-hidden rounded-md shrink-0">
-              <img
-                src={singleMeal.image}
-                className="w-[100px] h-[100px] object-contain"
-                alt={singleMeal?.title}
-                loading="lazy"
-              />
-            </div>
+        <div className="w-full flex flex-col items-center gap-4 overflow-hidden">
+          {meals?.map((singleMeal, index) => (
+            <div
+              className="flex items-center justify-between gap-6 overflow-hidden w-full"
+              key={`${singleMeal?.id}-${index}`}
+            >
+              <div className="w-[100px] h-[100px] overflow-hidden rounded-lg shrink-0">
+                <img
+                  src={singleMeal.image}
+                  className="w-[100px] h-[100px] object-contain rounded-lg"
+                  alt={singleMeal?.title}
+                  loading="lazy"
+                />
+              </div>
 
-            <div className="flex flex-col gap-1 items-start flex-shrink flex-1">
-              <div className="flex gap-3 items-start">
-                <span className="">Popular</span>
-                <GoDotFill />
-                <span>Vegan Only</span>
+              <div className="flex flex-col gap-1 items-start flex-shrink flex-1">
+                <p className="font-semibold text-[13px] md:text-[15px] lg:text-[20px]">
+                  {singleMeal?.title}
+                </p>
+                <div className="flex gap-3 items-center justify-center text-[12px] md:text-[15px]">
+                  <span className="bg-[#F0F6FF] rounded-md px-2 py-1 ">
+                    Popular
+                  </span>
+                  <GoDotFill className="text-pink-200" />
+                  <span>Vegan Only</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
