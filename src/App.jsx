@@ -77,7 +77,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/Recommended" element={<RecommendedMeal />} />
 
             <Route
               path="/referral"
@@ -95,8 +94,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/Navbar" element={<PrivateRoute></PrivateRoute>} />
-
             <Route
               path="/home"
               element={
