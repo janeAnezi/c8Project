@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MealListing from "../Components/MealListing";
+import Menu from "../Components/Menu";
 
 function Preview() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [similarRecipes, setSimilarRecipes] = useState(null);
   let { id } = useParams();
-  const apiKey = "38ff337b4439431586d2141d7072a80e";
+  const apiKey = "3fe49c1121264389ae06b158e350b213";
 
   console.log(id);
 
@@ -42,7 +43,9 @@ function Preview() {
   }
 
   return (
-    <div className="flex flex-col gap-3 px-4 py-6">
+    <div className="flex flex-col gap-3 px-4 py-12">
+      <Menu />
+
       <div className="w-full flex flex-col items-center gap-2 ">
         <img
           src={recipeDetail.image}
@@ -52,7 +55,6 @@ function Preview() {
 
         <h2 className="flex items-center justify-start text-[#101010] text-base font-semibold">
           {recipeDetail.title}
-
         </h2>
 
         <div className=" flex items-center justify-start gap-2 font-semibold text-sm ">

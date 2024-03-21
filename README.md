@@ -15,6 +15,25 @@ Cohort 8 Pro Capstone Project
 
 ## Features
 
+### Landing Page
+The landing page includes the welcoming address, get started function and sign in function.
+
+### Get Started 
+The get started process is the first step to enjoy the full benefits of our meal planning app. Follow these steps:
+
+- Open the app and click on the "get started" button.
+- Select the age bmi, allergies, diseases, diets and others to know your preferences.
+- Enter your email address and create a strong password.
+- Fill in your personal details, including your name and contact information.
+- Review our Terms and Conditions and Privacy Policy.
+- Click the "Sign Up" button to create your account.
+  
+### Sign In
+If you already have an account, log in using these steps:
+
+* Open the app and click on the "Log In" button.
+* Enter your registered email address and password.
+* Click the "Sign In" button to access your account.
 ### Referral Feature
 
 - Automatically generates a referral link for logged-in users.

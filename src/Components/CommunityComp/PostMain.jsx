@@ -29,6 +29,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import PostCard from "./PostCard";
+import TagButton from "./TagButton";
 
 const PostMain = () => {
   const { currentUser, userData } = useContext(AuthContext);
@@ -166,6 +167,8 @@ const PostMain = () => {
   //   return () => postData();
   // }, [SUBMIT_POST]);
 
+  //search bar action
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
@@ -234,6 +237,7 @@ const PostMain = () => {
           </div>
         </div>
       </div>
+      <TagButton />
       <div className="flex flex-col py-4 w-full">
         {state?.error ? (
           <div className="flex justify-center items-center">
