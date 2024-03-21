@@ -215,7 +215,7 @@ const SignUp = () => {
             </button>
             <p>
               By using this app, you agree to our{" "}
-              <a href="" className="text-blue-500 font-bold">
+              <a href="https://docs.google.com/document/d/15ONH41KmOXuOUFBbTSLmjOb2Q-xufJC2jQeK3HOB0dw/edit" className="text-blue-500 font-bold" target="_blank">
                 Terms of use and Conditions
               </a>
             </p>
