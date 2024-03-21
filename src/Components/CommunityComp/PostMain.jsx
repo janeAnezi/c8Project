@@ -31,6 +31,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import PostCard from "./PostCard";
+import TagButton from "./TagButton";
 
 const PostMain = () => {
   // Define and populate filteredMealNames
@@ -154,166 +155,172 @@ const PostMain = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [SUBMIT_POST]);
 
+
+  //search bar action
+  
+
   return (
-      <div className="flex flex-col items-center">
-        <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
-          <div className="flex items-center pb-4 pl-4 w-full">
-            {/* <div className="flex -space-x-1 overflow-hidden">
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src={avatar || user?.photoURL}
-                alt="image"
-              />
-            </div> */}
-            <form className="w-full">
-              <div className="flex justify-between items-center">
-                <div className="w-full ml-4">
-                  <input
-                    type="text"
-                    name="text"
-                    placeholder="Write something"
-                    className="outline-none w-full bg-[#f4f4f4] rounded-md"
-                    ref={text}
-                  ></input>
-                </div>
-                <div className="mx-4">
-                  {image && (
-                    <img
-                      className="h-24 rounded-xl"
-                      src={image}
-                      alt="previewImage"
-                    ></img>
-                  )}
-                </div>
-              </div>
-            </form>
-          </div>
-          <span
-            style={{ width: `${progressBar}%` }}
-            className="bg-[#101010] py-1 rounded-md"
-          ></span>
-          <div className="flex justify-between pt-10 bottom-0">
-            <div className="pl-5">
-              <button
-                className="py-2 px-5 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
-                onClick={handleSubmitPost}
-              >
-                Post
-              </button>
-            </div>
-            <div className="flex items-center">
-              <label
-                htmlFor="addImage"
-                className="cursor-pointer flex items-center"
-              >
-                <img className="h-10 mr-4" src={addImage} alt="addImage"></img>
+    <div className="flex flex-col items-center">
+      <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
+        <div className="flex items-center pb-4 pl-4 w-full">
+          {/* <div className="flex -space-x-1 overflow-hidden">
+            <img
+              className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+              src={avatar || user?.photoURL}
+              alt="image"
+            />
+          </div> */}
+          <form className="w-full">
+            <div className="flex justify-between items-center">
+              <div className="w-full ml-4">
                 <input
-                  id="addImage"
-                  type="file"
-                  style={{ display: "none" }}
-                  onChange={handleUpload}
+                  type="text"
+                  name="text"
+                  placeholder="Write something"
+                  className="outline-none w-full bg-[#f4f4f4] rounded-md"
+                  ref={text}
                 ></input>
-              </label>
-              {file && (
-                <button className="text" onClick={submitImage}>
-                  Upload
-                </button>
-              )}
+              </div>
+              <div className="mx-4">
+                {image && (
+                  <img
+                    className="h-24 rounded-xl"
+                    src={image}
+                    alt="previewImage"
+                  ></img>
+                )}
+              </div>
             </div>
+          </form>
+        </div>
+        <span
+          style={{ width: `${progressBar}%` }}
+          className="bg-[#101010] py-1 rounded-md"
+        ></span>
+        <div className="flex justify-between pt-10 bottom-0">
+          <div className="pl-5">
+            <button
+              className="py-2 px-5 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
+              onClick={handleSubmitPost}
+            >
+              Post
+            </button>
+          </div>
+          <div className="flex items-center">
+            <label
+              htmlFor="addImage"
+              className="cursor-pointer flex items-center"
+            >
+              <img className="h-10 mr-4" src={addImage} alt="addImage"></img>
+              <input
+                id="addImage"
+                type="file"
+                style={{ display: "none" }}
+                onChange={handleUpload}
+              ></input>
+            </label>
+            {file && (
+              <button className="text" onClick={submitImage}>
+                Upload
+              </button>
+            )}
           </div>
         </div>
-        <div className="flex flex-col py-4 w-full">
-          {state?.error ? (
-            <div className="flex justify-center items-center">
-              <alert color="red">
-                Something went wrong refresh and try again...
-              </alert>
-            </div>
-          ) : (
-            <div>
-              {state?.posts?.length > 0 &&
-                state?.posts?.map((post, index) => {
-                  const timestamp = new Date(post?.timestamp?.toDate());
-
-                  // Calculate the difference between now and the post timestamp
-                  const now = new Date();
-                  const diff = now - timestamp;
-
-                  // Convert milliseconds to seconds
-                  const seconds = Math.floor(diff / 1000);
-
-                  // Calculate years, months, days, hours, and minutes
-                  const years = Math.floor(seconds / (365 * 24 * 60 * 60));
-                  const months = Math.floor(
-                    (seconds % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60)
-                  );
-                  const days = Math.floor(
-                    (seconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60)
-                  );
-                  const hours = Math.floor(
-                    (seconds % (24 * 60 * 60)) / (60 * 60)
-                  );
-                  const minutes = Math.floor((seconds % (60 * 60)) / 60);
-
-                  // Construct the timestamp string
-                  let timestampString = "";
-                  if (years > 0) {
-                    timestampString += `${years}y `;
-                  }
-                  if (months > 0) {
-                    timestampString += `${months}mo `;
-                  }
-                  if (days > 0) {
-                    timestampString += `${days}d `;
-                  }
-                  if (hours > 0) {
-                    timestampString += `${hours}h `;
-                  }
-                  if (minutes > 0) {
-                    timestampString += `${minutes}m `;
-                  }
-
-                  return (
-                    <PostCard
-                      key={index}
-                      logo={post?.logo}
-                      id={post?.documentId}
-                      uid={post?.uid}
-                      name={post?.name}
-                      email={post?.email}
-                      image={post?.image}
-                      text={post?.text}
-                      timestamp={timestampString.trim()} // Display the formatted timestamp
-                    ></PostCard>
-                  );
-                })}
-            </div>
-
-            // <div>
-            //   {state?.posts?.length > 0 &&
-            //     state?.posts?.map((post, index) => {
-            //       return (
-            //         <PostCard
-            //           key={index}
-            //           logo={post?.logo}
-            //           id={post?.documentId}
-            //           uid={post?.uid}
-            //           name={post?.name}
-            //           email={post?.email}
-            //           image={post?.image}
-            //           text={post?.text}
-            //           timestamp={new Date(
-            //             post?.timestamp?.toDate()
-            //           )?.toUTCString()}
-            //         ></PostCard>
-            //       );
-            //     })}
-            // </div>
-          )}
-        </div>
-        <div ref={scrollRef}>{/* refference for later */}</div>
       </div>
-    
+      <TagButton />
+      <div className="flex flex-col py-4 w-full">
+     
+
+        {state?.error ? (
+          <div className="flex justify-center items-center">
+            <alert color="red">
+              Something went wrong refresh and try again...
+            </alert>
+          </div>
+        ) : (
+          <div>
+            {state?.posts?.length > 0 &&
+              state?.posts?.map((post, index) => {
+                const timestamp = new Date(post?.timestamp?.toDate());
+
+                // Calculate the difference between now and the post timestamp
+                const now = new Date();
+                const diff = now - timestamp;
+
+                // Convert milliseconds to seconds
+                const seconds = Math.floor(diff / 1000);
+
+                // Calculate years, months, days, hours, and minutes
+                const years = Math.floor(seconds / (365 * 24 * 60 * 60));
+                const months = Math.floor(
+                  (seconds % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60)
+                );
+                const days = Math.floor(
+                  (seconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60)
+                );
+                const hours = Math.floor(
+                  (seconds % (24 * 60 * 60)) / (60 * 60)
+                );
+                const minutes = Math.floor((seconds % (60 * 60)) / 60);
+
+                // Construct the timestamp string
+                let timestampString = "";
+                if (years > 0) {
+                  timestampString += `${years}y `;
+                }
+                if (months > 0) {
+                  timestampString += `${months}mo `;
+                }
+                if (days > 0) {
+                  timestampString += `${days}d `;
+                }
+                if (hours > 0) {
+                  timestampString += `${hours}h `;
+                }
+                if (minutes > 0) {
+                  timestampString += `${minutes}m `;
+                }
+
+                return (
+                  <PostCard
+                    key={index}
+                    logo={post?.logo}
+                    id={post?.documentId}
+                    uid={post?.uid}
+                    name={post?.name}
+                    email={post?.email}
+                    image={post?.image}
+                    text={post?.text}
+                    timestamp={timestampString.trim()} // Display the formatted timestamp
+                  ></PostCard>
+                );
+              })}
+          </div>
+
+          // <div>
+          //   {state?.posts?.length > 0 &&
+          //     state?.posts?.map((post, index) => {
+          //       return (
+          //         <PostCard
+          //           key={index}
+          //           logo={post?.logo}
+          //           id={post?.documentId}
+          //           uid={post?.uid}
+          //           name={post?.name}
+          //           email={post?.email}
+          //           image={post?.image}
+          //           text={post?.text}
+          //           timestamp={new Date(
+          //             post?.timestamp?.toDate()
+          //           )?.toUTCString()}
+          //         ></PostCard>
+          //       );
+          //     })}
+          // </div>
+        )}
+      </div>
+      <div ref={scrollRef}>{/* refference for later */}</div>
+    </div>
   );
 };
 

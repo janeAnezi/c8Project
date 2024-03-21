@@ -13,20 +13,25 @@ import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
-// import CommunityPage from "./pages/CommunityPage";
+import CommunityPage from "./pages/CommunityPage";
+import Navbar from "./Components/Navbar";
+import Savedmeal from "./pages/Savedmeal";
+
 
 
 function App() {
   return (
     <div className="font-[Manrope]">
       <Router>
+        <Navbar />
         <AuthProvider>
-          <Routes>
+           <Routes>
+             
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/MealPoint" element={<MealPointsPage />}/>
-            
+            <Route path="/MealPoint" element={<MealPointsPage />} />
+
             <Route
               path="/mealplan"
               element={
@@ -52,13 +57,22 @@ function App() {
               }
             />
             <Route
-              path="/MealDetails/:id"
+              path="/mealDetails/:id"
               element={
                 <PrivateRoute>
                   <Mealdetails />
                 </PrivateRoute>
               }
             />
+            <Route
+              path="/saved"
+              element={
+                <PrivateRoute>
+                  <Savedmeal />
+                </PrivateRoute>
+              }
+            />
+
             <Route
               path="/referral"
               element={
@@ -67,14 +81,32 @@ function App() {
                 </PrivateRoute>
               }
             />
-            {/* <Route
+            <Route path="/Recommended" element={<RecommendedMeal />} />
+
+            <Route
+              path="/referral"
+              element={
+                <PrivateRoute>
+                  <ReferralPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/communitypage"
               element={
                 <PrivateRoute>
                   <CommunityPage />
                 </PrivateRoute>
               }
-            /> */}
+            />
+             <Route
+              path="/Navbar"
+              element={
+                <PrivateRoute>
+                 
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/home"
               element={
@@ -91,6 +123,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+
           </Routes>
         </AuthProvider>
       </Router>
