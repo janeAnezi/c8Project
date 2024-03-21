@@ -10,7 +10,7 @@ import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
 import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
-import HomePage from "./Components/Homepage";
+// import HomePage from "./pages/HomePage";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 // import HomePage from "./pages/Homepage";
@@ -95,14 +95,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
+            {/* <Route
               path="/home"
               element={
                 <PrivateRoute>
                   <HomePage />
                 </PrivateRoute>
               }
-            />
+            /> */}
             <Route
               path="/Recommended"
               element={
