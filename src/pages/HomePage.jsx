@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../Components/Menu";
 
 
 const HomePage = () => {
@@ -40,6 +39,7 @@ const HomePage = () => {
           
         </div>
       </div> 
+
     </>
   );
 };

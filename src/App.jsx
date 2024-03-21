@@ -4,7 +4,7 @@ import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
-import "./App.css";
+// import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
@@ -17,20 +17,30 @@ import CommunityPage from "./pages/CommunityPage";
 import Navbar from "./Components/Navbar";
 import Savedmeal from "./pages/Savedmeal";
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8c4548b0e583389af37d22e9a7e1cdb6540b817f
 function App() {
   return (
     <div className="font-[Manrope]">
       <Router>
         <Navbar />
         <AuthProvider>
-           <Routes>
-             
+          <Routes>
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/MealPoint" element={<MealPointsPage />} />
+
+            <Route
+              path="/MealPoint"
+              element={
+                <PrivateRoute>
+                  <MealPointsPage />
+                </PrivateRoute>
+              }
+            />
 
             <Route
               path="/mealplan"
@@ -57,7 +67,7 @@ function App() {
               }
             />
             <Route
-              path="/mealDetails/:id"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
                   <Mealdetails />
@@ -65,6 +75,7 @@ function App() {
               }
             />
             <Route
+<<<<<<< HEAD
               path="/saved"
               element={
                 <PrivateRoute>
@@ -73,6 +84,15 @@ function App() {
               }
             />
             
+=======
+              path="/referral"
+              element={
+                <PrivateRoute>
+                  <ReferralPage />
+                </PrivateRoute>
+              }
+            />
+>>>>>>> 8c4548b0e583389af37d22e9a7e1cdb6540b817f
             <Route path="/Recommended" element={<RecommendedMeal />} />
 
             <Route
@@ -91,14 +111,8 @@ function App() {
                 </PrivateRoute>
               }
             />
-             <Route
-              path="/Navbar"
-              element={
-                <PrivateRoute>
-                 
-                </PrivateRoute>
-              }
-            />
+            <Route path="/Navbar" element={<PrivateRoute></PrivateRoute>} />
+
             <Route
               path="/home"
               element={
@@ -115,7 +129,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
           </Routes>
         </AuthProvider>
       </Router>
