@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
+import Menu from "../Components/Menu";
 
 const apiKey = "3fe49c1121264389ae06b158e350b213";
 
@@ -31,7 +32,9 @@ function Savedmeal() {
 
   return (
     <>
-      <div className="p-6 ">
+      <div className="px-6 py-12">
+        <Menu />
+
         <h2 className="text-[#101010] text-base font-bold p-4">
           Saved Meal Plans
         </h2>
