@@ -10,7 +10,7 @@ import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
 import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
-import HomePage from "./pages/Homepage";
+import HomePage from "./Components/Homepage";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 // import HomePage from "./pages/Homepage";

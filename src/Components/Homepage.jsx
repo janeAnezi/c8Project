@@ -1,7 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Menu from "./Menu";
+import  { useEffect } from "react";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
+
+const HomePage = () => {
+  
 /* 
     endpoint call comes in this way 
       https://api.spoonacular.com/recipes/complexSearch?apiKey=f29fa4d13d854421a167ec7b23670eaf&number=10&offset=1
@@ -53,7 +58,8 @@ function HomePage() {
 
   return (
     <>
-      <h2 className="text-[#101010] text-base font-bold">
+    <Menu/> 
+      <h2 className="text-[#101010] text-base font-semibold">
         Recommended Meal Plans
       </h2>
 
@@ -100,4 +106,6 @@ function HomePage() {
   );
 }
 
+
+}
 export default HomePage;
