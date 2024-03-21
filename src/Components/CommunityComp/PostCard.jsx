@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import avatar from "../../assets/images/avatar.jpg";
 import like from "../../assets/images/love.png";
 import comment from "../../assets/images/comment.png";
-// import remove from "../../assets/images/delete.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
   PostsReducer,
@@ -58,20 +57,6 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
       console.log(err.message);
     }
   };
-
-  // const deletePost = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     if (user?.uid === uid) {
-  //       await deleteDoc(singlePostDocument);
-  //     } else {
-  //       alert("You cant delete other users posts !!!");
-  //     }
-  //   } catch (err) {
-  //     alert(err.message);
-  //     console.log(err.message);
-  //   }
-  // };
 
   useEffect(() => {
     const getLikes = async () => {
@@ -163,15 +148,6 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
               </p>
             </div>
           </div>
-          {/* <div
-            className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-            onClick={deletePost}
-          >
-            <img className="h-8 mr-4" src={remove} alt="delete"></img>
-            <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Delete
-            </p>
-          </div> */}
         </div>
       </div>
       {open && <CommentSection postId={id}></CommentSection>}

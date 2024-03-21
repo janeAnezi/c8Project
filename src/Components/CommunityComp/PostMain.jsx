@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, {
   useState,
   useRef,
@@ -6,7 +5,6 @@ import React, {
   useReducer,
   useEffect,
 } from "react";
-// import avatar from "../../assets/images/avatar.jpg";
 import addImage from "../../assets/images/addImage.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
@@ -33,7 +31,6 @@ import {
 import PostCard from "./PostCard";
 
 const PostMain = () => {
-  // Define and populate filteredMealNames
   const { currentUser, userData } = useContext(AuthContext);
   const text = useRef("");
   const scrollRef = useRef("");
@@ -67,7 +64,7 @@ const PostMain = () => {
 
         await setDoc(postDocRef, {
           documentId: documentId,
-          uid: userId,
+          uid: currentUser.uid,
           logo: currentUser?.photoURL,
           name: name,
           email: email,
@@ -137,22 +134,37 @@ const PostMain = () => {
   };
 
   useEffect(() => {
-    const postData = async () => {
+    const fetchData = async () => {
       const q = query(collectionRef, orderBy("timestamp", "asc"));
-      await onSnapshot(q, (doc) => {
-        dispatch({
-          type: SUBMIT_POST,
-          posts: doc?.docs?.map((item) => item?.data()),
-        });
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const postsData = querySnapshot.docs.map((doc) => doc.data());
+        dispatch({ type: SUBMIT_POST, posts: postsData });
         scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
         setImage(null);
         setFile(null);
         setProgressBar(0);
       });
+      return () => unsubscribe();
     };
-    return () => postData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchData();
   }, [SUBMIT_POST]);
+
+  // useEffect(() => {
+  //   const postData = async () => {
+  //     const q = query(collectionRef, orderBy("timestamp", "asc"));
+  //     await onSnapshot(q, (doc) => {
+  //       dispatch({
+  //         type: SUBMIT_POST,
+  //         posts: doc?.docs?.map((item) => item?.data()),
+  //       });
+  //       scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //       setImage(null);
+  //       setFile(null);
+  //       setProgressBar(0);
+  //     });
+  //   };
+  //   return () => postData();
+  // }, [SUBMIT_POST]);
 
   return (
     <div className="flex flex-col items-center">
@@ -288,30 +300,9 @@ const PostMain = () => {
                 );
               })}
           </div>
-
-          // <div>
-          //   {state?.posts?.length > 0 &&
-          //     state?.posts?.map((post, index) => {
-          //       return (
-          //         <PostCard
-          //           key={index}
-          //           logo={post?.logo}
-          //           id={post?.documentId}
-          //           uid={post?.uid}
-          //           name={post?.name}
-          //           email={post?.email}
-          //           image={post?.image}
-          //           text={post?.text}
-          //           timestamp={new Date(
-          //             post?.timestamp?.toDate()
-          //           )?.toUTCString()}
-          //         ></PostCard>
-          //       );
-          //     })}
-          // </div>
         )}
       </div>
-      <div ref={scrollRef}>{/* refference for later */}</div>
+      <div ref={scrollRef}></div>
     </div>
   );
 };
