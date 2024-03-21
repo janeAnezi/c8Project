@@ -72,15 +72,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-
-            <Route
-              path="/referral"
-              element={
-                <PrivateRoute>
-                  <ReferralPage />
-                </PrivateRoute>
-              }
-            />
+            
             <Route path="/Recommended" element={<RecommendedMeal />} />
 
             <Route

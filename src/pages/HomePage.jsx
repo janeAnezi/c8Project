@@ -1,11 +1,14 @@
 import React from "react";
 import Menu from "../Components/Menu";
 
+
 const HomePage = () => {
+  
+
   return (
     <>
       <Menu />
-      <div className="flex justify-center items-center mt-16 ml-4">
+      <div className="flex justify-center items-center mt-4 ml-4">
         <div>
           <div>
             <p className=" font-semibold text-xl mb-3">Recommended Meal Plans</p>
@@ -25,6 +28,16 @@ const HomePage = () => {
             </div>
           </div>
           <button className="inline-block w-80 border border-purple-500 py-2 mt-8 rounded-md hover:border-purple-800">View more</button>
+          <div className="mt-3 mr-3 items-center relative">
+            <img src="./src/assets/image-menu/frame3.png" alt="food image" />
+            <button className=" absolute bottom-8 left-3 bg-blue-500 py-2 text-white  hover:bg-blue-400 px-3 inline-block mr-5  rounded-lg  text-sm ">Create Meal Plan</button>
+            <button className=" absolute bottom-8 right-20 border-blue-700 py-2 text-black bg-white  hover:bg-blue-100 px-3 inline-block   rounded-lg text-sm ">Quick Meal</button>
+          </div>
+          
+          <div class="absolute bottom-0 w-full">
+            <p className=" p-2 text-center text-xs"><span className="text-xl">&copy;</span> All Rights Reserved.2024</p>
+          </div>
+          
         </div>
       </div> 
     </>
