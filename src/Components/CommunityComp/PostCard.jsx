@@ -17,7 +17,6 @@ import {
   onSnapshot,
   where,
   getDocs,
-  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
@@ -28,7 +27,6 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
   const likesCollection = collection(db, "posts", id, "likes");
-  // const singlePostDocument = doc(db, "posts", id);
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
