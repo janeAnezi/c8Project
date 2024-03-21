@@ -7,10 +7,7 @@ function MealListing({ meals }) {
     <div className="">
       <h2 className="text-[#101010] text-base font-semibold">Meal Listing</h2>
       {meals.map((singleMeal) => (
-        <div
-          className="flex align-center justify-between"
-          key={singleMeal?.id}
-        >
+        <div className="flex align-center justify-between" key={singleMeal?.id}>
           <div className="flex items-center justify-between gap-4">
             <img
               src={`https://spoonacular.com/recipeImages/${singleMeal.id}-556x370.${singleMeal?.imageType}`}
@@ -21,7 +18,7 @@ function MealListing({ meals }) {
             <p className="text-sm text-justify"> {singleMeal?.title}</p>
           </div>
           <Link
-            to={`/details/${singleMeal?.id}`}
+            to={`/mealDetails/${singleMeal?.id}`}
             className="flex items-center justify-center gap-2 font-semibold hover:translate-x-1"
           >
             <span>View</span>
