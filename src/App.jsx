@@ -18,6 +18,7 @@ import Navbar from "./Components/Navbar";
 import Savedmeal from "./pages/Savedmeal";
 
 
+
 function App() {
   return (
     <div className="font-[Manrope]">
@@ -29,7 +30,18 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/MealPoint" element={<MealPointsPage />} />
+
+            
+            <Route
+             path="/MealPoint"
+             element={
+              <PrivateRoute>
+                <MealPointsPage />
+             </PrivateRoute>
+             }
+            />
+
+            
 
             <Route
               path="/mealplan"
@@ -56,22 +68,13 @@ function App() {
               }
             />
             <Route
-              path="/mealDetails/:id"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
                   <Mealdetails />
                 </PrivateRoute>
               }
             />
-            <Route
-              path="/saved"
-              element={
-                <PrivateRoute>
-                  <Savedmeal />
-                </PrivateRoute>
-              }
-            />
-
             <Route
               path="/referral"
               element={
@@ -106,6 +109,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+
             <Route
               path="/home"
               element={
