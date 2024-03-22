@@ -72,16 +72,16 @@ const TagButton = () => {
               ) : (
                 <button
                   onClick={handleViewMore}
-                  className="px-2 py-1 bg-blue-500 text-white rounded-md"
+                  className="px-4 py-2 mr-2 bg-blue-500 text-white rounded-md"
                 >
                   All
                 </button>
               )}
-              <div className="mr-5">
+              <div className="mr-5 flex rounded-md">
                 {searchTags.map((tag, index) => (
                   <div
                     key={index}
-                    className="inline-block mr-2 py-2 px-2 border border-black"
+                    className="inline-block mr-3 py-2 px-2 border border-black flex rounded-md"
                   >
                     {tag}
                   </div>
