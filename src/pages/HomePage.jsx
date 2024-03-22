@@ -11,8 +11,12 @@ function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      const fetchedMeals = await fetchMeals(offset);
-      setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
+      try {
+        const fetchedMeals = await fetchMeals(offset);
+        setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
+      } catch (error) {
+        console.error("Error fetching meals:", error); // Highlighted: Changed error message
+      }
     };
 
     getData();
@@ -30,7 +34,8 @@ function HomePage() {
       </h2>
 
       <div className="w-full flex flex-col items-center gap-2">
-        {meals?.map((singleMeal, index) => (
+      {meals?.length > 0 ? (
+        meals?.map((singleMeal, index) => (
           <div
             className="flex items-center gap-2 overflow-hidden w-full"
             key={`${singleMeal?.id}-${index}`}
@@ -63,8 +68,10 @@ function HomePage() {
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        ))
+        ) : (
+          <p>No meals found</p> 
+        )}  </div>
       <button
         onClick={handleLoadMore}
         className=" border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md my-6"
