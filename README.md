@@ -79,9 +79,9 @@ If you already have an account, log in using these steps:
 - Favour Joseph []()
 
   # Overview
-    The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
+    The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points and notifications.
   # Team Contributions
-    - Referral Link Generation and Point Awards: [janeAnezi] implemented the referral link generation feature and the logic for awarding points to users based on successful referrals.
+    - Referral Link Generation and Point Awards: [janeAnezi] implemented the referral link generation feature and the logic for awarding points to users based on successful referrals and Notification on successful signup or plan new meal.
 
     - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
   # Features
