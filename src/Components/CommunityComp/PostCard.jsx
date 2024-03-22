@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import like from "../../assets/images/love.png";
 import comment from "../../assets/images/comment.png";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -121,7 +120,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
             {text}
           </p>
           {image && (
-            <img className="h-[500px] w-full" src={image} alt="postImage"></img>
+            <img className="mt-5 w-full" src={image} alt="postImage"></img>
           )}
         </div>
         <div className="flex justify-around items-center pt-4">
