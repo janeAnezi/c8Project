@@ -131,8 +131,7 @@ export default function Referral() {
                 
             </div>
           </div>
-          <div className='flex justify-center items-center mt-4'><img src="./src/assets/suffix.png" alt="a suffix-image"/></div>
-        
+          <div className='flex justify-center items-center mt-4'><img src="./assets/images/suffix.png" alt="a suffix-image"/></div>
         </>
     );
 }
