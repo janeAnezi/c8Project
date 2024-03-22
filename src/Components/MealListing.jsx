@@ -1,4 +1,16 @@
 import React from "react";
+// <<<<<<< HEAD
+// // import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+// import { useNavigate } from "react-router-dom";
+
+// function MealListing() {
+//   const navigate = useNavigate();
+
+//   function getMealDetails() {
+//     // to navigate to the meal details page
+//     navigate("/MealDetails");
+//   }
+// =======
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 

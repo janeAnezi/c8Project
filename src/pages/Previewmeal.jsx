@@ -42,7 +42,8 @@ function Preview() {
   }
 
   return (
-    <div className="flex flex-col gap-3 px-4 py-6">
+    <div className="flex flex-col gap-3 px-4 py-12">
+
       <div className="w-full flex flex-col items-center gap-2 ">
         <img
           src={recipeDetail.image}
@@ -52,7 +53,6 @@ function Preview() {
 
         <h2 className="flex items-center justify-start text-[#101010] text-base font-semibold">
           {recipeDetail.title}
-
         </h2>
 
         <div className=" flex items-center justify-start gap-2 font-semibold text-sm ">
