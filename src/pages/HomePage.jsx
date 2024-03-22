@@ -33,6 +33,8 @@ function HomePage() {
     setOffset((prevOffset) => prevOffset + 1);
   };
 
+  
+
   return (
 <<<<<<< HEAD
     <div className="mx-4 my-2 flex items-center mt-20">
@@ -107,9 +109,10 @@ function HomePage() {
           </div>
         </div>
       </div>
+
     </>
 >>>>>>> upstream/master
   );
-}
+};
 
 export default HomePage;
