@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useRef } from "react";
 import avatar from "../../assets/images/avatar.jpg";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -18,6 +19,7 @@ import {
 } from "../../Contexts/PostReducer";
 import Comment from "./Comment";
 
+// eslint-disable-next-line react/prop-types
 const CommentSection = ({ postId }) => {
   const comment = useRef(null);
   const { user } = useContext(AuthContext);
