@@ -102,7 +102,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
           </div>
           <div className="flex justify-between w-full">
             <p className="ml-2 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-              {email}
+            {email.length > 15 ? email.substring(0, 15) + '...' : email}
             </p>
             <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
               {timestamp}
