@@ -11,7 +11,7 @@ function Preview() {
 
 
   let { id } = useParams();
-  const apiKey = "b44b355cdc6f46439e6783055adbda30";
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   console.log(id);
 
