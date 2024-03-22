@@ -1,5 +1,6 @@
 const apiKey = process.env.REACT_APP_API_KEY;
 
+
 const fetchMeals = async (offset) => {
   try {
     const request = await fetch(
@@ -8,10 +9,15 @@ const fetchMeals = async (offset) => {
 
     const data = await request.json();
 
+    
+    if (data && data.status === 'failure') {
+      return { error: data.message }; 
+    }
+
     return data.results;
   } catch (error) {
-    console.log(error);
-    return [];
+    console.error("Error fetching meals:", error);
+    return { error: "An error occurred while fetching meals." }; 
   }
 };
 

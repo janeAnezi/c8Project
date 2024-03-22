@@ -11,12 +11,14 @@ function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      try {
-        const fetchedMeals = await fetchMeals(offset);
-        setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
-      } catch (error) {
-        console.error("Error fetching meals:", error); // Highlighted: Changed error message
+      const fetchedMeals = await fetchMeals(offset);
+      
+      if (fetchedMeals.error) {
+        console.error("Error fetching meals:", fetchedMeals.error);
+        return;
       }
+
+      setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
     };
 
     getData();
@@ -70,15 +72,17 @@ function HomePage() {
           </div>
         ))
         ) : (
-          <p>No meals found</p> 
+          <p className="m-3 text-red-600">No meals found. API call has been exceeded for the day. Try again in 24 hours.</p> 
         )}  </div>
-      <button
-        onClick={handleLoadMore}
-        className=" border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md my-6"
-      >
-        Load More
-      </button> 
-      <div className={`w-full h-[200px] flex items-end p-4 rounded-xl overflow-hidden`}
+   
+<button
+  onClick={handleLoadMore}
+  style={{ display: meals?.length == 0 ? 'none' : 'block' }} 
+  className="border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md my-6"
+>
+  Load More
+</button>
+<div className={`w-full h-[200px] flex items-end p-4 rounded-xl overflow-hidden`}
       style={{
         background: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 90%), url(${bgImg})`,
         backgroundSize: "cover",
