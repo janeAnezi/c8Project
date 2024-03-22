@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useRef } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
   setDoc,
@@ -39,11 +39,12 @@ const CommentSection = ({ postId }) => {
         e.target.comment.value = "";
       } else {
         // Handle empty comment input
+        console.log("Empty comment input");
       }
     } catch (err) {
       dispatch({ type: HANDLE_ERROR });
       alert(err.message);
-      console.log(err.message);
+      console.error(err.message);
     }
   };
 
@@ -52,20 +53,62 @@ const CommentSection = ({ postId }) => {
       try {
         const collectionOfComments = collection(db, `posts/${postId}/comments`);
         const q = query(collectionOfComments, orderBy("timestamp", "desc"));
-        await onSnapshot(q, (doc) => {
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const comments = querySnapshot.docs.map((doc) => doc.data());
           dispatch({
             type: ADD_COMMENT,
-            comments: doc.docs?.map((item) => item.data()),
+            comments: comments,
           });
         });
+        return () => unsubscribe();
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
         alert(err.message);
-        console.log(err.message);
+        console.error(err.message);
       }
     };
-    return () => getComments();
+    getComments();
   }, [postId, ADD_COMMENT, HANDLE_ERROR]);
+
+  // const addComment = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const commentValue = e.target.comment.value;
+  //     if (commentValue.trim() !== "") {
+  //       await setDoc(commentRef, {
+  //         comment: commentValue,
+  //         timestamp: serverTimestamp(),
+  //       });
+  //       e.target.comment.value = "";
+  //     } else {
+  //       // Handle empty comment input
+  //     }
+  //   } catch (err) {
+  //     dispatch({ type: HANDLE_ERROR });
+  //     alert(err.message);
+  //     console.log(err.message);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const getComments = async () => {
+  //     try {
+  //       const collectionOfComments = collection(db, `posts/${postId}/comments`);
+  //       const q = query(collectionOfComments, orderBy("timestamp", "desc"));
+  //       await onSnapshot(q, (doc) => {
+  //         dispatch({
+  //           type: ADD_COMMENT,
+  //           comments: doc.docs?.map((item) => item.data()),
+  //         });
+  //       });
+  //     } catch (err) {
+  //       dispatch({ type: HANDLE_ERROR });
+  //       alert(err.message);
+  //       console.log(err.message);
+  //     }
+  //   };
+  //   return () => getComments();
+  // }, [postId, ADD_COMMENT, HANDLE_ERROR]);
 
   return (
     <div className="flex flex-col bg-white w-full py-2 rounded-b-3xl">

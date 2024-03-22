@@ -87,7 +87,8 @@ function App() {
             element={
               <PrivateRoute>
                 <ReferralPage />
-              </PrivateRoute>
+                </PrivateRoute>
+                
             }
           />
 
