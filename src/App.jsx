@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./Contexts/AuthContext";
+import { useAuth } from "./Contexts/AuthContext";
 import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
@@ -18,101 +18,101 @@ import Navbar from "./Components/Navbar";
 import Savedmeal from "./pages/Savedmeal";
 
 function App() {
+  const { userLoggedIn } = useAuth();
+
   return (
     <div className="font-[Manrope]">
-      <Router>
-        <Navbar />
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Onboarding />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+      <>
+        {userLoggedIn && <Navbar />}
+        <Routes>
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
 
-            <Route
-              path="/MealPoint"
-              element={
-                <PrivateRoute>
-                  <MealPointsPage />
-                </PrivateRoute>
-              }
-            />
+          <Route
+            path="/MealPoint"
+            element={
+              <PrivateRoute>
+                <MealPointsPage />
+              </PrivateRoute>
+            }
+          />
 
-            <Route
-              path="/mealplan"
-              element={
-                <PrivateRoute>
-                  <MealPlanPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/history"
-              element={
-                <PrivateRoute>
-                  <MealHistoryPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/preview/:id"
-              element={
-                <PrivateRoute>
-                  <Preview />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/MealDetails/:id"
-              element={
-                <PrivateRoute>
-                  <Mealdetails />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/referral"
-              element={
-                <PrivateRoute>
-                  <ReferralPage />
-                </PrivateRoute>
-              }
-            />
+          <Route
+            path="/mealplan"
+            element={
+              <PrivateRoute>
+                <MealPlanPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <PrivateRoute>
+                <MealHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/preview/:id"
+            element={
+              <PrivateRoute>
+                <Preview />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/MealDetails/:id"
+            element={
+              <PrivateRoute>
+                <Mealdetails />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/referral"
+            element={
+              <PrivateRoute>
+                <ReferralPage />
+              </PrivateRoute>
+            }
+          />
 
-            <Route
-              path="/referral"
-              element={
-                <PrivateRoute>
-                  <ReferralPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/communitypage"
-              element={
-                <PrivateRoute>
-                  <CommunityPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute>
-                  <HomePage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/Recommended"
-              element={
-                <PrivateRoute>
-                  <RecommendedMeal />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </AuthProvider>
-      </Router>
+          <Route
+            path="/referral"
+            element={
+              <PrivateRoute>
+                <ReferralPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/communitypage"
+            element={
+              <PrivateRoute>
+                <CommunityPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/Recommended"
+            element={
+              <PrivateRoute>
+                <RecommendedMeal />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </>
     </div>
   );
 }
