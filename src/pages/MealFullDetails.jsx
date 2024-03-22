@@ -5,7 +5,6 @@ import { FaClockRotateLeft } from "react-icons/fa6";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import Menu from "../Components/Menu";
 
 
 function Mealdetails() {
@@ -41,7 +40,6 @@ function Mealdetails() {
 
   return (
     <div className=" flex flex-col gap-4 px-6 py-12">
-      <Menu />
       <div className="w-full flex items-center">
         <img
           src={recipeDetail.image}

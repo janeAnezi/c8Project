@@ -22,24 +22,12 @@ const Menu = () => {
             navigate("/");
           },
         });
-        // console.log("sign out successful");
-        // navigate("/");
-        // toast.success("Sign-out successful", { autoClose: 3000 });
-        // navigate("/");
       })
       .catch(() => {
         toast.error("Error Signing out");
         console.log("Error Signing out");
       });
   };
-
-  // useEffect(() => {
-  //   const unsubscribe = navigate("/", () => {
-  //     toast.success("Sign Out Successful");
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
 
   return (
     <>
