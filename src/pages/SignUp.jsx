@@ -80,7 +80,7 @@ const SignUp = () => {
           autoClose: 2000,
           onClose: () => {
             console.log("sign in successful");
-            navigate("/home");
+            navigate("");
           },
         });
       })
@@ -96,7 +96,7 @@ const SignUp = () => {
       try {
         const response = await getRedirectResult(auth);
         if (response) {
-          navigate("/home");
+          navigate("/notification");
         }
       } catch (error) {
         console.error("Error getting redirect result:", error);
