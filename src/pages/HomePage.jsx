@@ -94,14 +94,14 @@ function HomePage() {
             <button
               type="btn"
               className="px-2 py-1 bg-[#4268FB] hover:bg-[#8096ee] text-white rounded-md text-sm"
-            >
+           disabled >
               Create Meal Plan
             </button>
           </Link>
           <button
             type="btn"
             className="px-2 py-1 border border-blue-500 text-black bg-white  rounded-md text-sm"
-          >
+            disabled >
             Quick Meal
           </button>
         </div>
