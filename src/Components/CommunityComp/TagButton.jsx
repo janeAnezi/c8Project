@@ -1,4 +1,5 @@
-import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
 
 const TagButton = () => {
   const initialSearchTags = [
@@ -53,8 +54,8 @@ const TagButton = () => {
   };
   return (
     <div className="flex flex-col w-full mt-5 items-center">
-      <div className="flex justify-between w-full items-center flex-wrap">
-        <div className="flex items-center flex-wrap">
+      <div className="flex justify-between w-full items-center">
+        <div className="flex items-center">
           {searchResults.length > 0 ? (
             <div className="font-bold text-lg mt-2">
               {searchResults.length} result(s) found
@@ -71,16 +72,16 @@ const TagButton = () => {
               ) : (
                 <button
                   onClick={handleViewMore}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md mr-5"
+                  className="px-4 py-2 mr-2 bg-blue-500 text-white rounded-md"
                 >
                   All
                 </button>
               )}
-              <div className="mr-5 flex flex-wrap">
+              <div className="mr-5 flex rounded-md">
                 {searchTags.map((tag, index) => (
                   <div
                     key={index}
-                    className="inline-block mr-4 mb-2 py-2 px-2 border border-black rounded-md"
+                    className="inline-block mr-3 py-2 px-2 border border-black flex rounded-md"
                   >
                     {tag}
                   </div>
@@ -104,7 +105,7 @@ const TagButton = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 cursor-pointer"
+              className="w-6 h-6"
               onClick={handleSearchIconClick}
             >
               <path

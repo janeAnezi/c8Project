@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const PlanMeal = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-
   const handleOptionSelect = (value) => {
     setSelectedOption(value);
   };

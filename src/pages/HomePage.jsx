@@ -3,7 +3,7 @@ import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 
-const apiKey = "3fe49c1121264389ae06b158e350b213";
+const apiKey = "b44b355cdc6f46439e6783055adbda30";
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
@@ -18,7 +18,7 @@ function HomePage() {
 
         const data = await request.json();
 
-        // console.log(data);
+        //  console.log(data);
 
         setMeals((prevMeals) => [...prevMeals, ...data.results]);
       } catch (error) {
@@ -32,8 +32,6 @@ function HomePage() {
   const handleLoadMore = () => {
     setOffset((prevOffset) => prevOffset + 1);
   };
-
-  
 
   return (
     <>
@@ -80,33 +78,32 @@ function HomePage() {
         </div>
         <button
           onClick={handleLoadMore}
-          className=" border border-blue-500 text-black bg-white px-4 py-1 w-full rounded-md mt-2"
+          className=" border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md mt-2"
         >
           Load More
         </button>
 
-        <div className="w-full bg-">
+        <div className=" buttonDiv w-full h-30  bg-[url(`https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg`)] ">
           <div className="flex flex-row gap-2 justify-normal content-end">
             <Link to={`/mealplan`}>
               <button
                 type="btn"
-                className="px-2 py-1 bg-[#4268FB] hover:bg-[#93a6f3] text-white rounded-md text-sm"
+                className="px-2 py-1 bg-[#4268FB] hover:bg-[#8096ee] text-white rounded-md text-sm"
               >
                 Create Meal Plan
               </button>
             </Link>
             <button
               type="btn"
-              className="px-2 py-1 border border-blue-500 text-black bg-white hover:opacity-5  rounded-md text-sm"
+              className="px-2 py-1 border border-blue-500 text-black bg-white  rounded-md text-sm"
             >
               Quick Meal
             </button>
           </div>
         </div>
       </div>
-
     </>
   );
-};
+}
 
 export default HomePage;
