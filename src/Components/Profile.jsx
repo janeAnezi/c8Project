@@ -1,3 +1,5 @@
+profile 
+
 import React, { useState, useEffect } from "react";
 import firebase from "../firebase/firebase";
 import { useAuth } from "../Contexts/AuthContext";
@@ -95,7 +97,7 @@ const Profile = ({ user }) => {
       const storage = getStorage();
       const storageRef = ref(
         storage,
-        `profileImages/${currentUser.uid}/${file.name}`
+        profileImages/${currentUser.uid}/${file.name}
       );
 
       const uploadTask = uploadBytesResumable(storageRef, file);
@@ -106,7 +108,7 @@ const Profile = ({ user }) => {
           // Handle upload progress if needed
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
+          console.log(Upload is ${progress}% done);
         },
         (error) => {
           // Handle upload error
