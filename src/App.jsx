@@ -94,7 +94,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/Navbar" element={<PrivateRoute></PrivateRoute>} />
 
             <Route
               path="/home"
