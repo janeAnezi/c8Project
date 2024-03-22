@@ -4,7 +4,7 @@ import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
-// import "./App.css";
+import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
@@ -14,29 +14,19 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
-import Navbar from "./Components/Navbar";
-import Savedmeal from "./pages/Savedmeal";
+
 
 function App() {
   return (
     <div className="font-[Manrope]">
       <Router>
-        <Navbar />
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-
-            <Route
-              path="/MealPoint"
-              element={
-                <PrivateRoute>
-                  <MealPointsPage />
-                </PrivateRoute>
-              }
-            />
-
+            <Route path="/MealPoint" element={<MealPointsPage />}/>
+            
             <Route
               path="/mealplan"
               element={
@@ -93,7 +83,9 @@ function App() {
                   <CommunityPage />
                 </PrivateRoute>
               }
+
             />
+
             <Route
               path="/home"
               element={
