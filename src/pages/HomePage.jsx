@@ -33,8 +33,6 @@ function HomePage() {
     setOffset((prevOffset) => prevOffset + 1);
   };
 
-  
-
   return (
     <>
       <div className="p-6">
@@ -104,9 +102,8 @@ function HomePage() {
           </div>
         </div>
       </div>
-
     </>
   );
-};
+}
 
 export default HomePage;
