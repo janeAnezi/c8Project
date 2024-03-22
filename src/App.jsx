@@ -14,6 +14,7 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
+import Navbar from "./Components/Header";
 
 function App() {
   const { userLoggedIn } = useAuth();
