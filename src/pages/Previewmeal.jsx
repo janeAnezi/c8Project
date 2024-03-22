@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MealListing from "../Components/MealListing";
-import Menu from "../Components/Menu";
 
 function Preview() {
   const [recipeDetail, setRecipeDetail] = useState(null);
@@ -44,7 +43,6 @@ function Preview() {
 
   return (
     <div className="flex flex-col gap-3 px-4 py-12">
-      <Menu />
 
       <div className="w-full flex flex-col items-center gap-2 ">
         <img
