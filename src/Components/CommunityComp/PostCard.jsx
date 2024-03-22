@@ -98,7 +98,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
 
   const handleNavigateToProfile = () => {
     console.log("Navigating to user profile page");
-    history.push("/profile");
+    history.push(`/profile/${email}`);
   };
 
   return (
