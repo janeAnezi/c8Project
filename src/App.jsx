@@ -13,7 +13,6 @@ import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
-import ProfilePage from "./pages/ProfilePage";
 import CommunityPage from "./pages/CommunityPage";
 import Navbar from "./Components/Navbar";
 import Savedmeal from "./pages/Savedmeal";
@@ -87,16 +86,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
-            <Route
-              path="/profile"
-              element={
-                <PrivateRoute>
-                  <ProfilePage />
-                </PrivateRoute>
-              }
-            />
-
             <Route
               path="/communitypage"
               element={
@@ -105,10 +94,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-<<<<<<< HEAD
-            <Route path="/Navbar" element={<PrivateRoute></PrivateRoute>} />
-=======
->>>>>>> upstream/master
             <Route
               path="/home"
               element={
