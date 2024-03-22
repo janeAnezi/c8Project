@@ -4,7 +4,7 @@ import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
-// import "./App.css";
+import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
@@ -14,8 +14,6 @@ import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import CommunityPage from "./pages/CommunityPage";
-import Navbar from "./Components/Navbar";
-import Savedmeal from "./pages/Savedmeal";
 
 function App() {
   const { userLoggedIn } = useAuth();
@@ -95,6 +93,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/home"
             element={
