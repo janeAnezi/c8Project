@@ -67,7 +67,7 @@ export default function Referral() {
               if (points) {
                 setCopiedCount(parseInt(points));
               }
-            }, 50000);
+            }, 500);
           }, 1000);
           
           // Update points in localStorage
@@ -79,8 +79,9 @@ export default function Referral() {
         }
     };
     const redeemPoints = () => {   
-      localStorage.setItem('Points', '0');
-      setCopiedCount(0);
+      const updatedPoints = Math.max(copiedCount - 400, 0);
+      localStorage.setItem('Points', updatedPoints.toString());
+      setCopiedCount(updatedPoints);
     };
 
     if (copiedCount >= 400) {
