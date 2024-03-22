@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import like from "../../assets/images/love.png";
 import comment from "../../assets/images/comment.png";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -20,9 +19,19 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
+import { Link } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
-const PostCard = ({ id, logo, email, text, image, timestamp }) => {
+const PostCard = ({
+  id,
+  logo,
+  uid,
+  name,
+  email,
+  text,
+  image,
+  timestamp,
+  user,
+}) => {
   const { currentUser, userData } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
@@ -44,6 +53,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
     try {
       if (likesDocId !== undefined) {
         const deleteId = doc(db, "posts", id, "likes", likesDocId);
+        // eslint-disable-next-line no-undef
         await deleteDoc(deleteId);
       } else {
         await setDoc(likesRef, {
@@ -90,27 +100,33 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
 
   const commentCount = comments.length;
 
+  const handleImageClick = () => {
+    // Redirect to the user's profile page when email is clicked
+    window.location.href = `/profile/${user.name}`;
+  };
+
   return (
     <div className="mb-4">
       <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl">
         <div className="flex items-center pb-4 ml-2">
-          {/* Wrap the image with a Link to view profile picture
-      <Link to={`/profile/${uid}`}>
-        <img src={image} alt="User post" />
-      </Link> */}
-          {/* Conditionally render the CTA button in the profilepage.jsx
-        {!isOwnProfile && <button>Follow</button>} */}
           <div className="flex -space-x-1 overflow-hidden">
-            <img
-              className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-              src={logo || avatar}
-              alt="image"
-            />
+            <Link onChangeCapture={handleImageClick}>
+              <img
+                className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                src={logo || avatar}
+                alt="image"
+              />
+            </Link>
           </div>
           <div className="flex justify-between w-full">
-            <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-              {email}
-            </p>
+            <div>
+              <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
+                {name}
+              </p>
+              <p className="ml-4 mt-2 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
+                {email}
+              </p>
+            </div>
             <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
               {timestamp}
             </p>
@@ -135,9 +151,9 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
             </p>
             ({state.likes?.length > 0 && state?.likes?.length})
           </button>
-          <div 
+          <div
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-             onClick={handleOpen}
+            onClick={handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>
@@ -152,5 +168,4 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
     </div>
   );
 };
-
 export default PostCard;

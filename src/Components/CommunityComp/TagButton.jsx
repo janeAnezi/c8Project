@@ -72,7 +72,7 @@ const TagButton = () => {
               ) : (
                 <button
                   onClick={handleViewMore}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md mr-5"
+                  className="px-2 py-1 bg-blue-500 text-white rounded-md"
                 >
                   All
                 </button>
@@ -81,7 +81,7 @@ const TagButton = () => {
                 {searchTags.map((tag, index) => (
                   <div
                     key={index}
-                    className="inline-block mr-4 py-2 px-2 border border-black rounded-md"
+                    className="inline-block mr-2 py-2 px-2 border border-black"
                   >
                     {tag}
                   </div>
