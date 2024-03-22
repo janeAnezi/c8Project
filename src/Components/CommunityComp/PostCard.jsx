@@ -15,7 +15,7 @@ import {
   query,
   onSnapshot,
   where,
-  getDocs,
+  getDocs,deleteDoc
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
