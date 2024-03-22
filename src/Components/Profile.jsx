@@ -27,7 +27,7 @@ const Profile = ({ user }) => {
   const { currentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("Write a few word about yourself...");
-  const [name, setName] = useState("Hungry Helen");
+  const [name, setName] = useState("");
   const [profileImage, setProfileImage] = useState(
     user && user.profileImage ? user.profileImage : ""
   );
@@ -35,6 +35,9 @@ const Profile = ({ user }) => {
   const [isEditingBio, setIsEditingBio] = useState(false);
   // const isOwner = currentUser && user && currentUser.uid === user.uid;
   const firestore = getFirestore(firebase);
+
+  const [showSaveButton, setShowSaveButton] = useState(false); 
+
 
   useEffect(() => {
     const getUserData = async () => {
@@ -122,9 +125,18 @@ const Profile = ({ user }) => {
   const toggleEditMode = (field) => {
     if (field === "name") {
       setIsEditingName(!isEditingName);
+      setShowSaveButton(true);
     } else if (field === "bio") {
       setIsEditingBio(!isEditingBio);
+      setShowSaveButton(true);
     }
+  };
+
+  const handleSave = () => {
+    console.log('hdbsdhj')
+    setShowSaveButton(false); 
+    toggleEditMode("")
+   
   };
 
   return (
@@ -195,11 +207,11 @@ const Profile = ({ user }) => {
           )}
         </div>
 
-        {currentUser &&
-          currentUser.email &&
-          (isEditingName || isEditingBio) && (
-            <button
-              onClick={() => toggleEditMode("")}
+        {
+          currentUser.email   && 
+       showSaveButton  && (
+            <button readOnly={false} 
+            onClick={handleSave}
               className="bg-blue-500 text-white font-semibold rounded-full py-2 px-4 mt-4"
             >
               Save
