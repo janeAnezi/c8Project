@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import like from "../../assets/images/love.png";
 import comment from "../../assets/images/comment.png";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -138,11 +137,7 @@ const PostCard = ({
             {text}
           </p>
           {image && (
-            <img
-              className="w-full h-auto rounded-xl"
-              src={image}
-              alt="postImage"
-            ></img>
+            <img className="h-[500px] w-full" src={image} alt="postImage"></img>
           )}
         </div>
         <div className="flex justify-around items-center pt-4">
@@ -156,9 +151,9 @@ const PostCard = ({
             </p>
             ({state.likes?.length > 0 && state?.likes?.length})
           </button>
-          <div 
+          <div
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-             onClick={handleOpen}
+            onClick={handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>
