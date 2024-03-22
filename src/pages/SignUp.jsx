@@ -40,8 +40,8 @@ const SignUp = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
         const user = userCredential.user;
+        console.log(user);
         const userData = {
           fullname: fullname,
           email: email,
@@ -211,11 +211,15 @@ const SignUp = () => {
               className="text-center bg-[rgb(66,104,251)] text-white text-lg font-semibold cursor-pointer py-4 px-4 rounded-lg w-full my-3 lg:w-3/6"
               type="submit"
             >
-              Sign In
+              Sign Up
             </button>
             <p>
               By using this app, you agree to our{" "}
-              <a href="https://docs.google.com/document/d/15ONH41KmOXuOUFBbTSLmjOb2Q-xufJC2jQeK3HOB0dw/edit" className="text-blue-500 font-bold" target="_blank">
+              <a
+                href="https://docs.google.com/document/d/15ONH41KmOXuOUFBbTSLmjOb2Q-xufJC2jQeK3HOB0dw/edit"
+                className="text-blue-500 font-bold"
+                target="_blank"
+              >
                 Terms of use and Conditions
               </a>
             </p>
