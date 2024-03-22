@@ -150,36 +150,10 @@ const PostMain = () => {
     fetchData();
   }, [SUBMIT_POST]);
 
-  // useEffect(() => {
-  //   const postData = async () => {
-  //     const q = query(collectionRef, orderBy("timestamp", "asc"));
-  //     await onSnapshot(q, (doc) => {
-  //       dispatch({
-  //         type: SUBMIT_POST,
-  //         posts: doc?.docs?.map((item) => item?.data()),
-  //       });
-  //       scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
-  //       setImage(null);
-  //       setFile(null);
-  //       setProgressBar(0);
-  //     });
-  //   };
-  //   return () => postData();
-  // }, [SUBMIT_POST]);
-
-  //search bar action
-
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
         <div className="flex items-center pb-4 pl-4 w-full">
-          {/* <div className="flex -space-x-1 overflow-hidden">
-            <img
-              className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-              src={avatar || user?.photoURL}
-              alt="image"
-            />
-          </div> */}
           <form className="w-full">
             <div className="flex justify-between items-center">
               <div className="w-full ml-4">
