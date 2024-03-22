@@ -25,7 +25,7 @@ export default function Referral() {
     const generateReferralLink = async () => {
         try {
           const referralCode = generateRandomReferralCode(); 
-          const referralLink = `https://MealPal.com/signup?referral=${referralCode}`;
+          const referralLink = `https://c8-project.vercel.app?referral=${referralCode}`;
           // to Save referral code to local storage
           localStorage.setItem('referralCode', referralCode);
     
@@ -131,7 +131,7 @@ export default function Referral() {
                 
             </div>
           </div>
-          <div className='flex justify-center items-center mt-4'><img src="./src/assets/suffix.png" alt="a suffix-image"/></div>
+          <div className='flex justify-center items-center mt-4'><img src="./src/assets/images/suffix.png" alt="a suffix-image"/></div>
         </>
     );
 }

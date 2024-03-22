@@ -64,38 +64,33 @@ const SignIn = () => {
   };
 
   const providerSignIn = (provider) => {
-    // const navigate = useNavigate();
+    setIsLoading(true);
     signInWithRedirect(auth, provider)
-      .then(() => {
-        // const user = result.user;
-        // console.log(user.email);
-        // console.log("Successful sign in");
-        // navigate("/home");
-        toast.success("Sign In Successful. You will be redirected", {
-          autoClose: 2000,
-          onClose: () => {
-            console.log("sign in successful");
-            navigate("/home");
-          },
-        });
-      })
+      // .then((result) => {
+      //   const user = result.user;
+      //   console.log(user.email);
+      //   console.log("Successful sign in");
+      // })
       .catch((err) => {
         const error = err.code;
         toast.error(error.message);
         const errorMessage = err.message;
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
     const getRedirectResultAsync = async () => {
       try {
+        setIsLoading(true);
         const response = await getRedirectResult(auth);
         if (response) {
           navigate("/home");
-          toast.success("Sign In Successful");
         }
       } catch (error) {
         console.error("Error getting redirect result:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
