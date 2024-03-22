@@ -134,9 +134,9 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
             </p>
             ({state.likes?.length > 0 && state?.likes?.length})
           </button>
-          <div
+          <div 
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-            onClick={handleOpen}
+             onClick={handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>

@@ -4,7 +4,7 @@ import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
-// import "./App.css";
+import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
@@ -27,16 +27,8 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-
-            <Route
-              path="/MealPoint"
-              element={
-                <PrivateRoute>
-                  <MealPointsPage />
-                </PrivateRoute>
-              }
-            />
-
+            <Route path="/MealPoint" element={<MealPointsPage />}/>
+            
             <Route
               path="/mealplan"
               element={
@@ -93,6 +85,7 @@ function App() {
                   <CommunityPage />
                 </PrivateRoute>
               }
+
             />
 
             <Route
