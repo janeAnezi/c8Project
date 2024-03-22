@@ -9,24 +9,24 @@ function MealPlanPoints() {
     function createMealPlan() {
 
         // to navigate to the meal plan page
-        navigate('/MealPlan');
+        navigate('/home');
 
     }
 
     
     function mealHistory() {
         // to navigate to the meal history page
-        navigate('/history');
+        navigate('/saved');
     }
 
     return(
         <>
             <div className='flex justify-center items-center'>
-                <div className="bg-slate-100 rounded-xl  inline-block w-[340px] mt-20 mb-6  border pb-6 text-left px-3 pt-4">
-                    <h1 className="font-semibold text-2xl  pt-2">0 Meal Plan</h1>
-                    <p className="  py-1 text-semibold text-sm pb-2 ">Ready for a delicious meal?Earn 20 points per meal.</p>
-                    <button onClick={createMealPlan} className="  bg-blue-700 p-1 text-white  hover:bg-blue-400 px-2 inline-block mr-5  rounded-xl  font-normal ">Create Meal Plan</button>
-                    <button onClick={mealHistory} className="bg-neutral-400 p-1 text-white px-4 hover:bg-slate-500  rounded-xl  font-normal">Meal History</button> 
+                <div className="bg-slate-100 rounded-xl  inline-block w-80  border pb-2 text-left px-3 pt-3">
+                    <h1 className="font-semibold text-2xl ">0 Meal Plan</h1>
+                    <p className="  py-1 text-sm pb-1 ">Ready for a delicious meal? Earn 20 points per meal.</p>
+                    <button onClick={createMealPlan} className="  bg-blue-700 p-1 text-white  hover:bg-blue-400 px-2 inline-block mr-5  rounded-xl  text-sm ">Create Meal Plan</button>
+                    <button onClick={mealHistory} className="bg-neutral-400 p-1 text-white px-2 hover:bg-slate-500  rounded-xl text-sm">Meal History</button> 
                 </div>
             </div>
             

@@ -4,7 +4,7 @@ import PrivateRoute from "./Contexts/PrivateRoute";
 import MealPlanPage from "./pages/MealPlanPage";
 import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
-import "./App.css";
+// import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
@@ -28,7 +28,15 @@ function App() {
             <Route path="/" element={<Onboarding />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/MealPoint" element={<MealPointsPage />} />
+
+            <Route
+              path="/MealPoint"
+              element={
+                <PrivateRoute>
+                  <MealPointsPage />
+                </PrivateRoute>
+              }
+            />
 
             <Route
               path="/mealplan"
@@ -55,22 +63,13 @@ function App() {
               }
             />
             <Route
-              path="/mealDetails/:id"
+              path="/MealDetails/:id"
               element={
                 <PrivateRoute>
                   <Mealdetails />
                 </PrivateRoute>
               }
             />
-            <Route
-              path="/saved"
-              element={
-                <PrivateRoute>
-                  <Savedmeal />
-                </PrivateRoute>
-              }
-            />
-
             <Route
               path="/referral"
               element={
@@ -79,7 +78,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/Recommended" element={<RecommendedMeal />} />
 
             <Route
               path="/referral"
@@ -107,7 +105,10 @@ function App() {
                 </PrivateRoute>
               }
             />
+<<<<<<< HEAD
             <Route path="/Navbar" element={<PrivateRoute></PrivateRoute>} />
+=======
+>>>>>>> upstream/master
             <Route
               path="/home"
               element={

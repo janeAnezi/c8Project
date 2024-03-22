@@ -17,8 +17,6 @@ function Savedmeal() {
 
         const data = await request.json();
 
-        // console.log(data);
-        // i will save only the result and not concern myself with other data
         setMeals((prevMeals) => [...prevMeals, ...data.results]);
       } catch (error) {
         console.log(error);
@@ -27,7 +25,6 @@ function Savedmeal() {
 
     getData();
 
-    // on change of the offset, the useEffect get Triggers to fetch again so I do not need to bother myself trying to call the function.. this is react
   }, []);
 
   return (
@@ -55,7 +52,7 @@ function Savedmeal() {
               </div>
 
               <div className="flex flex-col gap-1 items-start flex-shrink flex-1">
-                <p className="font-semibold text-[13px] md:text-[15px] lg:text-[20px]">
+                <p className="font-semibold text-[13px] line-clamp-1 md:text-[15px] lg:text-[20px]">
                   {singleMeal?.title}
                 </p>
                 <div className="flex gap-3 items-center justify-center text-[12px] md:text-[15px]">
