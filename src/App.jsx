@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="font-[Manrope]">
       <>
+        
         {userLoggedIn && <Navbar />}
         <Routes>
           <Route path="/" element={<Onboarding />} />

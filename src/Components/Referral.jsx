@@ -25,7 +25,7 @@ export default function Referral() {
     const generateReferralLink = async () => {
         try {
           const referralCode = generateRandomReferralCode(); 
-          const referralLink = `https://MealPal.com/signup?referral=${referralCode}`;
+          const referralLink = `https://c8-project.vercel.app?referral=${referralCode}`;
           // to Save referral code to local storage
           localStorage.setItem('referralCode', referralCode);
     
