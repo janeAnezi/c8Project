@@ -52,7 +52,7 @@ const SignUp = () => {
           autoClose: 2000,
           onClose: () => {
             console.log("sign in successful");
-            navigate("/home");
+            navigate("/notification");
           },
         });
       })
