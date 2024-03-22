@@ -109,18 +109,11 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
             <div className="flex -space-x-1 overflow-hidden">
               <img
                 className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src={avatar || image}
+                src={logo || avatar}
                 alt="image"
               />
             </div>
           </Link>
-          {/* <div className="flex -space-x-1 overflow-hidden">
-            <img
-              className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-              src={logo || avatar}
-              alt="image"
-            />
-          </div> */}
           <div className="flex justify-between w-full">
             <div>
               <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">

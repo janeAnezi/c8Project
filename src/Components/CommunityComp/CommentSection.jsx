@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useRef } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
   setDoc,

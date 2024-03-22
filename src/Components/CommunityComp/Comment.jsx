@@ -2,7 +2,7 @@ import React from "react";
 import avatar from "../../assets/images/6596121.png";
 import { Link } from "react-router-dom";
 
-const Comment = ({ name, comment, image, history }) => {
+const Comment = ({ name, comment, logo, history }) => {
   const handleNavigateToProfile = () => {
     console.log("Navigating to user profile page");
     history.push("/profile");
@@ -14,7 +14,7 @@ const Comment = ({ name, comment, image, history }) => {
         <div className="flex -space-x-1 overflow-hidden">
           <img
             className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-            src={avatar || image}
+            src={logo || avatar}
             alt="image"
           />
         </div>
