@@ -3,8 +3,7 @@ import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 import bgImg from "../assets/hamburger-494706_1280.jpg";
-
-const apiKey = "e786fb4122ad4bd589ea15ff4a475cb5";
+import fetchMeals from "../loadData";
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
@@ -12,24 +11,14 @@ function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      try {
-        const request = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=3&offset=${offset}`
-        );
-
-        const data = await request.json();
-
-        //  console.log(data);
-
-        setMeals((prevMeals) => [...prevMeals, ...data.results]);
-      } catch (error) {
-        console.log(error);
-      }
+      const fetchedMeals = await fetchMeals(offset);
+      setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
     };
 
     getData();
   }, [offset]);
 
+  
   const handleLoadMore = () => {
     setOffset((prevOffset) => prevOffset + 1);
   }; 
