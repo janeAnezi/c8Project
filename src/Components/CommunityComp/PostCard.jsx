@@ -32,7 +32,7 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
 
   const handleOpen = (e) => {
     e.preventDefault();
-    setOpen(true);
+    setOpen((prevOpen) => !prevOpen); // Toggle the open state
   };
 
   const handleLike = async (e) => {
@@ -91,23 +91,17 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
 
   return (
     <div className="mb-4">
-      <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl">
-        <div className="flex items-center pb-4 ml-2">
-          {/* Wrap the image with a Link to view profile picture
-      <Link to={`/profile/${uid}`}>
-        <img src={image} alt="User post" />
-      </Link> */}
-          {/* Conditionally render the CTA button in the profilepage.jsx
-        {!isOwnProfile && <button>Follow</button>} */}
-          <div className="flex -space-x-1 overflow-hidden">
+      <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl px-5">
+        <div className="flex items-center pb-4">
+          <div className="flex -space-x-1  overflow-hidden">
             <img
-              className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+              className="inline-block w-10 rounded-full ring-2 ring-white"
               src={logo || avatar}
               alt="image"
             />
           </div>
           <div className="flex justify-between w-full">
-            <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
+            <p className="ml-2 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
               {email}
             </p>
             <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
@@ -116,11 +110,11 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
           </div>
         </div>
         <div>
-          <p className="ml-4 pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
+          <p className=" pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
             {text}
           </p>
           {image && (
-            <img className="mt-5 w-full" src={image} alt="postImage"></img>
+            <img className="mt-5  w-full" src={image} alt="postImage"></img>
           )}
         </div>
         <div className="flex justify-around items-center pt-4">
@@ -134,9 +128,9 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
             </p>
             ({state.likes?.length > 0 && state?.likes?.length})
           </button>
-          <div 
+          <div
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-             onClick={handleOpen}
+            onClick={handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>
