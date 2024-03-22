@@ -37,7 +37,7 @@ const Profile = ({ user }) => {
   const firestore = getFirestore(firebase);
 
   const [showSaveButton, setShowSaveButton] = useState(false); 
-
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const getUserData = async () => {
@@ -48,23 +48,25 @@ const Profile = ({ user }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(currentUser.email || "");
-          setName(userData.name || "Hungry Helen");
+          setName(userData.name || "");
           setBio(userData.bio || "Bio goes here...");
           setProfileImage(userData.profileImage || "");
         } else {
           // Create the user profile document if it doesn't exist
           await setDoc(docRef, {
-            name: currentUser.displayName || "Hungry Helen",
+            name: currentUser.displayName || "",
             email: currentUser.email || "",
             bio: "Bio goes here...",
             profileImage: "",
           });
         }
+        setLoading(false); 
       }
     };
 
     getUserData().catch((error) => {
       console.error("Error fetching user data: ", error);
+      setLoading(false); 
     });
   }, [currentUser, firestore]);
 
@@ -141,6 +143,9 @@ const Profile = ({ user }) => {
 
   return (
     <div className="container mx-auto p-4">
+       {loading ? ( 
+        <p className="text-green-600 ml-2">Loading...</p>
+      ) : (
       <div className="bg-white h-full shadow rounded-lg p-6">
         <div className="flex items-center space-x-6 mb-4">
           <img
@@ -235,7 +240,7 @@ const Profile = ({ user }) => {
             </button>
           </Link>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 };
