@@ -8,6 +8,12 @@ export default {
     extend: {
       backgroundImage: {
         'foodbg': "url('./src/assets/images/foodbg.jpg')",
+      }, 
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
       }
     },
   },

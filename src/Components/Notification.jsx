@@ -13,8 +13,8 @@ const Notification = () => {
         <div className='flex items-center justify-center'>
             <div className='text-center'>
                 <div className='ml-8'>
-                    <div> <img src="./src/assets/images/Confetti.jpg" alt="image" /></div>
-                    <div className='ml-16'> <img src="./src/assets/images/Emotion.jpg" alt="image" className='w-40'  /></div>
+                    <div> <img className='animate-ping' src="./src/assets/images/Confetti.jpg" alt="image" /></div>
+                    <div className='ml-16'> <img className='animate-bounce w-40' src="./src/assets/images/Emotion.jpg" alt="image"  /></div>
                 </div>
                 <div>
                     <p className=" mt-1 text-3xl font-extrabold  text-black mb-2">YOU DID IT!</p>
