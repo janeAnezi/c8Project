@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import suffiximg from '../assets/images/suffix.png'
 
 export default function Referral() {
     const [referralLink, setReferralLink] = useState('');
@@ -114,7 +115,7 @@ export default function Referral() {
                     Copy
                     </button>
                     {/* pop up notification */}
-                    <div id="copyNotification" class="fixed top-[236px] right-[138px] text-xs text-green-700 opacity-0  transition-opacity duration-700">Copied!</div>
+                    <div id="copyNotification" className="fixed top-[236px] right-[138px] text-xs text-green-700 opacity-0  transition-opacity duration-700">Copied!</div>
                 </div>
                 )}
                 {!isLoggedIn && <div className="bg-white border rounded-lg inline-block w-[270px] relative px-2 py-2">
@@ -131,7 +132,7 @@ export default function Referral() {
                 
             </div>
           </div>
-          <div className='flex justify-center items-center mt-4'><img src="./assets/images/suffix.png" alt="a suffix-image"/></div>
+          <div className='flex justify-center items-center mt-4'><img src={suffiximg} alt="a suffix-image"/></div>
         </>
     );
 }

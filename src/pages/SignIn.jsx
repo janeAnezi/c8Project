@@ -168,7 +168,7 @@ const SignIn = () => {
                   },
                 })}
               />
-              <span className="" onClick={togglePasswordVisibility}>
+              <span onClick={togglePasswordVisibility}>
                 {showPassword ? (
                   <img src={Hide} className="w-6" />
                 ) : (

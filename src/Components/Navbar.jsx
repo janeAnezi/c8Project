@@ -98,9 +98,9 @@ function Navbar() {
               <NavItem to="/profile" currentPath={location.pathname}>
                 Profile
               </NavItem>
-              <NavItem to="/mealplan" currentPath={location.pathname}>
+              {/* <NavItem to="/mealplan" currentPath={location.pathname}>
                 Meal Plan
-              </NavItem>
+              </NavItem> */}
               <NavItem to="/Recommended" currentPath={location.pathname}>
                 Meal List
               </NavItem>

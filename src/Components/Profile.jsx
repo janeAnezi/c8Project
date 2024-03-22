@@ -28,7 +28,7 @@ const Profile = ({ user }) => {
   const { currentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("Write a few word about yourself...");
-  const [name, setName] = useState("Hungry Helen");
+  const [name, setName] = useState("");
   const [profileImage, setProfileImage] = useState(
     user && user.profileImage ? user.profileImage : ""
   );
@@ -36,6 +36,9 @@ const Profile = ({ user }) => {
   const [isEditingBio, setIsEditingBio] = useState(false);
   // const isOwner = currentUser && user && currentUser.uid === user.uid;
   const firestore = getFirestore(firebase);
+
+  const [showSaveButton, setShowSaveButton] = useState(false); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const getUserData = async () => {
@@ -46,23 +49,25 @@ const Profile = ({ user }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(currentUser.email || "");
-          setName(userData.name || "Hungry Helen");
+          setName(userData.name || "");
           setBio(userData.bio || "Bio goes here...");
           setProfileImage(userData.profileImage || "");
         } else {
           // Create the user profile document if it doesn't exist
           await setDoc(docRef, {
-            name: currentUser.displayName || "Hungry Helen",
+            name: currentUser.displayName || "",
             email: currentUser.email || "",
             bio: "Bio goes here...",
             profileImage: "",
           });
         }
+        setLoading(false); 
       }
     };
 
     getUserData().catch((error) => {
       console.error("Error fetching user data: ", error);
+      setLoading(false); 
     });
   }, [currentUser, firestore]);
 
@@ -123,14 +128,29 @@ const Profile = ({ user }) => {
   const toggleEditMode = (field) => {
     if (field === "name") {
       setIsEditingName(!isEditingName);
+      setShowSaveButton(true);
     } else if (field === "bio") {
       setIsEditingBio(!isEditingBio);
+      setShowSaveButton(true);
     }
+  };
+
+  const handleSave = () => {
+    console.log('hdbsdhj')
+    setShowSaveButton(false); 
+    toggleEditMode("")
+   
   };
 
   return (
     <div className="container mx-auto p-4">
+<<<<<<< HEAD
       <ProfileInput></ProfileInput>
+=======
+       {loading ? ( 
+        <p className="text-green-600 ml-2">Loading...</p>
+      ) : (
+>>>>>>> upstream/master
       <div className="bg-white h-full shadow rounded-lg p-6">
         <div className="flex items-center space-x-6 mb-4">
           <img
@@ -197,11 +217,11 @@ const Profile = ({ user }) => {
           )}
         </div>
 
-        {currentUser &&
-          currentUser.email &&
-          (isEditingName || isEditingBio) && (
-            <button
-              onClick={() => toggleEditMode("")}
+        {
+          currentUser.email   && 
+       showSaveButton  && (
+            <button readOnly={false} 
+            onClick={handleSave}
               className="bg-blue-500 text-white font-semibold rounded-full py-2 px-4 mt-4"
             >
               Save
@@ -225,7 +245,7 @@ const Profile = ({ user }) => {
             </button>
           </Link>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 };
