@@ -129,7 +129,7 @@ const Profile = ({ user }) => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="bg-white h-screen shadow rounded-lg p-6">
+      <div className="bg-white h-full shadow rounded-lg p-6">
         <div className="flex items-center space-x-6 mb-4">
           <img
             className="h-20 w-20 rounded-full cursor-pointer"
