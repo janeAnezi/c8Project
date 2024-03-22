@@ -10,11 +10,13 @@ export default {
         'foodbg': "url('./src/assets/images/foodbg.jpg')",
       }, 
       keyframes: {
-        wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
-        }
-      }
+        'custom-ping': {
+          '50%, 100%': { transform: 'scale(2)', opacity: 0 },
+        },
+      },
+      animation: {
+        'animate-ping': 'ping 1s cubic-bezier(0, 0, 0.2, 1) 2',
+      },
     },
   },
   plugins: [],
