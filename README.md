@@ -9,6 +9,7 @@ Cohort 8 Pro Capstone Project
 - [Team Members](#team-members)
   - [Team Alpha](#team-alpha)
   - [Team Beta](#team-beta)
+  - [Team Eta](#team-eta)
 - [Tools](#tools)
 - [Resources](#resources)
 - [Hosted Project](#hosted-project)
