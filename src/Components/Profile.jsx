@@ -22,6 +22,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import ProfileInput from "./ProfileInput";
 
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
@@ -129,6 +130,7 @@ const Profile = ({ user }) => {
 
   return (
     <div className="container mx-auto p-4">
+      <ProfileInput></ProfileInput>
       <div className="bg-white h-full shadow rounded-lg p-6">
         <div className="flex items-center space-x-6 mb-4">
           <img
