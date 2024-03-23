@@ -143,11 +143,11 @@ const Profile = ({ user }) => {
 
   return (
     <div className="container mx-auto p-4">
-      <div>
+      {/* <div>
         <ProfileInput></ProfileInput>
-      </div>
+      </div> */}
       {loading ? (
-        <p className="text-green-600 ml-2">Loading...</p>
+        <p className="text-blue-600 ml-2 text-lg">Loading...</p>
       ) : (
         <div className="bg-white h-full shadow rounded-lg p-6">
           <div className="flex items-center space-x-6 mb-4">
