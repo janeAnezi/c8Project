@@ -22,7 +22,9 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import ProfileInput from "./ProfileInput";
+// import ProfileInput from "./ProfileInput";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
@@ -49,13 +51,13 @@ const Profile = ({ user }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(currentUser.email || "");
-          setName(userData.name || "");
+          setName(userData.name || "...");
           setBio(userData.bio || "Bio goes here...");
           setProfileImage(userData.profileImage || "");
         } else {
           // Create the user profile document if it doesn't exist
           await setDoc(docRef, {
-            name: currentUser.displayName || "",
+            name: currentUser.displayName || "...",
             email: currentUser.email || "",
             bio: "Bio goes here...",
             profileImage: "",
@@ -107,10 +109,12 @@ const Profile = ({ user }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done`);
+          toast.info(`Upload is ${progress}% done`, { autoClose: 900 });
         },
         (error) => {
           // Handle upload error
           console.error("Upload error:", error);
+          toast.error("Error while uploading. Try again");
         },
         () => {
           // Upload completed successfully
@@ -136,23 +140,23 @@ const Profile = ({ user }) => {
   };
 
   const handleSave = () => {
-    console.log("hdbsdhj");
+    toast.success("Changes saved", { autoClose: 2000 });
     setShowSaveButton(false);
     toggleEditMode("");
   };
 
   return (
     <div className="container mx-auto p-4">
-      <div>
+      {/* <div>
         <ProfileInput></ProfileInput>
-      </div>
+      </div> */}
       {loading ? (
-        <p className="text-green-600 ml-2">Loading...</p>
+        <p className="text-blue-600 ml-2 text-lg">Loading...</p>
       ) : (
         <div className="bg-white h-full shadow rounded-lg p-6">
           <div className="flex items-center space-x-6 mb-4">
             <img
-              className="h-20 w-20 rounded-full cursor-pointer"
+              className="h-20 w-20 object-cover rounded-full cursor-pointer"
               src={profileImage || ProfileAvatar}
               alt="Profile image"
               onClick={() =>

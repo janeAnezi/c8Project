@@ -17,13 +17,14 @@ function Navbar() {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Sign out Successful! You will be redirected", {
-          autoClose: 2000,
-          onClose: () => {
-            console.log("sign out successful");
-            navigate("/");
-          },
-        });
+        navigate("/");
+        // toast.success("Sign out Successful! You will be redirected", {
+        //   autoClose: 2000,
+        //   onClose: () => {
+        //     console.log("sign out successful");
+        //     navigate("/");
+        //   },
+        // });
       })
       .catch((error) => {
         toast.error("Error Signing out");
