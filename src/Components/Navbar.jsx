@@ -92,7 +92,7 @@ function Navbar() {
             id="navbar-multi-level"
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <NavItem to="/" currentPath={location.pathname}>
+              <NavItem to="/home" currentPath={location.pathname}>
                 Home
               </NavItem>
               <NavItem to="/profile" currentPath={location.pathname}>
@@ -107,10 +107,7 @@ function Navbar() {
               <NavItem to="/referral" currentPath={location.pathname}>
                 Referral
               </NavItem>
-              <NavItem
-                to="/communitypage"
-                currentPath={location.pathname}
-              >
+              <NavItem to="/communitypage" currentPath={location.pathname}>
                 Community Forum
               </NavItem>
               <button
