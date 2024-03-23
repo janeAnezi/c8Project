@@ -22,7 +22,9 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import ProfileInput from "./ProfileInput";
+// import ProfileInput from "./ProfileInput";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
@@ -107,10 +109,12 @@ const Profile = ({ user }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done`);
+          toast(`Upload is ${progress}% done`, { autoClose: 900 });
         },
         (error) => {
           // Handle upload error
           console.error("Upload error:", error);
+          toast.error("Error while uploading. Try again");
         },
         () => {
           // Upload completed successfully
@@ -136,7 +140,7 @@ const Profile = ({ user }) => {
   };
 
   const handleSave = () => {
-    console.log("hdbsdhj");
+    toast.success("Changes saved", { autoClose: 2000 });
     setShowSaveButton(false);
     toggleEditMode("");
   };
