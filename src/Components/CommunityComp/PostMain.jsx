@@ -157,13 +157,13 @@ const PostMain = () => {
           <form className="w-full">
             <div className="flex justify-between items-center">
               <div className="w-full ml-4">
-                <input
+                <textarea
                   type="text"
                   name="text"
                   placeholder="Write something"
                   className="outline-none w-full bg-[#f4f4f4] rounded-md"
                   ref={text}
-                ></input>
+                ></textarea>
               </div>
               <div className="mx-4">
                 {image && (

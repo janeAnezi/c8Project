@@ -83,6 +83,18 @@ If you already have an account, log in using these steps:
 - Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
 - Favour Joseph []()
 
+
+### Team Zeta
+
+- Ola Esther Pelumi [ESTHER-OLA](https://github.com/ESTHER-OLA/c8Project)
+- Joy Wilson []()
+- Moromoke Bello [moromoke01](https://github.com/moromoke01/c8Project/tree/master)
+
+### Team Epsilon
+
+- Chioma Marycynthia []()
+
+
   # Overview
 
   The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
@@ -109,22 +121,13 @@ If you already have an account, log in using these steps:
   # Installation
 
   - Clone the repository:
-    git clone https://github.com/janeAnezi/c8Project
+    git clone https://github.com/princessmaggy/c8Project
   - Install dependencies:
     npm install
   - Build and run the application:
     npm run build
     npm run dev
 
-### Team Zeta
-
-- Ola Esther Pelumi [ESTHER-OLA](https://github.com/ESTHER-OLA/c8Project)
-- Joy Wilson []()
-- Moromoke Bello [moromoke01](https://github.com/moromoke01/c8Project/tree/master)
-
-### Team Epsilon
-
-- Chioma Marycynthia []()
 
 ## Tools
 
@@ -140,6 +143,7 @@ If you already have an account, log in using these steps:
 - React(vite)
 - Tailwind CSS
 - Github
+- API (https://spoonacular.com/food-api)
 
 ## Hosted Project
 

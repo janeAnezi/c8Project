@@ -3,8 +3,7 @@ import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 import bgImg from "../assets/hamburger-494706_1280.jpg";
-
-const apiKey = "e786fb4122ad4bd589ea15ff4a475cb5";
+import fetchMeals from "../loadData";
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
@@ -12,24 +11,20 @@ function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      try {
-        const request = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=3&offset=${offset}`
-        );
-
-        const data = await request.json();
-
-        //  console.log(data);
-
-        setMeals((prevMeals) => [...prevMeals, ...data.results]);
-      } catch (error) {
-        console.log(error);
+      const fetchedMeals = await fetchMeals(offset);
+      
+      if (fetchedMeals.error) {
+        console.error("Error fetching meals:", fetchedMeals.error);
+        return;
       }
+
+      setMeals((prevMeals) => [...prevMeals, ...fetchedMeals]);
     };
 
     getData();
   }, [offset]);
 
+  
   const handleLoadMore = () => {
     setOffset((prevOffset) => prevOffset + 1);
   }; 
@@ -41,7 +36,8 @@ function HomePage() {
       </h2>
 
       <div className="w-full flex flex-col items-center gap-2">
-        {meals?.map((singleMeal, index) => (
+      {meals?.length > 0 ? (
+        meals?.map((singleMeal, index) => (
           <div
             className="flex items-center gap-2 overflow-hidden w-full"
             key={`${singleMeal?.id}-${index}`}
@@ -74,15 +70,19 @@ function HomePage() {
               </div>
             </div>
           </div>
-        ))}
-      </div>
-      <button
-        onClick={handleLoadMore}
-        className=" border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md my-6"
-      >
-        Load More
-      </button> 
-      <div className={`w-full h-[200px] flex items-end p-4 rounded-xl overflow-hidden`}
+        ))
+        ) : (
+          <p className="m-3 text-red-600">No meals found. API call has been exceeded for the day. Try again in 24 hours.</p> 
+        )}  </div>
+   
+<button
+  onClick={handleLoadMore}
+  style={{ display: meals?.length == 0 ? 'none' : 'block' }} 
+  className="border border-blue-500 text-black bg-white px-4 py-1 w-[80%] md:w-[50%] lg:w[40%] rounded-md my-6"
+>
+  Load More
+</button>
+<div className={`w-full h-[200px] flex items-end p-4 rounded-xl overflow-hidden`}
       style={{
         background: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 90%), url(${bgImg})`,
         backgroundSize: "cover",
@@ -94,14 +94,14 @@ function HomePage() {
             <button
               type="btn"
               className="px-2 py-1 bg-[#4268FB] hover:bg-[#8096ee] text-white rounded-md text-sm"
-            >
+           disabled >
               Create Meal Plan
             </button>
           </Link>
           <button
             type="btn"
             className="px-2 py-1 border border-blue-500 text-black bg-white  rounded-md text-sm"
-          >
+            disabled >
             Quick Meal
           </button>
         </div>
