@@ -1,5 +1,3 @@
-postcard
-
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import avatar from "../../assets/images/6596121.png";
 import like from "../../assets/images/love.png";
@@ -17,12 +15,8 @@ import {
   query,
   onSnapshot,
   where,
-<<<<<<< HEAD
   getDocs,
   deleteDoc,
-=======
-  getDocs,deleteDoc
->>>>>>> upstream/master
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
@@ -30,22 +24,17 @@ import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
-  const { currentUser, user } = useContext(AuthContext);
+  const { currentUser, userData } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
   const likesCollection = collection(db, "posts", id, "likes");
-  // const singlePostDocument = doc(db, "posts", id);
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
 
   const handleOpen = (e) => {
     e.preventDefault();
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+    setOpen((prevOpen) => !prevOpen); // Toggle the open state
   };
 
   const handleLike = async (e) => {
@@ -104,13 +93,13 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
 
   const handleNavigateToProfile = () => {
     console.log("Navigating to user profile page");
-    history.push(/profile/${email});
+    history.push(/profile/);
   };
 
   return (
     <div className="mb-4">
-      <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl">
-        <div className="flex items-center pb-4 ml-2">
+      <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl px-5">
+        <div className="flex items-center pb-4">
           <Link to="/profile" onClick={handleNavigateToProfile}>
             <div className="flex -space-x-1 overflow-hidden">
               <img
@@ -120,8 +109,8 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
               />
             </div>
           </Link>
+
           <div className="flex justify-between w-full">
-<<<<<<< HEAD
             <div>
               <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
                 {name}
@@ -130,22 +119,18 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                 {email}
               </p>
             </div>
-=======
-            <p className="ml-2 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-            {email.length > 15 ? email.substring(0, 15) + '...' : email}
-            </p>
->>>>>>> upstream/master
+
             <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
               {timestamp}
             </p>
           </div>
         </div>
         <div>
-          <p className="ml-4 pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
+          <p className=" pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
             {text}
           </p>
           {image && (
-            <img className="mt-5 w-full" src={image} alt="postImage"></img>
+            <img className="mt-5  w-full" src={image} alt="postImage"></img>
           )}
         </div>
         <div className="flex justify-around items-center pt-4">
@@ -161,7 +146,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
           </button>
           <div
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-            onClick={open ? handleClose : handleOpen}
+            onClick={handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>
