@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MealListing from "../Components/MealListing";
+import { IoIosArrowBack } from "react-icons/io";
+
 
 function Preview() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [similarRecipes, setSimilarRecipes] = useState(null);
+  const navigate = useNavigate();
+
+
   let { id } = useParams();
-  const apiKey = "3fe49c1121264389ae06b158e350b213";
+  const apiKey = "b44b355cdc6f46439e6783055adbda30";
 
   console.log(id);
 
@@ -43,6 +48,9 @@ function Preview() {
 
   return (
     <div className="flex flex-col gap-3 px-4 py-12">
+      <button className="text-base" onClick={() => navigate(-1)}>
+        <IoIosArrowBack />
+      </button>
 
       <div className="w-full flex flex-col items-center gap-2 ">
         <img
