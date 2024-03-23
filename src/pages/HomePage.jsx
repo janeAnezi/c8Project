@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
+import bgImg from "../assets/hamburger-494706_1280.jpg";
 
-const apiKey = "3fe49c1121264389ae06b158e350b213";
+
+const apiKey = "b44b355cdc6f46439e6783055adbda30";
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
@@ -32,6 +34,8 @@ function HomePage() {
   const handleLoadMore = () => {
     setOffset((prevOffset) => prevOffset + 1);
   };
+
+  
 
   return (
     <>
@@ -102,8 +106,9 @@ function HomePage() {
           </div>
         </div>
       </div>
+
     </>
   );
-}
+};
 
 export default HomePage;
