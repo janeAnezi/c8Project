@@ -71,6 +71,7 @@ If you already have an account, log in using these steps:
 
 - Divine Dibobie [divinedibobie](https://github.com/divinedibobie)
 - Elizabeth Godfrey [miyemicodes](https://github.com/miyemicodes)
+- Zahidat Alao [Ayomii1](https://github.com/Ayomii1)
 
 ### Team Delta
 
@@ -131,6 +132,7 @@ If you already have an account, log in using these steps:
 - JavaScript: Programming language used for frontend logic.
 - HTML/CSS: Markup and styling languages for structuring and styling the UI.
 - Local Storage: Used to store and retrieve points for each user.
+- API: A food api may analyze recipe costs and nutritional values,classify foods into allergens,compute meal plans, etc. Spoonacular food and recipe api is the only API you will ever need. Its effficient and reliable,
 
 ## Languages, Framework and Tools
 
