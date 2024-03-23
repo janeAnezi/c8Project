@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
 
 const ProfileInput = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -43,9 +44,9 @@ const ProfileInput = () => {
         tag.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredTags(filtered);
-      // Save filtered tags to Firestore
-      const tagsRef = db.collection("filteredTags");
-      await tagsRef.doc("filtered").set({ tags: filtered });
+      // Save filtered tags to Firestore with the new modular syntax
+      const tagsRef = collection(db, "filteredTags");
+      await setDoc(doc(tagsRef, "filtered"), { tags: filtered });
     };
 
     fetchFilteredTags();
