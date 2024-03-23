@@ -15,12 +15,8 @@ import {
   query,
   onSnapshot,
   where,
-<<<<<<< HEAD
   getDocs,
   deleteDoc,
-=======
-  getDocs,deleteDoc
->>>>>>> upstream/master
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
@@ -119,20 +115,9 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
             </div>
           </Link>
           <div className="flex justify-between w-full">
-<<<<<<< HEAD
-            <div>
-              <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-                {name}
-              </p>
-              <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-                {email}
-              </p>
-            </div>
-=======
             <p className="ml-2 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-            {email.length > 15 ? email.substring(0, 15) + '...' : email}
+              {email.length > 15 ? email.substring(0, 15) + "..." : email}
             </p>
->>>>>>> upstream/master
             <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
               {timestamp}
             </p>
