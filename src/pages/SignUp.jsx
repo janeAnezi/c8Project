@@ -75,14 +75,14 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user.email);
-        // navigate("/home");
-        toast.success("Sign In Successful. You will be redirected", {
-          autoClose: 2000,
-          onClose: () => {
-            console.log("sign in successful");
-            navigate("/home");
-          },
-        });
+        navigate("/home");
+        // toast.success("Sign In Successful. You will be redirected", {
+        //   autoClose: 2000,
+        //   onClose: () => {
+        //     console.log("sign in successful");
+        //     navigate("/home");
+        //   },
+        // });
       })
       .catch((err) => {
         const error = err.code;
@@ -121,7 +121,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-y-5 justify-center lg:items-center min-h-screen mx-lg-20 mx-6">
+      <div className="flex flex-col gap-y-5 justify-center md:items-center min-h-screen mx-lg-20 mx-6">
         <ToastContainer />
         <div
           className="w-full flex my-3 justify-between top-4"

@@ -51,13 +51,13 @@ const Profile = ({ user }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(currentUser.email || "");
-          setName(userData.name || "");
+          setName(userData.name || "...");
           setBio(userData.bio || "Bio goes here...");
           setProfileImage(userData.profileImage || "");
         } else {
           // Create the user profile document if it doesn't exist
           await setDoc(docRef, {
-            name: currentUser.displayName || "",
+            name: currentUser.displayName || "...",
             email: currentUser.email || "",
             bio: "Bio goes here...",
             profileImage: "",
@@ -109,7 +109,7 @@ const Profile = ({ user }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done`);
-          toast(`Upload is ${progress}% done`, { autoClose: 900 });
+          toast.info(`Upload is ${progress}% done`, { autoClose: 900 });
         },
         (error) => {
           // Handle upload error
@@ -156,7 +156,7 @@ const Profile = ({ user }) => {
         <div className="bg-white h-full shadow rounded-lg p-6">
           <div className="flex items-center space-x-6 mb-4">
             <img
-              className="h-20 w-20 rounded-full cursor-pointer"
+              className="h-20 w-20 object-cover rounded-full cursor-pointer"
               src={profileImage || ProfileAvatar}
               alt="Profile image"
               onClick={() =>

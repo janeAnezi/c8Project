@@ -40,14 +40,14 @@ const SignIn = () => {
         console.log(userCredential);
         const user = userCredential.user;
         console.log(user.email);
-        // navigate("/home");
-        toast.success("Sign In Successful. You will be redirected", {
-          autoClose: 2000,
-          onClose: () => {
-            console.log("sign in successful");
-            navigate("/home");
-          },
-        });
+        navigate("/home");
+        // toast.success("Sign In Successful. You will be redirected", {
+        //   autoClose: 2000,
+        //   onClose: () => {
+        //     console.log("sign in successful");
+        //     navigate("/home");
+        //   },
+        // });
       })
       .catch((err) => {
         console.log(err, "err");
@@ -121,7 +121,7 @@ const SignIn = () => {
           <img
             src={Back}
             alt="back"
-            className="h-[1.5rem] w-[1.5rem] cursor-pointer"
+            className="h-[1.5rem] w-[1.5rem] ml-5 cursor-pointer"
           />
         </div>
         <h2 className="text-3xl font-extrabold mb-2">Sign into your account</h2>

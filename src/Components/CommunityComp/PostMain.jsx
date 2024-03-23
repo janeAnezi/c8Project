@@ -24,6 +24,7 @@ import {
 } from "firebase/storage";
 import PostCard from "./PostCard";
 import TagButton from "./TagButton";
+import { toast } from "react-toastify";
 
 const PostMain = () => {
   const { currentUser, userData } = useContext(AuthContext);
@@ -70,7 +71,8 @@ const PostMain = () => {
         text.current.value = "";
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
-        alert(err.message);
+        // alert(err.message);
+        toast.error(err.message);
         console.log(err.message);
       }
     } else {
@@ -110,7 +112,8 @@ const PostMain = () => {
             setProgressBar(progress);
           },
           (error) => {
-            alert(error);
+            // alert(error);
+            toast.error(error);
           },
           async () => {
             await getDownloadURL(uploadTask.snapshot.ref).then(
@@ -122,7 +125,8 @@ const PostMain = () => {
         );
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
-        alert(err.message);
+        // alert(err.message);
+        toast.err(err.message);
         console.log(err.message);
       }
     }
