@@ -1,10 +1,4 @@
-import {
-  useState,
-  useRef,
-  useContext,
-  useReducer,
-  useEffect,
-} from "react";
+import { useState, useRef, useContext, useReducer, useEffect } from "react";
 import addImage from "../../assets/images/addImage.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {

@@ -70,46 +70,6 @@ const CommentSection = ({ postId }) => {
     getComments();
   }, [postId, ADD_COMMENT, HANDLE_ERROR]);
 
-  // const addComment = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const commentValue = e.target.comment.value;
-  //     if (commentValue.trim() !== "") {
-  //       await setDoc(commentRef, {
-  //         comment: commentValue,
-  //         timestamp: serverTimestamp(),
-  //       });
-  //       e.target.comment.value = "";
-  //     } else {
-  //       // Handle empty comment input
-  //     }
-  //   } catch (err) {
-  //     dispatch({ type: HANDLE_ERROR });
-  //     alert(err.message);
-  //     console.log(err.message);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const getComments = async () => {
-  //     try {
-  //       const collectionOfComments = collection(db, `posts/${postId}/comments`);
-  //       const q = query(collectionOfComments, orderBy("timestamp", "desc"));
-  //       await onSnapshot(q, (doc) => {
-  //         dispatch({
-  //           type: ADD_COMMENT,
-  //           comments: doc.docs?.map((item) => item.data()),
-  //         });
-  //       });
-  //     } catch (err) {
-  //       dispatch({ type: HANDLE_ERROR });
-  //       alert(err.message);
-  //       console.log(err.message);
-  //     }
-  //   };
-  //   return () => getComments();
-  // }, [postId, ADD_COMMENT, HANDLE_ERROR]);
-
   return (
     <div className="flex flex-col bg-white w-full py-2 rounded-b-3xl">
       <div className="flex items-center">
