@@ -16,16 +16,18 @@ import {
   onSnapshot,
   where,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
 
 // eslint-disable-next-line react/prop-types
 const PostCard = ({ id, logo, email, text, image, timestamp }) => {
-  const { currentUser, userData } = useContext(AuthContext);
+  const { currentUser, user } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
   const likesCollection = collection(db, "posts", id, "likes");
+  // const singlePostDocument = doc(db, "posts", id);
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
@@ -33,6 +35,10 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
   const handleOpen = (e) => {
     e.preventDefault();
     setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleLike = async (e) => {
@@ -93,12 +99,6 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
     <div className="mb-4">
       <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl">
         <div className="flex items-center pb-4 ml-2">
-          {/* Wrap the image with a Link to view profile picture
-      <Link to={`/profile/${uid}`}>
-        <img src={image} alt="User post" />
-      </Link> */}
-          {/* Conditionally render the CTA button in the profilepage.jsx
-        {!isOwnProfile && <button>Follow</button>} */}
           <div className="flex -space-x-1 overflow-hidden">
             <img
               className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
@@ -134,9 +134,9 @@ const PostCard = ({ id, logo, email, text, image, timestamp }) => {
             </p>
             ({state.likes?.length > 0 && state?.likes?.length})
           </button>
-          <div 
+          <div
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-             onClick={handleOpen}
+            onClick={open ? handleClose : handleOpen}
           >
             <div className="flex items-center cursor-pointer">
               <img className="h-8" src={comment} alt="comment"></img>
