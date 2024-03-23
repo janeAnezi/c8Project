@@ -22,7 +22,7 @@ function RecommendedMealPlans() {
               <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
                 Grilled Salmon with Lemon-Dill Sauce{" "}
               </p>
-              <div className="flex gap-6 text-[10px] font-semibold">
+              <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
                 <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
                 <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan Only</span>
               </div>
@@ -41,7 +41,7 @@ function RecommendedMealPlans() {
               <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
                 Lentil and Vegetable Curry
               </p>
-              <div className="flex gap-6 text-[10px] font-semibold">
+              <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
                 <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
                 <span className="bg-[#FFF0F0] p-1 rounded-md">Vegan Only</span>
               </div>
@@ -60,7 +60,7 @@ function RecommendedMealPlans() {
               <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
                 Mushroom Risotto{" "}
               </p>
-              <div className="flex gap-6 text-[10px] font-semibold">
+              <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
                 <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
                 <span className="bg-[#FFF0F0] p-1 rounded-md">
                   Vegan and Non-Vegan
@@ -81,8 +81,11 @@ function RecommendedMealPlans() {
               <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
                 Grilled Lemon Herb Chicken Bowl{" "}
               </p>
-              <div className="flex gap-6 text-[10px] font-semibold">
-                <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
+              <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
+                <span className="bg-[#F0F6FF] self-start p-1 rounded-md">
+                  {" "}
+                  Popular
+                </span>
                 <span className="bg-[#FFF0F0] p-1 rounded-md">
                   Vegan and Non-Vegan
                 </span>
@@ -102,7 +105,7 @@ function RecommendedMealPlans() {
               <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
                 Hummus and Falafel{" "}
               </p>
-              <div className="flex gap-6 text-[10px] font-semibold">
+              <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
                 <span className="bg-[#F0F6FF] p-1 rounded-md"> Popular</span>
                 <span className="bg-[#FFF0F0] p-1 rounded-md">
                   Vegan and Non-Vegan
