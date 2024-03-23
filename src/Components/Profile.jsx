@@ -22,7 +22,6 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import ProfileInput from "./ProfileInput";
 
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
