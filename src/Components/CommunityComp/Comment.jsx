@@ -1,13 +1,13 @@
 import React from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 
-const Comment = ({ name, comment, image }) => {
+const Comment = ({ name, comment, logo }) => {
   return (
     <div className="flex items-center mt-2 w-full">
       <div className="flex -space-x-1 overflow-hidden">
         <img
           className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-          src={image || avatar}
+          src={logo || avatar}
           alt="image"
         />
       </div>

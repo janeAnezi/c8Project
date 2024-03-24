@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Notification from "../Components/Notification";
 
 const PlanMeal = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+
+  const [selectedOption,setSelectedOption]= useState("")
 
   const handleOptionSelect = (value) => {
     setSelectedOption(value);
-    setSuccessMessage("Cheers! You have successfully planned a meal.");
   };
 
   useEffect(() => {
@@ -51,7 +49,6 @@ const PlanMeal = () => {
           <label htmlFor="occasionally">Occasionally</label>
         </div>
       </div>
-      {successMessage && <Notification message={successMessage} />}
     </div>
   );
 };

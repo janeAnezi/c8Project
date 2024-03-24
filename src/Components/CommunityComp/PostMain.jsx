@@ -1,10 +1,4 @@
-import {
-  useState,
-  useRef,
-  useContext,
-  useReducer,
-  useEffect,
-} from "react";
+import { useState, useRef, useContext, useReducer, useEffect } from "react";
 import addImage from "../../assets/images/addImage.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
@@ -30,6 +24,7 @@ import {
 } from "firebase/storage";
 import PostCard from "./PostCard";
 import TagButton from "./TagButton";
+import { toast } from "react-toastify";
 
 const PostMain = () => {
   const { currentUser, userData } = useContext(AuthContext);
@@ -76,7 +71,8 @@ const PostMain = () => {
         text.current.value = "";
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
-        alert(err.message);
+        // alert(err.message);
+        toast.error(err.message);
         console.log(err.message);
       }
     } else {
@@ -116,7 +112,8 @@ const PostMain = () => {
             setProgressBar(progress);
           },
           (error) => {
-            alert(error);
+            // alert(error);
+            toast.error(error);
           },
           async () => {
             await getDownloadURL(uploadTask.snapshot.ref).then(
@@ -128,7 +125,8 @@ const PostMain = () => {
         );
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
-        alert(err.message);
+        // alert(err.message);
+        toast.err(err.message);
         console.log(err.message);
       }
     }
@@ -157,13 +155,13 @@ const PostMain = () => {
           <form className="w-full">
             <div className="flex justify-between items-center">
               <div className="w-full ml-4">
-                <input
+                <textarea
                   type="text"
                   name="text"
                   placeholder="Write something"
                   className="outline-none w-full bg-[#f4f4f4] rounded-md"
                   ref={text}
-                ></input>
+                ></textarea>
               </div>
               <div className="mx-4">
                 {image && (

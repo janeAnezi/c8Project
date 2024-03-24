@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext, useEffect, useReducer, useRef } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "../../assets/images/6596121.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import {
   setDoc,
@@ -18,6 +19,7 @@ import {
 } from "../../Contexts/PostReducer";
 import Comment from "./Comment";
 
+// eslint-disable-next-line react/prop-types
 const CommentSection = ({ postId }) => {
   const comment = useRef(null);
   const { user } = useContext(AuthContext);
@@ -37,11 +39,12 @@ const CommentSection = ({ postId }) => {
         e.target.comment.value = "";
       } else {
         // Handle empty comment input
+        console.log("Empty comment input");
       }
     } catch (err) {
       dispatch({ type: HANDLE_ERROR });
       alert(err.message);
-      console.log(err.message);
+      console.error(err.message);
     }
   };
 
@@ -50,19 +53,21 @@ const CommentSection = ({ postId }) => {
       try {
         const collectionOfComments = collection(db, `posts/${postId}/comments`);
         const q = query(collectionOfComments, orderBy("timestamp", "desc"));
-        await onSnapshot(q, (doc) => {
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const comments = querySnapshot.docs.map((doc) => doc.data());
           dispatch({
             type: ADD_COMMENT,
-            comments: doc.docs?.map((item) => item.data()),
+            comments: comments,
           });
         });
+        return () => unsubscribe();
       } catch (err) {
         dispatch({ type: HANDLE_ERROR });
         alert(err.message);
-        console.log(err.message);
+        console.error(err.message);
       }
     };
-    return () => getComments();
+    getComments();
   }, [postId, ADD_COMMENT, HANDLE_ERROR]);
 
   return (

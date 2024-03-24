@@ -22,12 +22,15 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+// import ProfileInput from "./ProfileInput";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("Write a few word about yourself...");
-  const [name, setName] = useState("Hungry Helen");
+  const [name, setName] = useState("");
   const [profileImage, setProfileImage] = useState(
     user && user.profileImage ? user.profileImage : ""
   );
@@ -35,6 +38,9 @@ const Profile = ({ user }) => {
   const [isEditingBio, setIsEditingBio] = useState(false);
   // const isOwner = currentUser && user && currentUser.uid === user.uid;
   const firestore = getFirestore(firebase);
+
+  const [showSaveButton, setShowSaveButton] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -45,23 +51,25 @@ const Profile = ({ user }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(currentUser.email || "");
-          setName(userData.name || "Hungry Helen");
+          setName(userData.name || "...");
           setBio(userData.bio || "Bio goes here...");
           setProfileImage(userData.profileImage || "");
         } else {
           // Create the user profile document if it doesn't exist
           await setDoc(docRef, {
-            name: currentUser.displayName || "Hungry Helen",
+            name: currentUser.displayName || "...",
             email: currentUser.email || "",
             bio: "Bio goes here...",
             profileImage: "",
           });
         }
+        setLoading(false);
       }
     };
 
     getUserData().catch((error) => {
       console.error("Error fetching user data: ", error);
+      setLoading(false);
     });
   }, [currentUser, firestore]);
 
@@ -101,10 +109,12 @@ const Profile = ({ user }) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done`);
+          toast.info(`Upload is ${progress}% done`, { autoClose: 900 });
         },
         (error) => {
           // Handle upload error
           console.error("Upload error:", error);
+          toast.error("Error while uploading. Try again");
         },
         () => {
           // Upload completed successfully
@@ -122,108 +132,122 @@ const Profile = ({ user }) => {
   const toggleEditMode = (field) => {
     if (field === "name") {
       setIsEditingName(!isEditingName);
+      setShowSaveButton(true);
     } else if (field === "bio") {
       setIsEditingBio(!isEditingBio);
+      setShowSaveButton(true);
     }
+  };
+
+  const handleSave = () => {
+    toast.success("Changes saved", { autoClose: 2000 });
+    setShowSaveButton(false);
+    toggleEditMode("");
   };
 
   return (
     <div className="container mx-auto p-4">
-      <div className="bg-white h-screen shadow rounded-lg p-6">
-        <div className="flex items-center space-x-6 mb-4">
-          <img
-            className="h-20 w-20 rounded-full cursor-pointer"
-            src={profileImage || ProfileAvatar}
-            alt="Profile image"
-            onClick={() =>
-              currentUser &&
-              currentUser.email &&
-              document.getElementById("imageInput").click()
-            }
-          />
-          {currentUser && currentUser.email && (
-            <input
-              type="file"
-              id="imageInput"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleImageUpload}
+      {/* <div>
+        <ProfileInput></ProfileInput>
+      </div> */}
+      {loading ? (
+        <p className="text-blue-600 ml-2 text-lg">Loading...</p>
+      ) : (
+        <div className="bg-white h-full shadow rounded-lg p-6">
+          <div className="flex items-center space-x-6 mb-4">
+            <img
+              className="h-20 w-20 object-cover rounded-full cursor-pointer"
+              src={profileImage || ProfileAvatar}
+              alt="Profile image"
+              onClick={() =>
+                currentUser &&
+                currentUser.email &&
+                document.getElementById("imageInput").click()
+              }
             />
-          )}
-        </div>
-
-        <div className="mb-2">
-          {isEditingName ? (
-            <input
-              type="text"
-              value={name}
-              onChange={handleNameChange}
-              className="text-lg mb-2 font-bold"
-            />
-          ) : (
-            <p
-              className="text-lg mb-2 font-bold"
-              onClick={() => toggleEditMode("name")}
-            >
-              {name}
-            </p>
-          )}
-        </div>
-
-        <div className="flex items-center">
-          <img
-            className="w-5 h-5 rounded-full mr-1"
-            src={emailIcon}
-            alt="email"
-          />
-          <div className="mb-2 mt-2">
-            <p>{email}</p>
+            {currentUser && currentUser.email && (
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={handleImageUpload}
+              />
+            )}
           </div>
-        </div>
 
-        <div>
-          {isEditingBio ? (
-            <textarea
-              value={bio}
-              onChange={handleBioChange}
-              rows={4}
-              cols={50}
-              className="w-full h-24 p-2 border rounded-lg"
+          <div className="mb-2">
+            {isEditingName ? (
+              <input
+                type="text"
+                value={name}
+                onChange={handleNameChange}
+                className="text-lg mb-2 font-bold"
+              />
+            ) : (
+              <p
+                className="text-lg mb-2 font-bold"
+                onClick={() => toggleEditMode("name")}
+              >
+                {name}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center">
+            <img
+              className="w-5 h-5 rounded-full mr-1"
+              src={emailIcon}
+              alt="email"
             />
-          ) : (
-            <p onClick={() => toggleEditMode("bio")}>{bio}</p>
-          )}
-        </div>
+            <div className="mb-2 mt-2">
+              <p>{email}</p>
+            </div>
+          </div>
 
-        {currentUser &&
-          currentUser.email &&
-          (isEditingName || isEditingBio) && (
+          <div>
+            {isEditingBio ? (
+              <textarea
+                value={bio}
+                onChange={handleBioChange}
+                rows={4}
+                cols={50}
+                className="w-full h-24 p-2 border rounded-lg"
+              />
+            ) : (
+              <p onClick={() => toggleEditMode("bio")}>{bio}</p>
+            )}
+          </div>
+
+          {currentUser.email && showSaveButton && (
             <button
-              onClick={() => toggleEditMode("")}
+              readOnly={false}
+              onClick={handleSave}
               className="bg-blue-500 text-white font-semibold rounded-full py-2 px-4 mt-4"
             >
               Save
             </button>
           )}
 
-        <div className="flex items-center mt-8">
-          <img
-            className="w-10 h-10 rounded-full mr-4"
-            src={commpeople}
-            alt="commpeople"
-          />
-          <div>
-            <h2 className="text-1xl mt-5 font-bold">Community Forum</h2>
+          <div className="flex items-center mt-8">
+            <img
+              className="w-10 h-10 rounded-full mr-4"
+              src={commpeople}
+              alt="commpeople"
+            />
+            <div>
+              <h2 className="text-1xl mt-5 font-bold">Community Forum</h2>
+            </div>
+          </div>
+          <div className="pl-0">
+            <Link to="/communitypage">
+              <button className="py-2 px-5 mt-8 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
+                Join the forum
+              </button>
+            </Link>
           </div>
         </div>
-        <div className="pl-0">
-          <Link to="/communitypage">
-            <button className="py-2 px-5 mt-8 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
-              Join the forum
-            </button>
-          </Link>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

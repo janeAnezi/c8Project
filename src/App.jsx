@@ -10,6 +10,7 @@ import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
 import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
+// import HomePage from "./pages/HomePage";
 import RecommendedMeal from "./pages/RecommendedMeal";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
@@ -86,7 +87,8 @@ function App() {
             element={
               <PrivateRoute>
                 <ReferralPage />
-              </PrivateRoute>
+                </PrivateRoute>
+                
             }
           />
 

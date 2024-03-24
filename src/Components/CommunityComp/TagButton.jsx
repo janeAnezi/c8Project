@@ -15,7 +15,7 @@ const TagButton = () => {
   ];
   const [searchQuery, setSearchQuery] = useState("");
   const [showOverlay, setShowOverlay] = useState(false);
-  const [searchTags, setSearchTags] = useState(initialSearchTags.slice(0, 3));
+  const [searchTags, setSearchTags] = useState(initialSearchTags.slice(0, 2));
   const [showAllTags, setShowAllTags] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -55,7 +55,7 @@ const TagButton = () => {
   return (
     <div className="flex flex-col w-full mt-5 items-center">
       <div className="flex justify-between w-full items-center">
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           {searchResults.length > 0 ? (
             <div className="font-bold text-lg mt-2">
               {searchResults.length} result(s) found
@@ -81,7 +81,7 @@ const TagButton = () => {
                 {searchTags.map((tag, index) => (
                   <div
                     key={index}
-                    className="inline-block mr-2 py-2 px-2 border border-black"
+                    className="inline-block mr-2 py-2 px-2 rounded border border-black rounded-md\"
                   >
                     {tag}
                   </div>

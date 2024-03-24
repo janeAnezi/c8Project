@@ -2,15 +2,16 @@ import React from "react";
 import { IoLogoYoutube } from "react-icons/io5";
 import { GiNoodles } from "react-icons/gi";
 import { FaClockRotateLeft } from "react-icons/fa6";
+import { IoIosArrowBack } from "react-icons/io";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
 
 function Mealdetails() {
   const [recipeDetail, setRecipeDetail] = useState(null);
   let { id } = useParams();
-  const apiKey = "3fe49c1121264389ae06b158e350b213";
+  const navigate = useNavigate();
+  const apiKey = process.env.REACT_APP_API_KEY;
   console.log(id);
 
   useEffect(() => {
@@ -40,6 +41,10 @@ function Mealdetails() {
 
   return (
     <div className=" flex flex-col gap-4 px-6 py-12">
+      <button className="text-base" onClick={() => navigate(-1)}>
+        <IoIosArrowBack />
+      </button>
+
       <div className="w-full flex items-center">
         <img
           src={recipeDetail.image}
@@ -82,7 +87,7 @@ function Mealdetails() {
       <div className="">
         <h3 className="font-semibold text-[14px]">VIDEO TUTORIAL</h3>
         <a
-          href="www.youtube.com"
+          href="https://www.youtube.com"
           className="flex items-center gap-2 bg-[#ebe9e9] border-slate-400 px-2 py-3 rounded-md text-[12px] font-semibold"
         >
           <IoLogoYoutube />

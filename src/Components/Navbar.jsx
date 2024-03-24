@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,13 +17,14 @@ function Navbar() {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Sign out Successful! You will be redirected", {
-          autoClose: 2000,
-          onClose: () => {
-            console.log("sign out successful");
-            navigate("/");
-          },
-        });
+        navigate("/");
+        // toast.success("Sign out Successful! You will be redirected", {
+        //   autoClose: 2000,
+        //   onClose: () => {
+        //     console.log("sign out successful");
+        //     navigate("/");
+        //   },
+        // });
       })
       .catch((error) => {
         toast.error("Error Signing out");
@@ -91,27 +93,24 @@ function Navbar() {
             id="navbar-multi-level"
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent cursor-pointer"
-                aria-current="page"
-              >
-                <Link to="/home">Home</Link>
-              </li>
-              <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
-                <Link to="/mealplan">Meal Plan</Link>
-              </li>
-              <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
-                <Link to="/Recommended">Meal List</Link>
-              </li>
-              <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
-                <Link to="/referral">Referral</Link>
-              </li>
-              <li className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">
-                <Link to="/communitypage">Community Forum</Link>
-              </li>
+              <NavItem to="/home" currentPath={location.pathname}>
+                Home
+              </NavItem>
+              <NavItem to="/profile" currentPath={location.pathname}>
+                Profile
+              </NavItem>
+              {/* <NavItem to="/mealplan" currentPath={location.pathname}>
+                Meal Plan
+              </NavItem> */}
+              <NavItem to="/Recommended" currentPath={location.pathname}>
+                Meal List
+              </NavItem>
+              <NavItem to="/referral" currentPath={location.pathname}>
+                Referral
+              </NavItem>
+              <NavItem to="/communitypage" currentPath={location.pathname}>
+                Community Forum
+              </NavItem>
               <button
                 className="block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-red md:dark:hover:text-red-300 dark:hover:bg-gray-700 dark:hover:text-red-500 md:dark:hover:bg-transparent cursor-pointer"
                 onClick={handleSignOut}
@@ -123,6 +122,22 @@ function Navbar() {
         </div>
       </nav>
     </>
+  );
+}
+
+function NavItem({ to, currentPath, children }) {
+  const isActive = to === currentPath;
+  const baseClassName =
+    "block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer";
+
+  return (
+    <li
+      className={`${
+        isActive ? "bg-blue-700 py-2 px-2 text-white" : "text-gray-900"
+      } ${baseClassName}`}
+    >
+      <Link to={to}>{children}</Link>
+    </li>
   );
 }
 
